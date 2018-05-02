@@ -31,38 +31,16 @@
             </div>
             <div class="wrapper wrapper-content btn-white">
                 <div class="row">
+                    <a *ngFor="let Stage of Stages">
                     <div class="col-md-3 col-sm-6 col-xs-12 text-center dashed-right-border">
-                        <p class="price"> 120,0000 EGP </p>
-                        <img alt="image" class="img-responsive inline" src="img\stage1.png">
+                        <p class="price"> {{Stage.Price}}{{Stage.currency}} </p>
+                        <img alt="image" class="img-responsive inline" src={{Stage.StageImg}}>
                         <p class="font-size-18">
-                            Make. Be. They're. Is abundantly earth. Replenish place appear so evening day seas set.
+                           {{Stage.StageDiscribtion}}
                         </p>
                         <div class="clearfix"></div>
                     </div>
-                    <div class="col-md-3 col-sm-6 col-xs-12 text-center dashed-right-border">
-                        <p class="price"> 328,0000 EGP </p>
-                        <img alt="image" class="img-responsive inline" src="img\stage2.png">
-                        <p class="font-size-18">
-                            Make. Be. They're. Is abundantly earth. Replenish place appear so evening day seas set.
-                        </p>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-xs-12 text-center dashed-right-border">
-                        <p class="price"> 510,0000 EGP </p>
-                        <img alt="image" class="img-responsive inline" src="img\stage3.png">
-                        <p class="font-size-18">
-                            Make. Be. They're. Is abundantly earth. Replenish place appear so evening day seas set.
-                        </p>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-xs-12 text-center">
-                        <p class="price"> 964,0000 EGP </p>
-                        <img alt="image" class="img-responsive inline" src="img\stage4.png">
-                        <p class="font-size-18">
-                            Make. Be. They're. Is abundantly earth. Replenish place appear so evening day seas set.
-                        </p>
-                        <div class="clearfix"></div>
-                    </div>
+                     </a>    
                 </div>
             </div>
             <div class="footer">
