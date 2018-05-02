@@ -4,8 +4,7 @@ export class StageModel
         public Price:string,
         public currency:string,
         public StageImg:string,   
-        public StageDiscribtion:String, 
-    
+        public StageDiscribtion:String
     )
  {
 

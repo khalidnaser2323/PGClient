@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { StagesTemplateComponent } from './pages/stages-template/stages-template.component';
+import { TeamTemplateComponent } from './pages/team-template/team-template.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
-    StagesTemplateComponent
+    StagesTemplateComponent,
+    TeamTemplateComponent
   ],
   imports: [
     BrowserModule,
