@@ -7,6 +7,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { StagesTemplateComponent } from './pages/stages-template/stages-template.component';
 import { TeamTemplateComponent } from './pages/team-template/team-template.component';
+import { PillarChildComponent } from './pages/pillar-child/pillar-child.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { TeamTemplateComponent } from './pages/team-template/team-template.compo
     AppComponent,
     HomePageComponent,
     StagesTemplateComponent,
-    TeamTemplateComponent
+    TeamTemplateComponent,
+    PillarChildComponent
   ],
   imports: [
     BrowserModule,
