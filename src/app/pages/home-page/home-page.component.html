@@ -1,24 +1,24 @@
 <div class="wrapper wrapper-content">
-  <div class="row" >
+  <div class="row">
     <a *ngFor="let Product of Products">
-    <div class="col-lg-2 cards col-md-3 col-sm-4 col-xs-12" >
-      <div class="ibox">
-        <div class="ibox-content product-box">
-          <a href={{Product.ChildUrl}}></a>
-            <div class="product-imitation">
-              <img src={{Product.ProuductImg}} class="img-responsive" width="100%" />
-            </div>
-            <div class="product-desc">
-              <span class="product-price">
-                <i class="fa fa-angle-right"></i>
-              </span>
-              <h2> {{Product.name}} </h2>
-              <p>
-                {{Product.Discribtion}}
-              </p>
-            </div>
+      <div class="col-lg-2 cards col-md-3 col-sm-4 col-xs-12">
+        <div class="ibox">
+          <div class="ibox-content product-box">
+            <a routerLink="/{{Product.ChildUrl}}/{{Product.name}}" >
+              <div class="product-imitation">
+                <img src={{Product.ProuductImg}} class="img-responsive" width="100%" />
+              </div>
+              <div class="product-desc">
+                <span class="product-price">
+                  <i class="fa fa-angle-right"></i>
+                </span>
+                <h2> {{Product.name}} </h2>
+                <p>
+                  {{Product.Discribtion}}
+                </p>
+              </div>
+            </a>
+          </div>
         </div>
       </div>
-    </div>
-  </a>
-    
+    </a>
