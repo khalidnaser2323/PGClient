@@ -6,6 +6,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { StagesTemplateComponent } from './pages/stages-template/stages-template.component';
 import { TeamTemplateComponent } from './pages/team-template/team-template.component';
 import { PillarChildComponent } from './pages/pillar-child/pillar-child.component';
+import { LicenceModel } from './Models/LicenceTableModel';
 
 
 @NgModule({
@@ -14,7 +15,9 @@ import { PillarChildComponent } from './pages/pillar-child/pillar-child.componen
     HomePageComponent,
     StagesTemplateComponent,
     TeamTemplateComponent,
-    PillarChildComponent
+    PillarChildComponent,
+    LicenceModel
+
   ],
   imports: [
     BrowserModule,
