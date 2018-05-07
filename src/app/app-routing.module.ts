@@ -12,8 +12,6 @@ const routes: Routes = [
   { path: 'team', component: TeamTemplateComponent },
   { path: 'stages', component: StagesTemplateComponent },
   { path: 'pillarDetails/:pillarName', component: PillarChildComponent }
-
-
 ];
 
 @NgModule({

@@ -1,5 +1,6 @@
 export class LicenceModel
 {
+  
     constructor(
         public OrderDate:string,
         public Region:string,
@@ -7,7 +8,7 @@ export class LicenceModel
         public Item:String, 
         public Units:string,
         public UnitCost:string,
-        public UnitCost1:String, 
+        public TotalCost:String, 
     )
  {
 

@@ -36,7 +36,7 @@
                                     <th class="font-weight-300">Item</th>
                                     <th class="font-weight-300">Units</th>
                                     <th class="font-weight-300">UnitCost</th>
-                                    <th class="font-weight-300">UnitCost</th>
+                                    <th class="font-weight-300">TotalCost</th>
                                 </tr>
                             </thead>
                                     <tbody style="font-size:18px;" >
@@ -48,7 +48,7 @@
                                     <td>{{LiceneData.Item}}</td>
                                     <td>{{LiceneData.Units}}</td>
                                     <td>{{LiceneData.UnitCost}}</td>
-                                    <td>{{LiceneData.UnitCost1}}</td>
+                                    <td>{{LiceneData.TotalCost}}</td>
                                 </tr>
                             </tbody>
                                  
@@ -61,7 +61,9 @@
                         <p class="font-size-18">Total Cost last 3 years.</p>
                         <p class="font-size-18"> Make. Be. They're. Is abundantly earth. Replenish place appear so evening day seas set cattle created whales, form won't under. </p>
                         <p class="font-size-18"> They're you're fly appear there grass seasons day gathering let given it hath. </p>
-                        <img src="img/chart.svg" class="img-responsive full-width" />
+                        <div  class="img-responsive full-width">
+                            <canvas #myCanvas>{{chart}}</canvas>
+                          </div>  
                     </div>
                 </div>
                 <div class="row bottom-hint">
