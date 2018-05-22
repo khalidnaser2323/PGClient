@@ -7,6 +7,8 @@ import { StagesTemplateComponent } from './pages/stages-template/stages-template
 import { TeamTemplateComponent } from './pages/team-template/team-template.component';
 import { PillarChildComponent } from './pages/pillar-child/pillar-child.component';
 import { LicenceTableComponent } from './pages/licence-table/licence-table.component';
+import { TeamCharterComponent } from './pages/template5/team-charter.component';
+import { Template6Component } from './pages/template6/template6.component';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { LicenceTableComponent } from './pages/licence-table/licence-table.compo
     StagesTemplateComponent,
     TeamTemplateComponent,
     PillarChildComponent,
-    LicenceTableComponent
+    LicenceTableComponent,
+    TeamCharterComponent,
+    Template6Component
 
   ],
   imports: [

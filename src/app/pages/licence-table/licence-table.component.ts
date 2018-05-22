@@ -27,6 +27,7 @@ export class LicenceTableComponent implements OnInit {
 
   ngOnInit() {
     this.ctx = this.canvasRef.nativeElement.getContext('2d');
+    this.ctx.lineJoin = 'miter';
     this.chart = new Chart(this.ctx, {
       type: 'line',
     data: {
@@ -38,6 +39,8 @@ export class LicenceTableComponent implements OnInit {
         this.Licence[5].OrderDate,
         this.Licence[6].OrderDate,],
         datasets: [{
+            lineTension:'0',
+           
             label: 'TotalCost',
             data: [this.Licence[0].TotalCost,
             this.Licence[1].TotalCost,
@@ -46,6 +49,7 @@ export class LicenceTableComponent implements OnInit {
             this.Licence[4].TotalCost,
             this.Licence[5].TotalCost,
             this.Licence[6].TotalCost,
+            
           ]
           ,
             backgroundColor: [
