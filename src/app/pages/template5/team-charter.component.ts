@@ -30,7 +30,7 @@ export class TeamCharterComponent implements OnInit {
   constructor() {
 
     this.temp={
-      tempName:'Replenish place appear',
+    tempName:'Replenish place appear',
     tempDescribtion:'Make. Be. Theyre. Is abundantly earth Replenish place appear so evening day seas set cattle created whales form  underTheyre youre fly appear there grass seasons day gathering let given it hath.',
     label1:'team direction',
     label2:'Established boundaries',

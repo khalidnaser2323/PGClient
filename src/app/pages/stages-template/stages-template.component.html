@@ -31,24 +31,52 @@
             </div>
             <div class="wrapper wrapper-content btn-white">
                 <div class="row">
-                    <a *ngFor="let Stage of Stages">
-                    <div class="col-md-3 col-sm-6 col-xs-12 text-center dashed-right-border">
-                        <p class="price"> {{Stage.Price}}{{Stage.currency}} </p>
-                        <img alt="image" class="img-responsive inline" src={{Stage.StageImg}}>
-                        <p class="font-size-18">
-                           {{Stage.StageDiscribtion}}
-                        </p>
-                        <div class="clearfix"></div>
-                    </div>
-                     </a>    
-                </div>
+                    
+                                <div class="col-md-3 col-sm-6 col-xs-12 text-center dashed-right-border">
+                                    <p class="price"> {{temp1.StagePrice}}EPG </p>
+                                    <div class="img-responsive inline" >
+                                     <canvas #stage1 width="400" height="460">{{chart}}</canvas>
+                                    </div>
+                                    <p class="font-size-18">
+                                            {{temp1.tempDescribtion}}
+                                    </p>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-3 col-sm-6 col-xs-12 text-center dashed-right-border">
+                                        <p class="price"> {{temp1.StagePrice}}EPG </p>
+                                        <div class="img-responsive inline" >
+                                         <canvas #stage2 width="400" height="460">{{chart}}</canvas>
+                                        </div>
+                                        <p class="font-size-18">
+                                                {{temp1.tempDescribtion}}
+                                        </p>
+                                        <div class="clearfix"></div>
+                                 </div>
+                                 <div class="col-md-3 col-sm-6 col-xs-12 text-center dashed-right-border">
+                                        <p class="price"> {{temp1.StagePrice}}EPG </p>
+                                        <div class="img-responsive inline" >
+                                         <canvas #stage3 width="400" height="460">{{chart}}</canvas>
+                                        </div>
+                                        <p class="font-size-18">
+                                                {{temp1.tempDescribtion}}
+                                        </p>
+                                        <div class="clearfix"></div>
+                                 </div>
+                                 <div class="col-md-3 col-sm-6 col-xs-12 text-center dashed-right-border">
+                                        <p class="price"> {{temp1.StagePrice}}EPG </p>
+                                        <div class="img-responsive inline" >
+                                         <canvas #stage4 width="400" height="460">{{chart}}</canvas>
+                                        </div>
+                                        <p class="font-size-18">
+                                                {{temp1.tempDescribtion}}
+                                        </p>
+                                        <div class="clearfix"></div>
+                                 </div>
+                                           
+                    
             </div>
-            <div class="footer">
-                <div>
-                    <strong>P&G</strong> Copyright &copy; 2018
-                </div>
-            </div>
-        </div>
-    </div>
+         </div>
+   </div>
+</div>
 </body>
 </html>
