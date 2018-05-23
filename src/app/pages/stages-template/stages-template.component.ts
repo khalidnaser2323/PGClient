@@ -129,7 +129,7 @@ export class StagesTemplateComponent implements OnInit {
 
           label:'percent',
           data:[this.temp3.percentValue,this.rest(this.temp3.percentValue)] ,
-          backgroundColor:['rgb(102, 255, 204)','rgb(214, 214, 194)'],
+          backgroundColor:['rgb(0, 179, 179)','rgb(214, 214, 194)'],
           borderWidth:'15',
          
       }],
@@ -142,7 +142,7 @@ export class StagesTemplateComponent implements OnInit {
           position:'bottom',
           fontSize:'30',
           fontFamily:' Courier New',
-          fontColor:'rgb(102, 255, 204)'
+          fontColor:'rgb(0, 179, 179)'
       },
       cutoutPercentage:'70',
     }
@@ -157,7 +157,7 @@ export class StagesTemplateComponent implements OnInit {
 
           label:'percent',
           data:[this.temp4.percentValue,this.rest(this.temp4.percentValue)] ,
-          backgroundColor:['rgb(140, 217, 140)','rgb(214, 214, 194)'],
+          backgroundColor:['rgb(134, 179, 0)','rgb(214, 214, 194)'],
           borderWidth:'15',
          
       }],
@@ -170,7 +170,7 @@ export class StagesTemplateComponent implements OnInit {
           position:'bottom',
           fontSize:'30',
           fontFamily:' Courier New',
-          fontColor:'rgb(140, 217, 140)'
+          fontColor:'rgb(134, 179, 0)'
       },
       cutoutPercentage:'70',
     }
