@@ -9,6 +9,7 @@ import { PillarChildComponent } from './pages/pillar-child/pillar-child.componen
 import { LicenceTableComponent } from './pages/licence-table/licence-table.component';
 import { TeamCharterComponent } from './pages/template5/team-charter.component';
 import { Template6Component } from './pages/template6/template6.component';
+import { Template9Component } from './template9/template9.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { Template6Component } from './pages/template6/template6.component';
     PillarChildComponent,
     LicenceTableComponent,
     TeamCharterComponent,
-    Template6Component
+    Template6Component,
+    Template9Component
 
   ],
   imports: [

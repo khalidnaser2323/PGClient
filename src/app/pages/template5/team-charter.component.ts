@@ -21,14 +21,11 @@ export class TeamCharterComponent implements OnInit {
   ctx:any;
   chart=[];
   temp:template5;
-  color=["rgb(0, 102, 102)","rgb(0, 102, 102)"
-  ,"rgb(0, 102, 102)","rgb(0, 102, 102)","rgb(0, 102, 102)"
-  ,"rgb(0, 102, 102)","rgb(0, 102, 102)"];
- 
+  length:number;
   x:number;
   @ViewChild('myCanvas') canvasRef: ElementRef;
   constructor() {
-
+    
     this.temp={
     tempName:'Replenish place appear',
     tempDescribtion:'Make. Be. Theyre. Is abundantly earth Replenish place appear so evening day seas set cattle created whales form  underTheyre youre fly appear there grass seasons day gathering let given it hath.',
@@ -38,6 +35,8 @@ export class TeamCharterComponent implements OnInit {
     y1Values:['40','50','30','40','70','60','50'],
     y2Values:['30','60','40','50','80','70','60']
     };
+    this.length=this.temp.labe1Names.length;
+    console.log(this.length);
    }
 
   ngOnInit() {
@@ -50,22 +49,16 @@ export class TeamCharterComponent implements OnInit {
       labels:this.temp.labe1Names,
         datasets: [{
         label:this.temp.label1 , 
-         backgroundColor:["rgb(0, 230, 184,0.2)","rgb(0, 230, 184,0.2)","rgb(0, 230, 184,0.2)","rgb(0, 230, 184,0.2)",
-         "rgb(0, 230, 184,0.2)","rgb(0, 230, 184,0.2)","rgb(0, 230, 184,0.2)"],
-         borderColor:this.color,
+        backgroundColor:this.colorloop(this.length,'rgb(0, 230, 184,0.2)'),
+         borderColor:this.colorloop(this.length,'rgb(0, 102, 102)'),
          borderWidth:1, 
          data:this.temp.y1Values,
         },
         {
           label:this.temp.label2 , 
-          backgroundColor:["rgb(255, 153, 255,0.2)","rgb(255, 153, 255,0.2)"
-          ,"rgb(255, 153, 255,0.2)","rgb(255, 153, 255,0.2)","rgb(255, 153, 255,0.2)"
-          ,"rgb(255, 153, 255,0.2)","rgb(255, 153, 255,0.2)"
-        ],
-          borderColor:["rgb(255, 51, 153)","rgb(255, 51, 153)"
-          ,"rgb(255, 51, 153)","rgb(255, 51, 153)","rgb(255, 51, 153)"
-          ,"rgb(255, 51, 153)","rgb(255, 51, 153)"
-        ],
+          backgroundColor:this.colorloop(this.length,'rgb(255, 153, 255,0.2)'),
+          borderColor:this.colorloop(this.length,'rgb(255, 51, 153)'),
+         
           borderWidth:1, 
           data:this.temp.y2Values
           }
@@ -84,6 +77,13 @@ export class TeamCharterComponent implements OnInit {
 });
 
   }
-  
-
+  colorloop(lenght:number,color:string)
+  {
+    let colors:string[]=[]; 
+    for (let i = 0; i < lenght; i++) 
+    {
+      colors.push(color);
+    }
+    return colors;
+  }
 }
