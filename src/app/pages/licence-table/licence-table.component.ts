@@ -27,7 +27,7 @@ export class LicenceTableComponent implements OnInit {
 
   ngOnInit() {
     this.ctx = this.canvasRef.nativeElement.getContext('2d');
-    this.ctx.lineJoin = 'miter';
+  
     this.chart = new Chart(this.ctx, {
       type: 'line',
     data: {
@@ -55,10 +55,11 @@ export class LicenceTableComponent implements OnInit {
             backgroundColor: [
                 'rgba(00, 99, 132, 0.2)',     
             ],
+            fill:false,
             borderColor: [
                 'rgba(0, 51, 0,1)',   
             ],
-            borderWidth: 2
+            borderWidth: 0
         }]
     },
     options: {

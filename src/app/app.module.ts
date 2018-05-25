@@ -9,7 +9,13 @@ import { PillarChildComponent } from './pages/pillar-child/pillar-child.componen
 import { LicenceTableComponent } from './pages/licence-table/licence-table.component';
 import { TeamCharterComponent } from './pages/template5/team-charter.component';
 import { Template6Component } from './pages/template6/template6.component';
-import { Template9Component } from './template9/template9.component';
+import { Template9Component } from './pages/template9/template9.component';
+import { Templete7Component } from './pages/templete7/templete7.component';
+import { Templete8Component } from './pages/templete8/templete8.component';
+import { Templete10Component } from './pages/templete10/templete10.component';
+import { Templete11Component } from './pages/templete11/templete11.component';
+import { Templete12Component } from './pages/templete12/templete12.component';
+import { Template4Component } from './pages/template4/template4.component';
 
 
 @NgModule({
@@ -22,7 +28,13 @@ import { Template9Component } from './template9/template9.component';
     LicenceTableComponent,
     TeamCharterComponent,
     Template6Component,
-    Template9Component
+    Template9Component,
+    Templete7Component,
+    Templete8Component,
+    Templete10Component,
+    Templete11Component,
+    Templete12Component,
+    Template4Component
 
   ],
   imports: [
