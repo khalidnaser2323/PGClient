@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 interface template4
 {
- tableData:string[] ;
+tableData:object[]
 }
 @Component({
   selector: 'app-template4',
@@ -15,18 +15,13 @@ export class Template4Component implements OnInit {
 
    this.temp={
      tableData:[
-     'Cattle gathered waters female',
-     'Cattle gathered waters female',
-     'Cattle gathered waters female',
-     'Cattle gathered waters female',
-     'Cattle gathered waters female',
-     'Cattle gathered waters female',
-     'Cattle gathered waters female',
-     'Cattle gathered waters female',
-     'Cattle gathered waters female',
-     'Cattle gathered waters female',
-     'Cattle gathered waters female',
-     'Cattle gathered waters female'],
+     {rowId: '1',value1:'value1',value2:'value2'} ,
+     {rowId: '2',value1:'value1',value2:'value2',value3:'value3'} ,
+     {rowId: '3',value1:'value1',value2:'value2',value3:'value3'} ,
+     {rowId: '4',value1:'value1',value2:'value2',value3:'value3'} ,
+     {rowId: '5',value1:'value1'} ,
+    
+    ],
    };
    }
 
