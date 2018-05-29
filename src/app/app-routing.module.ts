@@ -7,11 +7,13 @@ import { PillarChildComponent } from './pages/pillar-child/pillar-child.componen
 import {LicenceTableComponent} from './pages/licence-table/licence-table.component';
 import {TeamCharterComponent} from './pages/template5/team-charter.component';
 import{Template6Component} from './pages/template6/template6.component';
-import{Template4Component} from './pages/template4/template4.component'
+import{Template4Component} from './pages/template4/template4.component';
+import{Template9Component} from './pages/template9/template9.component'
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path:'temp4',component:Template4Component},
+  { path:'temp9',component:Template9Component},
   { path: 'temp5', component: TeamCharterComponent },
   { path: 'Licence', component: LicenceTableComponent },
   { path: 'home', component: HomePageComponent },

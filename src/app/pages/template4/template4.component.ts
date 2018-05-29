@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 interface template4
 {
-tableData:object[]
+tableData:object[];
 }
 @Component({
   selector: 'app-template4',
@@ -15,6 +15,7 @@ export class Template4Component implements OnInit {
 
    this.temp={
      tableData:[
+      {rowID:'0',tableHeader:'Table Header'},
      {rowId: '1',value1:'value1',value2:'value2'} ,
      {rowId: '2',value1:'value1',value2:'value2',value3:'value3'} ,
      {rowId: '3',value1:'value1',value2:'value2',value3:'value3'} ,
