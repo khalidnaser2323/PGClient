@@ -3,7 +3,10 @@ import { Chart } from 'chart.js';
 
 interface template9
 {
- chartData:object[]
+  percentageData:string[];
+  color:string[];
+  labels:string[];
+  title:string;
 }
 @Component({
   selector: 'app-template9',
@@ -13,11 +16,17 @@ interface template9
 export class Template9Component implements OnInit {
   ctx:any;
   chart=[];
- 
+  chartTemp:template9;
   @ViewChild('canvas') canvasRef: ElementRef;
   constructor() {
-    
-    
+    this.chartTemp=
+    {
+       percentageData:['40','20','30'] ,
+        color:['rgb(51, 153, 255)','rgb(214, 214, 194)','rgb(124, 124, 80)'],
+        labels:['leaderShip','PSRH','HSE'],
+        title:'Custom Chart Title',
+      
+    }
    }
 
   ngOnInit() {
@@ -27,18 +36,18 @@ export class Template9Component implements OnInit {
       data: {
        
      datasets: [{
-          data:['40','20','30'] ,
-          backgroundColor:['rgb(51, 153, 255)','rgb(214, 214, 194)','rgb(124, 124, 80)'],
+          data:this.chartTemp.percentageData,
+          backgroundColor:this.chartTemp.color,
           borderWidth:'7',     
       }],
 
-      labels: ['leaderShip','PSRH','HSE'], 
+      labels:this.chartTemp.labels, 
       
   },
   options: {
     title: {
       display: true,
-      text: 'Custom Chart Title',
+      text: this.chartTemp.title,
       fontSize:20,
   },
   
