@@ -10,9 +10,11 @@ import{Template6Component} from './pages/template6/template6.component';
 import{Template4Component} from './pages/template4/template4.component';
 import{Template9Component} from './pages/template9/template9.component';
 import{Templete12Component} from './pages/templete12/templete12.component';
+import{Templete11Component} from './pages/templete11/templete11.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path:'temp11',component:Templete11Component},
   { path:'temp12',component:Templete12Component},
   { path:'temp4',component:Template4Component},
   { path:'temp9',component:Template9Component},

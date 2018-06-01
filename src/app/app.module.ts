@@ -16,6 +16,7 @@ import { Templete10Component } from './pages/templete10/templete10.component';
 import { Templete11Component } from './pages/templete11/templete11.component';
 import { Templete12Component } from './pages/templete12/templete12.component';
 import { Template4Component } from './pages/template4/template4.component';
+import { StageComponent } from './pages/stages-template/stage/stage.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { Template4Component } from './pages/template4/template4.component';
     Templete10Component,
     Templete11Component,
     Templete12Component,
-    Template4Component
+    Template4Component,
+    StageComponent
 
   ],
   imports: [
