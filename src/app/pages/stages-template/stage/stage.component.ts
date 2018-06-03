@@ -1,16 +1,5 @@
-import { Component, OnInit,ViewChild,ElementRef } from '@angular/core';
+import { Component, OnInit,ViewChild,ElementRef, Input } from '@angular/core';
 import { Chart } from 'chart.js';
-
-
-interface Stage
-{
- 
-  tempDescribtion:string;
-  StagePrice:string;
-  percentValue:number;
-  color:string,
-  stageNumber:string;
-}
 @Component({
   selector: 'app-stage',
   templateUrl: './stage.component.html',
@@ -19,31 +8,20 @@ interface Stage
 export class StageComponent implements OnInit {
   ctx:any;
   chart=[];
-  stage:Stage;
-  @ViewChild('stage') canvasRef: ElementRef;
-  constructor() {
-
-    this.stage=
-    {
-      tempDescribtion:'Make. Be. They are. Is abundantly earth. Replenish place appear so evening day seas set.',
-      StagePrice:'120,0000',
-      percentValue:40,
-      color:'rgb(255, 133, 102)',
-      stageNumber:'1',
-    }
-
-   }
+  // stage:Stage;
+  @Input() stage:Stage;
+ 
+  @ViewChild('canvas') canvasRef: ElementRef;
+  constructor() {}
 
   ngOnInit() {
+    console.log("Passed stage from parent ");
+    console.log(this.stage);
     this.ctx = this.canvasRef.nativeElement.getContext('2d');
     this.chart = new Chart(this.ctx, {
       type: 'doughnut',
-      
-      cutoutPercentage:0,
       data: {
-       
         datasets: [{
-
           label:'percent',
           data:[this.stage.percentValue,this.rest(this.stage.percentValue)] ,
           backgroundColor:[this.stage.color,'rgb(214, 214, 194)'],

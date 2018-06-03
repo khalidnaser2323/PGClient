@@ -33,7 +33,7 @@
                
                 <div   class="row" >
 
-                    <app-stage></app-stage>  
+                    <app-stage *ngFor="let stage of stages "  [stage]="stage"></app-stage>  
                     
             </div>
             </div>
