@@ -1,12 +1,7 @@
-export class ProductModel
-{
-    constructor(
-        public ChildUrl:string,
-        public ProuductImg:string,
-        public name:string,
-        public Discribtion:String, 
-    )
- {
-
- }  
+interface Pillar {
+    _id: string,
+    imageID: string,
+    title: string,
+    subtitle: String,
+    public: boolean
 }

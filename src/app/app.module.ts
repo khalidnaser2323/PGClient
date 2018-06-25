@@ -18,6 +18,9 @@ import { Templete12Component } from './pages/templete12/templete12.component';
 import { Template4Component } from './pages/template4/template4.component';
 import { StageComponent } from './pages/stages-template/stage/stage.component';
 import { ChartComponent } from './pages/templete10/chart/chart.component';
+import { ServiceHandlerProvider } from './services/service-handler/service-handler';
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -43,9 +46,13 @@ import { ChartComponent } from './pages/templete10/chart/chart.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    ServiceHandlerProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

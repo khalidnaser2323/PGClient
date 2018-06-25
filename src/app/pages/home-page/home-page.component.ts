@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {ProductModel} from '../../Models/ProductModel'
+import { Constants } from '../../Constants';
+import { ServiceHandlerProvider } from '../../services/service-handler/service-handler';
+
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
@@ -7,23 +9,24 @@ import {ProductModel} from '../../Models/ProductModel'
 })
 export class HomePageComponent implements OnInit {
 
-  Products:ProductModel[]=
-  [
-  new ProductModel('pillarDetails','img/img1.png','Leadership Pillar','Et suscipit menandri est, ut mea iriure imperdiet, at his docendi.'),
-  new ProductModel('pillarDetails','img/img2.png','Leadership Pillar','Et suscipit menandri est, ut mea iriure imperdiet, at his docendi.'),
-  new ProductModel('pillarDetails','img/img3.png','Leadership Pillar','Et suscipit menandri est, ut mea iriure imperdiet, at his docendi.'),
-  new ProductModel('pillarDetails','img/img1.png','Leadership Pillar','Et suscipit menandri est, ut mea iriure imperdiet, at his docendi.'),
-  new ProductModel('pillarDetails','img/img2.png','Leadership Pillar','Et suscipit menandri est, ut mea iriure imperdiet, at his docendi.'),
-  new ProductModel('pillarDetails','img/img3.png','Leadership Pillar','Et suscipit menandri est, ut mea iriure imperdiet, at his docendi.'),
-  new ProductModel('pillarDetails','img/img1.png','Leadership Pillar','Et suscipit menandri est, ut mea iriure imperdiet, at his docendi.'),
-  new ProductModel('pillarDetails','img/img2.png','Leadership Pillar','Et suscipit menandri est, ut mea iriure imperdiet, at his docendi.'),
-  new ProductModel('pillarDetails','img/img3.png','Leadership Pillar','Et suscipit menandri est, ut mea iriure imperdiet, at his docendi.'),
-  new ProductModel('pillarDetails','img/img1.png','Leadership Pillar','Et suscipit menandri est, ut mea iriure imperdiet, at his docendi.')
-];
-  constructor() { }
+  pillars: Array<Pillar>;
+  constructor(public serviceHandler: ServiceHandlerProvider) {
+    this.getPillars();
+  }
 
   ngOnInit() {
 
+  }
+  getPillars() {
+    this.serviceHandler.runService(Constants.BASE_URL + "section/list", "GET").subscribe((res) => {
+      console.log("Get pillars response");
+      console.log(res);
+      this.pillars = res;
+    }, err => {
+      console.log("Upload image string error");
+      console.error(err);
+      window.alert("Error in getting pillars");
+    })
   }
 
 }

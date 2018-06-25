@@ -1,20 +1,21 @@
 <div class="wrapper wrapper-content">
   <div class="row">
-    <a *ngFor="let Product of Products">
+    <a *ngFor="let pillar of pillars">
       <div class="col-lg-2 cards col-md-3 col-sm-4 col-xs-12">
         <div class="ibox">
-          <div class="ibox-content product-box">
-            <a routerLink="/{{Product.ChildUrl}}/{{Product.name}}" >
-              <div class="product-imitation">
-                <img src={{Product.ProuductImg}} class="img-responsive" width="100%" />
+          <div class="ibox-content pillar-box">
+            <a routerLink="/{{pillar.ChildUrl}}/{{pillar.name}}">
+              <div class="pillar-imitation">
+                <img src="http://206.189.96.67:3000/api/v1/image/{{pillar.imageID}}" onError="this.src='img/img1.png';" class="img-responsive"
+                  width="100%" style="height: 194px" />
               </div>
-              <div class="product-desc">
-                <span class="product-price">
+              <div class="pillar-desc">
+                <!-- <span class="pillar-price">
                   <i class="fa fa-angle-right"></i>
-                </span>
-                <h2> {{Product.name}} </h2>
+                </span> -->
+                <h2> {{pillar.title}} </h2>
                 <p>
-                  {{Product.Discribtion}}
+                  {{pillar.subtitle}}
                 </p>
               </div>
             </a>
