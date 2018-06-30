@@ -8,6 +8,7 @@ import { ServiceHandlerProvider } from '../../services/service-handler/service-h
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
+  imagePath: string = Constants.IMAGE_PATH;
 
   pillars: Array<Pillar>;
   constructor(public serviceHandler: ServiceHandlerProvider) {

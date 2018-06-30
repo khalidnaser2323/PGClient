@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Card } from '../../Models/PillarDetailsCardModel';
 import { ActivatedRoute } from '@angular/router';
+import { ServiceHandlerProvider } from '../../services/service-handler/service-handler';
+import { Constants } from '../../Constants';
 
 
 @Component({
@@ -9,21 +10,37 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./pillar-child.component.css']
 })
 export class PillarChildComponent implements OnInit {
-  pillarName: string;
+  pillarId: string;
   cards: Card[];
+  pillarName: string;
+  imagePath: string = Constants.IMAGE_PATH;
 
-  constructor(private route: ActivatedRoute) {
-    this.pillarName = this.route.snapshot.paramMap.get('pillarName');;
-    this.cards = [
-      new Card("Card1", "Description of card 1", "img/img1.png", [{ buttonName: "Button1", buttonTemplate: "temp" }]),
-      new Card("Card2", "Description of card 2", "img/img2.png", [{ buttonName: "Button1", buttonTemplate: "temp" }, { buttonName: "Button2", buttonTemplate: "temp" }]),
-      new Card("Card3", "Description of card 3", "img/img3.png", [{ buttonName: "Button1", buttonTemplate: "temp" }, { buttonName: "Button2", buttonTemplate: "temp" }, { buttonName: "Button3", buttonTemplate: "temp" }]),
-      new Card("Card4", "Description of card 4", "img/img1.png", [{ buttonName: "Button1", buttonTemplate: "temp" }, { buttonName: "Button2", buttonTemplate: "temp" }, { buttonName: "Button3", buttonTemplate: "temp" }]),
-      new Card("Card5", "Description of card 5", "img/img2.png", [{ buttonName: "Button1", buttonTemplate: "temp" }, { buttonName: "Button2", buttonTemplate: "temp" }])
-    ];
+  constructor(
+    private route: ActivatedRoute,
+    public serviceHandler: ServiceHandlerProvider
+  ) {
+    this.pillarId = this.route.snapshot.paramMap.get('pillarId');
+    console.log("Passed pillar id");
+    console.log(this.pillarId);
+    this.getPillarDetails(this.pillarId);
+
   }
 
   ngOnInit() {
+  }
+  getPillarDetails(pillarId: string) {
+    this.serviceHandler.runService(Constants.BASE_URL + "section/" + pillarId, "GET").subscribe(response => {
+      console.log("Get pillar details response");
+      console.log(response);
+      this.pillarName = response.title;
+      if (response.cards) {
+        this.cards = response.cards;
+      }
+    }, error => {
+      console.log(error);
+      window.alert("Failed to load cards")
+
+    })
   }
 
 }

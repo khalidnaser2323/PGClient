@@ -21,6 +21,7 @@ import { ChartComponent } from './pages/templete10/chart/chart.component';
 import { ServiceHandlerProvider } from './services/service-handler/service-handler';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
+import { KeysPipe } from './keys.pipe';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { HttpClientModule } from '@angular/common/http';
     Templete12Component,
     Template4Component,
     StageComponent,
-    ChartComponent
+    ChartComponent,
+    KeysPipe
 
   ],
   imports: [

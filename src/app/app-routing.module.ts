@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: 'team', component: TeamTemplateComponent },
   { path: 'stages', component: StagesTemplateComponent },
   { path: 'temp6', component: Template6Component },
-  { path: 'pillarDetails/:pillarName', component: PillarChildComponent },
+  { path: 'pillarDetails/:pillarId', component: PillarChildComponent },
   { path: 'temp10', component: Templete10Component }
 ];
 
