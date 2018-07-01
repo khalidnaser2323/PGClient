@@ -1,12 +1,5 @@
-export class TeamModel
-{
-    constructor(
-        public TeamMemberImg:string, 
-        public Name:string,
-        public JobDiscribtion:String, 
-    
-    )
- {
-
- }  
+interface TeamModel {
+    TeamMemberImg: string,
+    Name: string,
+    JobDiscribtion: String,
 }

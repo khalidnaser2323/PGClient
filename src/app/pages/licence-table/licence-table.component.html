@@ -4,7 +4,7 @@
 <body class="top-navigation">
     <div id="wrapper">
         <div id="page-wrapper" class="gray-bg">
-            
+
             <div class="row page-heading">
                 <div class="col-lg-12">
                     <h2>How to Choose Correct License for MagicInfo Server? </h2>
@@ -39,42 +39,41 @@
                                     <th class="font-weight-300">TotalCost</th>
                                 </tr>
                             </thead>
-                                    <tbody style="font-size:18px;" >
-                                                
-                                <tr *ngFor="let LiceneData of Licence " >
-                                    <td class="font-weight-300">{{LiceneData.OrderDate}}</td>
-                                    <td>{{LiceneData.Region}}</td>
-                                    <td>{{LiceneData.Rep}}</td>
-                                    <td>{{LiceneData.Item}}</td>
-                                    <td>{{LiceneData.Units}}</td>
-                                    <td>{{LiceneData.UnitCost}}</td>
-                                    <td>{{LiceneData.TotalCost}}</td>
+                            <tbody style="font-size:18px;">
+
+                                <tr *ngFor="let row of licenseData.tableData">
+                                    <td class="font-weight-300">{{row.OrderDate}}</td>
+                                    <td>{{row.Region}}</td>
+                                    <td>{{row.Rep}}</td>
+                                    <td>{{row.Item}}</td>
+                                    <td>{{row.Units}}</td>
+                                    <td>{{row.UnitCost}}</td>
+                                    <td>{{row.TotalCost}}</td>
                                 </tr>
                             </tbody>
-                                 
+
                         </table>
                     </div>
                     <div class="col-md-3 col-sm-12 col-xs-12">
                         <div class="template-table-style margin-20-bottom">
                             <p class="text-center green-panel-template-title"> Overview</p>
                         </div>
-                        <p class="font-size-18">Total Cost last 3 years.</p>
-                        <p class="font-size-18"> Make. Be. They're. Is abundantly earth. Replenish place appear so evening day seas set cattle created whales, form won't under. </p>
-                        <p class="font-size-18"> They're you're fly appear there grass seasons day gathering let given it hath. </p>
-                        <div  class="img-responsive full-width">
-                            <canvas  #myCanvas >{{chart}}</canvas>
-                          </div>  
+                        <p class="font-size-18">{{licenseData.overView}}</p>
+                        <div class="img-responsive full-width">
+                            <canvas #myCanvas>{{chart}}</canvas>
+                        </div>
                     </div>
                 </div>
-                <div class="row bottom-hint">
+                <!-- <div class="row bottom-hint">
                     <div class="col-lg-12">
                         <p class="font-size-18"> *Models supporting Player S are also available for Player Lite, but the available functions are limited when the license sets to Player Lite. **OHF 85” is excluded from MagicInfo Player S4 (OHF 85” is a scaler model)  </p>
                     </div>
-                </div>
+                </div> -->
             </div>
-           
-            
+
+
         </div>
     </div>
 </body>
+
 </html>

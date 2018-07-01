@@ -1,75 +1,94 @@
-import { Component, OnInit ,ViewChild,ElementRef} from '@angular/core';
-import {LicenceModel} from '../../Models/LicenceTableModel';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Chart } from 'chart.js';
-
+import { ActivatedRoute } from '@angular/router';
+import { ServiceHandlerProvider } from '../../services/service-handler/service-handler';
+import { Constants } from '../../Constants';
 
 @Component({
-  selector: 'app-licence-table',
-  templateUrl: './licence-table.component.html',
-  styleUrls: ['./licence-table.component.css']
+    selector: 'app-licence-table',
+    templateUrl: './licence-table.component.html',
+    styleUrls: ['./licence-table.component.css']
 })
 export class LicenceTableComponent implements OnInit {
-  ctx:any;
-  chart=[];
-  Licence:LicenceModel[]=
-  [
-    new LicenceModel('1/1/2016','East','Jones','Pencil','95','1.99','189.05'),
-    new LicenceModel('1/2/2016','East','Jones','Pencil','95','1.99','300'),
-    new LicenceModel('1/3/2016','East','Jones','Pencil','95','1.99','150'),
-    new LicenceModel('1/4/2016','East','Jones','Pencil','95','1.99','160'),
-    new LicenceModel('1/5/2016','East','Jones','Pencil','95','1.99','100'),
-    new LicenceModel('1/6/2016','East','Jones','Pencil','95','1.99','300'),
-    new LicenceModel('1/7/2016','East','Jones','Pencil','95','1.99','189.05'),
-    
-  ]
-  @ViewChild('myCanvas') canvasRef: ElementRef;
-  constructor() { }
-
-  ngOnInit() {
-    this.ctx = this.canvasRef.nativeElement.getContext('2d');
-  
-    this.chart = new Chart(this.ctx, {
-      type: 'line',
-    data: {
-        labels: [this.Licence[0].OrderDate,
-        this.Licence[1].OrderDate,
-        this.Licence[2].OrderDate,
-        this.Licence[3].OrderDate,
-        this.Licence[4].OrderDate,
-        this.Licence[5].OrderDate,
-        this.Licence[6].OrderDate,],
-        datasets: [{
-            lineTension:'0',
-           
-            label: 'TotalCost',
-            data: [this.Licence[0].TotalCost,
-            this.Licence[1].TotalCost,
-            this.Licence[2].TotalCost,
-            this.Licence[3].TotalCost,
-            this.Licence[4].TotalCost,
-            this.Licence[5].TotalCost,
-            this.Licence[6].TotalCost,
-            
-          ]
-          ,
-            backgroundColor: [
-                'rgba(00, 99, 132, 0.2)',     
-            ],
-            fill:false,
-            borderColor: [
-                'rgba(0, 51, 0,1)',   
-            ],
-            borderWidth: 0
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
-        }
+    ctx: any;
+    chart = [];
+    licenseData: LicenseModel = {
+        overView: "",
+        tableData: []
+    };
+    pillarId: string;
+    cardId: string;
+    templateId: string;
+    @ViewChild('myCanvas') canvasRef: ElementRef;
+    constructor(
+        private route: ActivatedRoute,
+        public serviceHandler: ServiceHandlerProvider
+    ) {
+        this.route.params.subscribe(params => {
+            console.log(params);
+            this.pillarId = params.pillar;
+            this.cardId = params.card;
+            this.templateId = params.tmp;
+            this.getCardDetails(this.pillarId, this.cardId);
+        });
     }
-});
-}}
+
+    ngOnInit() {
+
+    }
+    getCardDetails(pillarId: string, cardId: string) {
+        const url = Constants.BASE_URL + "section/" + pillarId + "/" + cardId;
+        this.serviceHandler.runService(url, "GET").subscribe((cardDetails) => {
+            console.log("Get card details response");
+            console.log(cardDetails);
+            debugger;
+            if (cardDetails && cardDetails.templates && cardDetails.templates[this.templateId] && cardDetails.templates[this.templateId].payload && cardDetails.templates[this.templateId].payload.data) {
+                this.licenseData = cardDetails.templates[this.templateId].payload.data;
+                this.showChart();
+            }
+        }, err => {
+            console.log("Get card details error");
+            console.error(err);
+            window.alert("OOPS! something went wrong");
+        });
+    }
+    showChart() {
+        this.ctx = this.canvasRef.nativeElement.getContext('2d');
+        let chartLabels: Array<string> = [];
+        let chartData: Array<string> = [];
+        for (let row of this.licenseData.tableData) {
+            chartLabels.push(row.OrderDate);
+            chartData.push(row.TotalCost);
+        }
+        this.chart = new Chart(this.ctx, {
+            type: 'line',
+            data: {
+                labels: chartLabels,
+                datasets: [{
+                    lineTension: '0',
+
+                    label: 'TotalCost',
+                    data: chartData
+                    ,
+                    backgroundColor: [
+                        'rgba(00, 99, 132, 0.2)',
+                    ],
+                    fill: false,
+                    borderColor: [
+                        'rgba(0, 51, 0,1)',
+                    ],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    }
+}

@@ -29,7 +29,7 @@
         <!-- <a> -->
         <div class="col-md-2 col-sm-3 col-xs-12" *ngFor="let TeamMember of TeamMembers">
             <div class="text-center">
-                <img alt="image" class="img-circle m-t-xs img-responsive inline" src={{TeamMember.TeamMemberImg}}>
+                <img alt="image" class="img-circle m-t-xs img-responsive inline" src="{{imagePath}}{{TeamMember.TeamMemberImg}}">
                 <div class="m-t-xs font-bold font-bold">{{TeamMember.Name}}</div>
                 <div class="m-t-xs font-bold">{{TeamMember.JobDiscribtion}}</div>
             </div>

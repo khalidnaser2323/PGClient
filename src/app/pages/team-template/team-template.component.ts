@@ -1,42 +1,46 @@
 import { Component, OnInit } from '@angular/core';
-import { TeamModel } from '../../Models/TeamModel'
+import { ActivatedRoute } from '@angular/router';
+import { ServiceHandlerProvider } from '../../services/service-handler/service-handler';
+import { Constants } from '../../Constants';
 @Component({
   selector: 'app-team-template',
   templateUrl: './team-template.component.html',
   styleUrls: ['./team-template.component.css']
 })
 export class TeamTemplateComponent implements OnInit {
-
-
-  TeamMembers: TeamModel[] =
-    [
-      new TeamModel('img/a1.jfif', 'Karim Hussein', 'Pillar Leader'),
-      new TeamModel('img/a2.jfif', 'Mohamed Hamed', 'AM Coordinator Skill matrix Scorecard RCO owner Operations'),
-      new TeamModel('img/a3.jfif', 'May Elshouraky', 'Pillar Co leader  Master plan Operation'),
-      new TeamModel('img/a4.jfif', 'Shady Barrage', 'CIL DMS Owner R&R Operations'),
-      new TeamModel('img/a5.jfif', 'Sarah Othman', 'DH DMS owner Operations'),
-      new TeamModel('img/a6.jfif', 'Sarah Othman', 'DH DMS owner Operations'),
-      new TeamModel('img/a1.jfif', 'Karim Hussein', 'Pillar Leader'),
-      new TeamModel('img/a2.jfif', 'Mohamed Hamed', 'AM Coordinator Skill matrix Scorecard RCO owner Operations'),
-      new TeamModel('img/a3.jfif', 'May Elshouraky', 'Pillar Co leader  Master plan Operation'),
-      new TeamModel('img/a4.jfif', 'Shady Barrage', 'CIL DMS Owner R&R Operations'),
-      new TeamModel('img/a5.jfif', 'Sarah Othman', 'DH DMS owner Operations'),
-      new TeamModel('img/a6.jfif', 'Sarah Othman', 'DH DMS owner Operations'),
-      new TeamModel('img/a2.jfif', 'Mohamed Hamed', 'AM Coordinator Skill matrix Scorecard RCO owner Operations'),
-      new TeamModel('img/a3.jfif', 'May Elshouraky', 'Pillar Co leader  Master plan Operation'),
-      new TeamModel('img/a4.jfif', 'Shady Barrage', 'CIL DMS Owner R&R Operations'),
-      new TeamModel('img/a5.jfif', 'Sarah Othman', 'DH DMS owner Operations'),
-      new TeamModel('img/a6.jfif', 'Sarah Othman', 'DH DMS owner Operations'),
-      new TeamModel('img/a2.jfif', 'Mohamed Hamed', 'AM Coordinator Skill matrix Scorecard RCO owner Operations'),
-      new TeamModel('img/a3.jfif', 'May Elshouraky', 'Pillar Co leader  Master plan Operation'),
-      new TeamModel('img/a4.jfif', 'Shady Barrage', 'CIL DMS Owner R&R Operations'),
-      new TeamModel('img/a5.jfif', 'Sarah Othman', 'DH DMS owner Operations'),
-      new TeamModel('img/a6.jfif', 'Sarah Othman', 'DH DMS owner Operations')
-    ]
-
-  constructor() { }
+  pillarId: string;
+  cardId: string;
+  templateId: string;
+  TeamMembers: TeamModel[];
+  imagePath: string = Constants.IMAGE_PATH;
+  constructor(
+    private route: ActivatedRoute,
+    public serviceHandler: ServiceHandlerProvider
+  ) {
+    this.route.params.subscribe(params => {
+      console.log(params);
+      this.pillarId = params.pillar;
+      this.cardId = params.card;
+      this.templateId = params.tmp;
+      this.getCardDetails(this.pillarId, this.cardId);
+    });
+  }
 
   ngOnInit() {
+  }
+  getCardDetails(pillarId: string, cardId: string) {
+    const url = Constants.BASE_URL + "section/" + pillarId + "/" + cardId;
+    this.serviceHandler.runService(url, "GET").subscribe((cardDetails) => {
+      console.log("Get card details response");
+      console.log(cardDetails);
+      if (cardDetails && cardDetails.templates && cardDetails.templates[this.templateId] && cardDetails.templates[this.templateId].payload && cardDetails.templates[this.templateId].payload.data) {
+        this.TeamMembers = cardDetails.templates[this.templateId].payload.data;
+      }
+    }, err => {
+      console.log("Get card details error");
+      console.error(err);
+      window.alert("OOPS! something went wrong");
+    });
   }
 
 }

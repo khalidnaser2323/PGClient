@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-interface template4 {
-  tableData: object[];
-}
+import { ActivatedRoute } from '@angular/router';
+import { ServiceHandlerProvider } from '../../services/service-handler/service-handler';
+import { Constants } from '../../Constants';
 @Component({
   selector: 'app-template4',
   templateUrl: './template4.component.html',
@@ -9,9 +9,21 @@ interface template4 {
 })
 
 export class Template4Component implements OnInit {
-  temp: template4;
-  constructor() {
-
+  temp: any;
+  pillarId: string;
+  cardId: string;
+  templateId: string;
+  constructor(
+    private route: ActivatedRoute,
+    public serviceHandler: ServiceHandlerProvider
+  ) {
+    this.route.params.subscribe(params => {
+      console.log(params);
+      this.pillarId = params.pillar;
+      this.cardId = params.card;
+      this.templateId = params.tmp;
+      this.getCardDetails(this.pillarId, this.cardId);
+    });
     this.temp = {
       tableData: [
         { rowID: '0', tableHeader: 'Table Header' },
@@ -26,5 +38,18 @@ export class Template4Component implements OnInit {
 
   ngOnInit() {
   }
-
+  getCardDetails(pillarId: string, cardId: string) {
+    const url = Constants.BASE_URL + "section/" + pillarId + "/" + cardId;
+    this.serviceHandler.runService(url, "GET").subscribe((cardDetails) => {
+      console.log("Get card details response");
+      console.log(cardDetails);
+      if (cardDetails && cardDetails.templates && cardDetails.templates[this.templateId] && cardDetails.templates[this.templateId].payload && cardDetails.templates[this.templateId].payload.data) {
+        this.temp = cardDetails.templates[this.templateId].payload.data;
+      }
+    }, err => {
+      console.log("Get card details error");
+      console.error(err);
+      window.alert("OOPS! something went wrong");
+    });
+  }
 }

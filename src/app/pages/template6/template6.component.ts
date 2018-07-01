@@ -1,13 +1,14 @@
-import { Component, OnInit ,ViewChild,ElementRef} from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Chart } from 'chart.js';
-
-interface template6
-{
-  tempName:string;
-  tempDescribtion:string;
-  label:string;
-  labelNames:string[];
-  yValues:string[];
+import { ActivatedRoute } from '@angular/router';
+import { ServiceHandlerProvider } from '../../services/service-handler/service-handler';
+import { Constants } from '../../Constants';
+interface template6 {
+  tempName: string,
+  tempDescribtion: string,
+  label: string,
+  xaxisValues: string,
+  yaxisValues: string
 }
 @Component({
   selector: 'app-template6',
@@ -15,50 +16,81 @@ interface template6
   styleUrls: ['./template6.component.css']
 })
 export class Template6Component implements OnInit {
-  ctx:any;
-  chart=[];
-   temp:template6;
+  ctx: any;
+  chart = [];
+  temp: template6;
+  pillarId: string;
+  cardId: string;
+  templateId: string;
   @ViewChild('myCanvas') canvasRef: ElementRef;
-  constructor() { 
-   
-    this.temp ={
-    tempName:'Replenish place appear',
-    tempDescribtion:'Make. Be. Theyre. Is abundantly earth Replenish place appear so evening day seas set cattle created whales form  underTheyre youre fly appear there grass seasons day gathering let given it hath.',
-    label:'points',
-    labelNames:['Startup','Marketing','Analysis','Opportunites','Growth'],
-    yValues:['40','20','30','20','60']
-  };
+  constructor(
+    private route: ActivatedRoute,
+    public serviceHandler: ServiceHandlerProvider
+  ) {
+
+    this.temp = {
+      tempName: '',
+      tempDescribtion: '',
+      label: '',
+      xaxisValues: "",
+      yaxisValues: ""
+    };
+    this.route.params.subscribe(params => {
+      console.log(params);
+      this.pillarId = params.pillar;
+      this.cardId = params.card;
+      this.templateId = params.tmp;
+      this.getCardDetails(this.pillarId, this.cardId);
+    });
   }
 
   ngOnInit() {
+  }
+  getCardDetails(pillarId: string, cardId: string) {
+    const url = Constants.BASE_URL + "section/" + pillarId + "/" + cardId;
+    this.serviceHandler.runService(url, "GET").subscribe((cardDetails) => {
+      console.log("Get card details response");
+      console.log(cardDetails);
+      if (cardDetails && cardDetails.templates && cardDetails.templates[this.templateId] && cardDetails.templates[this.templateId].payload && cardDetails.templates[this.templateId].payload.data) {
+        this.temp = cardDetails.templates[this.templateId].payload.data;
+        this.showChart();
+      }
+    }, err => {
+      console.log("Get card details error");
+      console.error(err);
+      window.alert("OOPS! something went wrong");
+    });
+  }
+  showChart() {
+    const yaxix = this.temp.yaxisValues.split(",");
+    const xaxis= this.temp.xaxisValues.split(",");
     this.ctx = this.canvasRef.nativeElement.getContext('2d');
     this.ctx.lineJoin = 'miter';
     this.chart = new Chart(this.ctx, {
       type: 'line',
-      
-    data: {
-      labels:this.temp.labelNames ,
+
+      data: {
+        labels: xaxis,
         datasets: [{
-            label:this.temp.label,
-            lineTension:'0',
-            data:this.temp.yValues,
-            backgroundColor: 'rgb(51, 204, 255)', 
-            borderColor:'rgb(204, 204, 204)', 
-            borderWidth: 5
-         }],
-    },
-    options: {
+          label: this.temp.label,
+          lineTension: '0',
+          data: yaxix,
+          backgroundColor: 'rgb(51, 204, 255)',
+          borderColor: 'rgb(204, 204, 204)',
+          borderWidth: 5
+        }],
+      },
+      options: {
         scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
         }
-    }
-});
-  
+      }
+    });
+
   }
-  
- 
+
 }

@@ -25,7 +25,8 @@
           <div class="user-button">
             <div class="row">
               <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12" *ngFor="let button of card.buttons | keys">
-                <button type="button" class="btn large btn-info btn-sm btn-block btn-rounded"> {{button.value}}</button>
+                <button type="button" class="btn large btn-info btn-sm btn-block btn-rounded" (click)="onButtonClicked(button.key,card._id)">
+                  {{button.value}}</button>
               </div>
             </div>
           </div>
