@@ -1,14 +1,17 @@
-import { Component, OnInit,ViewChild,ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Chart } from 'chart.js';
+import { ActivatedRoute } from '@angular/router';
+import { ServiceHandlerProvider } from '../../services/service-handler/service-handler';
+import { Constants } from '../../Constants';
 
+interface template12 {
 
-interface template12
-{
-  
-  labe1Names:string[];
-  yValues:string[];
-  color:string[];
-  tableData:object[];
+  tempName: string,
+  tempDescribtion: string,
+  label: string,
+  xaxisValues: string,
+  yaxisValues: string,
+  tableData?: any
 }
 @Component({
   selector: 'app-templete12',
@@ -16,71 +19,109 @@ interface template12
   styleUrls: ['./templete12.component.css']
 })
 export class Templete12Component implements OnInit {
-  ctx:any;
-  chart=[];
-  temp:template12;
+  ctx: any;
+  chart = [];
+  temp: template12;
   @ViewChild('myCanvas') canvasRef: ElementRef;
-  constructor() {
-    this.temp=
-    {
-      labe1Names:[' January',' February',' March',' April',' May',' June',' July',' August','September',' October',' November',' December '],
-      yValues:['40','30','50','70','60','80','90','120','130','60','40','70'],
-      color:['rgb(0, 77, 77,0.2)','rgb(0, 153, 153,0.2)','rgb(0, 230, 230,0.2)',
-      'rgb(0, 51, 31,0.2)','rgb(0, 26, 15,0.2)','rgb(77, 255, 136,0.2)',
-      'rgb(0, 204, 68,0.2)','rgb(0, 153, 51,0.2)','rgb(102, 153, 153,0.2)',
-      'rgb(148, 184, 184,0.2)','rgb(61, 92, 92,0.2)','rgb(41, 61, 61,0.2)'],
-      tableData:[
-        {rowID:'0',tableHeader1:['h1'],tableHeader2:['h2'],tableHeader3:['h3'],tableHeader4:['h4']
-        ,tableHeader5:['h5'],tableHeader6:['h6'],tableHeader7:['h7']},
-     {rowId: '1',value1:'value1',value2:'value2',value3:'value3'
-     ,value4:'value4',value5:'value5',value6:'value6'
-     ,value7:'value7',value8:'value8',value9:'value9'} ,
-     {rowId: '2',value1:'value1',value2:'value2',value3:'value3'
-     ,value4:'value4',value5:'value5',value6:'value6'
-     ,value7:'value7',value8:'value8',value9:'value9' } ,
-      {rowId: '3',value1:'value1',value2:'value2',value3:'value3'
-      ,value4:'value4',value5:'value5',value6:'value6'
-      ,value7:'value7',value8:'value8',value9:'value9'
-      } ,
-      ]
-     
-      
-    }
-   }
+  pillarId: string;
+  cardId: string;
+  templateId: string;
+  constructor(
+    private route: ActivatedRoute,
+    public serviceHandler: ServiceHandlerProvider
+  ) {
+    this.temp =
+      {
+        label: '',
+        xaxisValues: '',
+        yaxisValues: '',
+        tempDescribtion: "",
+        tempName: "",
+        tableData: [
+          {
+            rowID: '0', tableHeader1: [''], tableHeader2: [''], tableHeader3: [''], tableHeader4: ['']
+            , tableHeader5: [''], tableHeader6: [''], tableHeader7: ['']
+          },
+          {
+            rowId: '1', value1: '', value2: '', value3: ''
+            , value4: '', value5: '', value6: ''
+            , value7: '', value8: '', value9: ''
+          },
+          {
+            rowId: '2', value1: '', value2: '', value3: ''
+            , value4: '', value5: '', value6: ''
+            , value7: '', value8: '', value9: ''
+          },
+          {
+            rowId: '3', value1: '', value2: '', value3: ''
+            , value4: '', value5: '', value6: ''
+            , value7: '', value8: '', value9: ''
+          }
+
+        ]
+      };
+    this.route.params.subscribe(params => {
+      console.log(params);
+      this.pillarId = params.pillar;
+      this.cardId = params.card;
+      this.templateId = params.tmp;
+      this.getCardDetails(this.pillarId, this.cardId);
+    });
+  }
 
   ngOnInit() {
-    console.log(this.temp.tableData[0]);
+  }
+  getCardDetails(pillarId: string, cardId: string) {
+    const url = Constants.BASE_URL + "section/" + pillarId + "/" + cardId;
+    this.serviceHandler.runService(url, "GET").subscribe((cardDetails) => {
+      console.log("Get card details response");
+      console.log(cardDetails);
+      if (cardDetails && cardDetails.templates && cardDetails.templates[this.templateId] && cardDetails.templates[this.templateId].payload && cardDetails.templates[this.templateId].payload.data) {
+        this.temp = cardDetails.templates[this.templateId].payload.data;
+        this.showChart();
+      }
+    }, err => {
+      console.log("Get card details error");
+      console.error(err);
+      window.alert("OOPS! something went wrong");
+    });
+  }
+  showChart() {
+    const yaxix = this.temp.yaxisValues.split(",");
+    const xaxis = this.temp.xaxisValues.split(",");
     this.ctx = this.canvasRef.nativeElement.getContext('2d');
     this.chart = new Chart(this.ctx, {
       type: 'bar',
-    data: {
-      labels:this.temp.labe1Names,
+      data: {
+        labels: xaxis,
         datasets: [{
-        label:'Years' , 
-        backgroundColor:this.temp.color,
-         borderColor:'rgb(41, 61, 61,0.2)',
-         borderWidth:1, 
-         data:this.temp.yValues,
+          label: 'Years',
+          backgroundColor: ['rgb(0, 77, 77,0.2)', 'rgb(0, 153, 153,0.2)', 'rgb(0, 230, 230,0.2)',
+            'rgb(0, 51, 31,0.2)', 'rgb(0, 26, 15,0.2)', 'rgb(77, 255, 136,0.2)',
+            'rgb(0, 204, 68,0.2)', 'rgb(0, 153, 51,0.2)', 'rgb(102, 153, 153,0.2)',
+            'rgb(148, 184, 184,0.2)', 'rgb(61, 92, 92,0.2)', 'rgb(41, 61, 61,0.2)'],
+          borderColor: 'rgb(41, 61, 61,0.2)',
+          borderWidth: 1,
+          data: yaxix,
         },
-        
-      ]
-    },
- 
-    options: {
-      title: {
-        display: true,
-        text: 'Years',
-        fontSize:20,
-    },
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
-        }
-    }
-});
-  }
 
+        ]
+      },
+
+      options: {
+        title: {
+          display: true,
+          text: 'Years',
+          fontSize: 20,
+        },
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+  }
 }
