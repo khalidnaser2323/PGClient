@@ -6,44 +6,35 @@
 </head> -->
 
 <!-- <body class="top-navigation"> -->
-    <div id="wrapper">
-        <div id="page-wrapper" class="gray-bg">
-            <div class="row border-bottom">
-
-            </div>
-            <div class="row page-heading">
-                <div class="col-lg-12">
-                    <h2>Template</h2>
-                    <ol class="breadcrumb">
-                        <li>
-                            <a href="#"> Dashboard </a>
-                        </li>
-                        <li>
-                            <a href="#"> Leadership </a>
-                        </li>
-                        <li>
-                            <a href="#"> Plan </a>
-                        </li>
-                        <li>
-                            <a href="#"> Master Plan </a>
-                        </li>
-                        <li class="active">
-                            <strong>Template</strong>
-                        </li>
-                    </ol>
-                </div>
-            </div>
-            <div class="wrapper wrapper-content btn-white">
-
-                <div class="row">
-
-                    <app-stage *ngFor="let stage of stages " [stage]="stage"></app-stage>
-
-                </div>
-            </div>
+<div id="wrapper">
+    <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom">
 
         </div>
+        <div class="row page-heading">
+            <div class="col-lg-12">
+                <ol class="breadcrumb" style="margin-top: 20px">
+                    <li>
+                        <a href="/home"> {{pillarName}} </a>
+                    </li>
+                    <li>
+                        <a href="/pillarDetails/{{pillarId}}"> {{cardTitle}} </a>
+                    </li>
+
+                </ol>
+            </div>
+        </div>
+        <div class="wrapper wrapper-content btn-white">
+
+            <div class="row">
+
+                <app-stage *ngFor="let stage of stages " [stage]="stage"></app-stage>
+
+            </div>
+        </div>
+
     </div>
+</div>
 <!-- </body> -->
 
 <!-- </html> -->

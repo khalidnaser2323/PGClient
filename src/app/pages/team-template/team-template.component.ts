@@ -13,6 +13,8 @@ export class TeamTemplateComponent implements OnInit {
   templateId: string;
   TeamMembers: TeamModel[];
   imagePath: string = Constants.IMAGE_PATH;
+  pillarName: string;
+  cardTitle: string;
   constructor(
     private route: ActivatedRoute,
     public serviceHandler: ServiceHandlerProvider
@@ -22,6 +24,7 @@ export class TeamTemplateComponent implements OnInit {
       this.pillarId = params.pillar;
       this.cardId = params.card;
       this.templateId = params.tmp;
+      this.pillarName = params.name;
       this.getCardDetails(this.pillarId, this.cardId);
     });
   }
@@ -35,6 +38,7 @@ export class TeamTemplateComponent implements OnInit {
       console.log(cardDetails);
       if (cardDetails && cardDetails.templates && cardDetails.templates[this.templateId] && cardDetails.templates[this.templateId].payload && cardDetails.templates[this.templateId].payload.data) {
         this.TeamMembers = cardDetails.templates[this.templateId].payload.data;
+        this.cardTitle = cardDetails.title;
       }
     }, err => {
       console.log("Get card details error");

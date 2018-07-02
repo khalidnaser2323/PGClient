@@ -51,7 +51,7 @@ export class PillarChildComponent implements OnInit {
       console.log(cardDetails);
       if (cardDetails && cardDetails.templates && cardDetails.templates[templateId] && cardDetails.templates[templateId].payload && cardDetails.templates[templateId].payload.templateType) {
         const path = Constants.APP_TEMPLATES.find(tmp => { return tmp.tempId == cardDetails.templates[templateId].payload.templateType }).path;
-        this.router.navigate([path, { pillar: this.pillarId, card: cardId, tmp: templateId }]);
+        this.router.navigate([path, { name: this.pillarName, pillar: this.pillarId, card: cardId, tmp: templateId }]);
       }
     }, err => {
       console.log("Get card details error");

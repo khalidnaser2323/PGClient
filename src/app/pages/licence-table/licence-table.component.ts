@@ -19,6 +19,8 @@ export class LicenceTableComponent implements OnInit {
     pillarId: string;
     cardId: string;
     templateId: string;
+    pillarName: string;
+    cardTitle: string;
     @ViewChild('myCanvas') canvasRef: ElementRef;
     constructor(
         private route: ActivatedRoute,
@@ -29,6 +31,7 @@ export class LicenceTableComponent implements OnInit {
             this.pillarId = params.pillar;
             this.cardId = params.card;
             this.templateId = params.tmp;
+            this.pillarName = params.name;
             this.getCardDetails(this.pillarId, this.cardId);
         });
     }
@@ -44,6 +47,7 @@ export class LicenceTableComponent implements OnInit {
             debugger;
             if (cardDetails && cardDetails.templates && cardDetails.templates[this.templateId] && cardDetails.templates[this.templateId].payload && cardDetails.templates[this.templateId].payload.data) {
                 this.licenseData = cardDetails.templates[this.templateId].payload.data;
+                this.cardTitle = cardDetails.title;
                 this.showChart();
             }
         }, err => {
