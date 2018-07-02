@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ServiceHandlerProvider } from '../../services/service-handler/service-handler';
+import { Constants } from '../../Constants';
 
 
 @Component({
@@ -9,24 +12,37 @@ import { Component, OnInit } from '@angular/core';
 export class Templete11Component implements OnInit {
   activePanel: string = "1";
   temp11: Temp11;
-  constructor() {
+  pillarId: string;
+  cardId: string;
+  templateId: string;
+  constructor(
+    private route: ActivatedRoute,
+    public serviceHandler: ServiceHandlerProvider
+  ) {
     this.temp11 = {
-      colEightText: "text8",
-      colElevenText: "text11",
-      colFiveText: "tex5",
-      colFourText: "text4",
-      colNineText: "text9",
-      colOneHeader: "header",
-      colOneText: "text 1",
-      colSevenText: "text7",
-      colSixText: "text6",
-      colTenText: "text10",
-      colThreeHeader: "header3",
-      colThreeText: "text3",
-      colTwelveText: "text12",
-      colTwoHeader: "header 2",
-      colTwoText: "text 2"
+      colEightText: "",
+      colElevenText: "",
+      colFiveText: "",
+      colFourText: "",
+      colNineText: "",
+      colOneHeader: "",
+      colOneText: "",
+      colSevenText: "",
+      colSixText: "",
+      colTenText: "",
+      colThreeHeader: "",
+      colThreeText: "",
+      colTwelveText: "",
+      colTwoHeader: "",
+      colTwoText: ""
     }
+    this.route.params.subscribe(params => {
+      console.log(params);
+      this.pillarId = params.pillar;
+      this.cardId = params.card;
+      this.templateId = params.tmp;
+      this.getCardDetails(this.pillarId, this.cardId);
+    });
   }
 
   ngOnInit() {
@@ -34,6 +50,20 @@ export class Templete11Component implements OnInit {
   showPanel(id: string) {
     console.log("id to show:  " + id);
     this.activePanel = id;
+  }
+  getCardDetails(pillarId: string, cardId: string) {
+    const url = Constants.BASE_URL + "section/" + pillarId + "/" + cardId;
+    this.serviceHandler.runService(url, "GET").subscribe((cardDetails) => {
+      console.log("Get card details response");
+      console.log(cardDetails);
+      if (cardDetails && cardDetails.templates && cardDetails.templates[this.templateId] && cardDetails.templates[this.templateId].payload && cardDetails.templates[this.templateId].payload.data) {
+        this.temp11 = cardDetails.templates[this.templateId].payload.data;
+      }
+    }, err => {
+      console.log("Get card details error");
+      console.error(err);
+      window.alert("OOPS! something went wrong");
+    });
   }
 
 }
