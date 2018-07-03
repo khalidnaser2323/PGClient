@@ -3,6 +3,7 @@ import { Chart } from 'chart.js';
 import { ActivatedRoute } from '@angular/router';
 import { ServiceHandlerProvider } from '../../services/service-handler/service-handler';
 import { Constants } from '../../Constants';
+import { Location } from '@angular/common';
 
 interface template12 {
 
@@ -30,7 +31,9 @@ export class Templete12Component implements OnInit {
   cardTitle: string;
   constructor(
     private route: ActivatedRoute,
-    public serviceHandler: ServiceHandlerProvider
+    public serviceHandler: ServiceHandlerProvider,
+    private _location: Location
+
   ) {
     this.temp =
       {
@@ -127,5 +130,8 @@ export class Templete12Component implements OnInit {
         }
       }
     });
+  }
+  backClicked() {
+    this._location.back();
   }
 }

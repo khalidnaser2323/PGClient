@@ -3,6 +3,7 @@ import { Chart } from 'chart.js';
 import { ActivatedRoute } from '@angular/router';
 import { ServiceHandlerProvider } from '../../services/service-handler/service-handler';
 import { Constants } from '../../Constants';
+import {Location} from '@angular/common';
 
 @Component({
     selector: 'app-licence-table',
@@ -24,7 +25,8 @@ export class LicenceTableComponent implements OnInit {
     @ViewChild('myCanvas') canvasRef: ElementRef;
     constructor(
         private route: ActivatedRoute,
-        public serviceHandler: ServiceHandlerProvider
+        public serviceHandler: ServiceHandlerProvider,
+        private _location: Location
     ) {
         this.route.params.subscribe(params => {
             console.log(params);
@@ -38,6 +40,9 @@ export class LicenceTableComponent implements OnInit {
 
     ngOnInit() {
 
+    }
+    backClicked() {
+        this._location.back();
     }
     getCardDetails(pillarId: string, cardId: string) {
         const url = Constants.BASE_URL + "section/" + pillarId + "/" + cardId;

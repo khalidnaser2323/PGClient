@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ServiceHandlerProvider } from '../../services/service-handler/service-handler';
 import { Constants } from '../../Constants';
+import { Location } from '@angular/common';
+
 @Component({
   selector: 'app-team-template',
   templateUrl: './team-template.component.html',
@@ -17,7 +19,9 @@ export class TeamTemplateComponent implements OnInit {
   cardTitle: string;
   constructor(
     private route: ActivatedRoute,
-    public serviceHandler: ServiceHandlerProvider
+    public serviceHandler: ServiceHandlerProvider,
+    private _location: Location
+
   ) {
     this.route.params.subscribe(params => {
       console.log(params);
@@ -45,6 +49,9 @@ export class TeamTemplateComponent implements OnInit {
       console.error(err);
       window.alert("OOPS! something went wrong");
     });
+  }
+  backClicked() {
+    this._location.back();
   }
 
 }

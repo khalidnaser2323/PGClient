@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ServiceHandlerProvider } from '../../services/service-handler/service-handler';
 import { Constants } from '../../Constants';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -19,7 +20,9 @@ export class Templete11Component implements OnInit {
   cardTitle: string;
   constructor(
     private route: ActivatedRoute,
-    public serviceHandler: ServiceHandlerProvider
+    public serviceHandler: ServiceHandlerProvider,
+    private _location: Location
+
   ) {
     this.temp11 = {
       colEightText: "",
@@ -69,5 +72,7 @@ export class Templete11Component implements OnInit {
       window.alert("OOPS! something went wrong");
     });
   }
-
+  backClicked() {
+    this._location.back();
+  }
 }

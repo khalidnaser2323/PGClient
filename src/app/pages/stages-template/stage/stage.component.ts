@@ -10,7 +10,16 @@ export class StageComponent implements OnInit {
   chart = [];
   // stage:Stage;
   @Input() stage: Stage;
-  colors: Array<string> = ['red', 'blue', 'yellow', 'orange', 'grey', 'pink', 'chocolate', 'lime', 'khaki', 'purple'];
+  colors: Array<string> = ['rgb(0, 143, 179)',
+    'rgb(0, 102, 0)',
+    'rgb(51, 51, 0)',
+    'rgb(77, 19, 0)',
+    'rgb(31, 31, 122)',
+    'rgb(51, 0, 102)',
+    'rgb(102, 102, 0)',
+    'rgb(102, 0, 51)',
+    'rgb(51, 51, 153)',
+    'rgb(102, 153, 153)'];
 
   @ViewChild('canvas') canvasRef: ElementRef;
   constructor() { }

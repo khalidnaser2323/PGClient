@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ServiceHandlerProvider } from '../../services/service-handler/service-handler';
 import { Constants } from '../../Constants';
+import {Location} from '@angular/common';
+
 
 @Component({
   selector: 'app-stages-template',
@@ -19,7 +21,8 @@ export class StagesTemplateComponent implements OnInit {
   cardTitle: string;
   constructor(
     private route: ActivatedRoute,
-    public serviceHandler: ServiceHandlerProvider
+    public serviceHandler: ServiceHandlerProvider,
+    private _location: Location
   ) {
     this.route.params.subscribe(params => {
       console.log(params);
@@ -94,6 +97,9 @@ export class StagesTemplateComponent implements OnInit {
       window.alert("OOPS! something went wrong");
     });
   }
+  backClicked() {
+    this._location.back();
+}
 }
 
 
