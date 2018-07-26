@@ -1,20 +1,23 @@
 <div class="wrapper wrapper-content">
   <div class="row">
     <a *ngFor="let pillar of pillars">
-      <div class="col-lg-2 cards col-md-3 col-sm-4 col-xs-12">
+      <div class="col-lg-2 cards col-md-2 col-sm-6 col-xs-12 ipad">
         <div class="ibox">
-          <div class="ibox-content pillar-box">
+          <div class="ibox-content product-box">
             <a routerLink="/pillarDetails/{{pillar._id}}">
-              <div class="pillar-imitation">
-                <img src="{{imagePath}}{{pillar.imageID}}" onError="this.src='img/img1.png';" class="img-responsive" width="100%" style="height: 194px"
+              <div class="product-imitation">
+                <img src="{{imagePath}}{{pillar.imageID}}" onError="this.src='img/img1.png';" class="img-responsive img_card" width="100%"
                 />
               </div>
-              <div class="pillar-desc">
+              <div class="product-desc">
                 <!-- <span class="pillar-price">
                   <i class="fa fa-angle-right"></i>
                 </span> -->
-                <h2> {{pillar.title}} </h2>
-                <p>
+                <span class="product-price">
+                  <img src="img/u186.svg" class="arrow">
+                </span>
+                <h2 class="card_header"> {{pillar.title}} </h2>
+                <p class="sub_login-title-style sub_login-title-style_card">
                   {{pillar.subtitle}}
                 </p>
               </div>
@@ -23,3 +26,5 @@
         </div>
       </div>
     </a>
+  </div>
+</div>
