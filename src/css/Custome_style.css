@@ -114,13 +114,18 @@ form.m-t {
 	overflow: auto;
 }
 .top-navigation .wrapper.wrapper-content {
-	padding-top: 30px;
+	padding-top: 20px;
 	padding-left: 10px;
 }
 
 /*--------------------------------Responsive--------------------------------------*/
 
 @media only screen and (max-width: 800px) {
+      
+    .ibox{
+        
+        height:315px;
+    }
 	.ipad {
 		margin-left: none !important;
 	}
@@ -134,7 +139,26 @@ form.m-t {
 	}
 
 }
+
+@media only screen and (max-width: 700px) {
+
+      .ibox{
+        
+        height:auto !important;
+    }
+    
+}
+
+@media only screen and (max-width: 700px) {
+  
+    .green_arrow{
+        display: none !important;
+    }
+}
 @media only screen and (max-width: 480px) {
+  
+    
+    
     .child_button{
         margin-top: 0 !important;
         font-size: 10px !important;
@@ -210,7 +234,9 @@ form.m-t {
 
 .product-desc {
 
-	padding: 14px;
+	padding: 8px;
+    padding-bottom: 0;
+    padding-top: 2px;
 }
 
 .arrow {
@@ -230,37 +256,40 @@ form.m-t {
 	font-family: 'Roboto-Regular', 'Roboto';
 	font-weight: 400;
 	font-style: normal;
-	font-size: 20px;
+	font-size: 17px;
 	margin-bottom: 2px;
 	margin-top: 15px !important;
 	color: #333333;
 }
 
 .sub_login-title-style_card {
-	font-size: 14px;
+	font-size: 12px;
 	font-family: 'Roboto-Light', 'Roboto Light', 'Roboto';
 }
 
 .head_child {
-	font-weight: 200;
-	font-style: normal;
-	font-size: 36px;
-	margin-top: 47px;
-	width: 680px;
-	height: 32px;
-	font-family: 'Roboto-Light', 'Roboto Light', 'Roboto';
-	color: #333333;
-}
-.child-card{
-width: 100% !important; 
+ font-weight: 200;
+    font-style: normal;
+    font-size: 25px;
+    margin-top: 28px;
+    width: auto;
+    margin-bottom: 0px;
     height: auto;
-        margin-top: 20px;
+    font-family: 'Roboto-Light', 'Roboto Light', 'Roboto';
+    color: #333333;
+
 }
 
+
 .child-card {
-	float: right;
-	border-radius: 30px;
+    width: 100% !important;
+    height: auto;
+    margin-top: 20px;
+    margin-right: 10px;
+    float: right;
+    border-radius: 10px;
 }
+
 
 .head_child_card {
 	font-family: 'Roboto-Light', 'Roboto Light', 'Roboto';
@@ -273,24 +302,30 @@ width: 100% !important;
 .sub_head_child_card {
 	font-family: 'Roboto-Light', 'Roboto Light', 'Roboto';
 	font-weight: 200;
-	font-size: 18px;
+	font-size: 16px;
 	font-style: normal;
+    color: #000;
+    margin-right: 15%;
+    line-height: 20px;
 }
 
 .child_button {
-    margin-top: 30px;
+   margin-top: 5px;
     /* width: 162px; */
     height: 50px !important;
-        margin-left: 10px;
+    margin-left: 10px;
     background: inherit;
     background-color: rgba(27, 176, 242, 1);
     border: none;
-    border-radius: 20px;
+    border-radius: 14px;
     font-family: 'Roboto-Regular', 'Roboto';
     font-weight: 400;
     font-style: normal;
-    font-size: 15px;
+    font-size: 13px;
     color: #FFFFFF;
+    padding-left: 20px;
+    padding-right: 20px;
+
 }
 
 .card-box:hover {
@@ -415,3 +450,14 @@ color: #fff;
       padding-top: 20%;
     line-height: 30px;
 }
+
+  #aa{
+            height: 3em;
+    line-height: 16px;
+    overflow-y: hidden;
+        }
+
+.childbox{
+    padding-top: 20px;
+}
+

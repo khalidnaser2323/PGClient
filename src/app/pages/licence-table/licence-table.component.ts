@@ -3,7 +3,7 @@ import { Chart } from 'chart.js';
 import { ActivatedRoute } from '@angular/router';
 import { ServiceHandlerProvider } from '../../services/service-handler/service-handler';
 import { Constants } from '../../Constants';
-import {Location} from '@angular/common';
+import { Location } from '@angular/common';
 
 @Component({
     selector: 'app-licence-table',
@@ -22,6 +22,7 @@ export class LicenceTableComponent implements OnInit {
     templateId: string;
     pillarName: string;
     cardTitle: string;
+    templateTitle: string;
     @ViewChild('myCanvas') canvasRef: ElementRef;
     constructor(
         private route: ActivatedRoute,
@@ -53,6 +54,7 @@ export class LicenceTableComponent implements OnInit {
             if (cardDetails && cardDetails.templates && cardDetails.templates[this.templateId] && cardDetails.templates[this.templateId].payload && cardDetails.templates[this.templateId].payload.data) {
                 this.licenseData = cardDetails.templates[this.templateId].payload.data;
                 this.cardTitle = cardDetails.title;
+                this.templateTitle = cardDetails.templates[this.templateId].title;
                 this.showChart();
             }
         }, err => {

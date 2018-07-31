@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ServiceHandlerProvider } from '../../services/service-handler/service-handler';
 import { Constants } from '../../Constants';
-import {Location} from '@angular/common';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -19,6 +19,7 @@ export class StagesTemplateComponent implements OnInit {
   templateId: string;
   pillarName: string;
   cardTitle: string;
+  templateTitle: string;
   constructor(
     private route: ActivatedRoute,
     public serviceHandler: ServiceHandlerProvider,
@@ -89,6 +90,7 @@ export class StagesTemplateComponent implements OnInit {
       console.log(cardDetails);
       if (cardDetails && cardDetails.templates && cardDetails.templates[this.templateId] && cardDetails.templates[this.templateId].payload && cardDetails.templates[this.templateId].payload.data) {
         this.stages = cardDetails.templates[this.templateId].payload.data;
+        this.templateTitle = cardDetails.templates[this.templateId].title;
         this.cardTitle = cardDetails.title;
       }
     }, err => {
@@ -99,7 +101,7 @@ export class StagesTemplateComponent implements OnInit {
   }
   backClicked() {
     this._location.back();
-}
+  }
 }
 
 

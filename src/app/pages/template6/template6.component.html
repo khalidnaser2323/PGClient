@@ -1,48 +1,36 @@
-<!DOCTYPE html>
-<html>
-<head>
-   
-</head>
-<body class="top-navigation">
-    <div id="wrapper">
-        <div id="page-wrapper" class="gray-bg">
-            <div class="row border-bottom">
-                
-            </div>
-            <div class="row page-heading">
-                <div class="col-lg-12">
-                    <ol class="breadcrumb" style="margin-top: 20px">
-                        <li>
-                            <a href="index.html"> {{pillarName}} </a>
-                        </li>
-                        <li>
-                            <a (click)="backClicked()"> {{cardTitle}} </a>
-                        </li>
-    
-                    </ol>
-                </div>
-            </div>
-            <div class="wrapper wrapper-content btn-white">
-                <div class="row">
-                    <div class="col-md-4 col-sm-5 col-xs-12">
-                        <h1><b> Overview </b></h1>
-                        <h1 class="info-color"><b> {{temp.tempName}}</b></h1>
-                        <p class="font-size-18"> {{temp.tempDescribtion}}</p>
-                        <p class="font-size-18">  </p>
-                    </div>
-                    <div class="col-md-8 col-sm-7 col-xs-12">
-                      <div class="ibox-content">
-                        <canvas #myCanvas>{{chart}}</canvas>
-                      </div>
-                    </div>
+<div class="row page-heading w3-animate-right" style="animation-duration: 3s;margin-left: 5px;">
+    <div class="col-lg-12" style="    margin-top: 35px;">
+        <ol class="breadcrumb">
+            <li>
+                <a routerLink="/">
+                    <i class="fa fa-home" style="    font-size: 19px;    margin-right: 5px;"></i> {{pillarName}} </a>
+            </li>
+            <li>
+                <a (click)="backClicked()"> {{cardTitle}} </a>
+            </li>
 
-                </div>
-               
-            </div>
-            
+        </ol>
+        <h2 class="sub_head_child_card" style="font-size:30px;"> {{templateTitle}}</h2>
+    </div>
+</div>
+<div class="wrapper wrapper-content btn-white">
+    <div class="row">
+        <div class="col-md-4 col-sm-5 col-xs-12">
+            <h1>
+                <b> Overview </b>
+            </h1>
+            <h1 class="info-color">
+                <b> {{temp.tempName}}</b>
+            </h1>
+            <p class="font-size-18 card_header"> {{temp.tempDescribtion}}</p>
+            <p class="font-size-18"> </p>
         </div>
+        <div class="col-md-8 col-sm-7 col-xs-12">
+            <div class="ibox-content">
+                <canvas #myCanvas>{{chart}}</canvas>
+            </div>
+        </div>
+
     </div>
 
-
-</body>
-</html>
+</div>

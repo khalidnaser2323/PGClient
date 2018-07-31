@@ -27,6 +27,8 @@ export class Template6Component implements OnInit {
   @ViewChild('myCanvas') canvasRef: ElementRef;
   pillarName: string;
   cardTitle: string;
+  templateTitle: string;
+
   constructor(
     private route: ActivatedRoute,
     public serviceHandler: ServiceHandlerProvider,
@@ -60,6 +62,7 @@ export class Template6Component implements OnInit {
       console.log(cardDetails);
       if (cardDetails && cardDetails.templates && cardDetails.templates[this.templateId] && cardDetails.templates[this.templateId].payload && cardDetails.templates[this.templateId].payload.data) {
         this.temp = cardDetails.templates[this.templateId].payload.data;
+        this.templateTitle = cardDetails.templates[this.templateId].title;
         this.cardTitle = cardDetails.title;
         this.showChart();
       }
@@ -71,7 +74,7 @@ export class Template6Component implements OnInit {
   }
   showChart() {
     const yaxix = this.temp.yaxisValues.split(",");
-    const xaxis= this.temp.xaxisValues.split(",");
+    const xaxis = this.temp.xaxisValues.split(",");
     this.ctx = this.canvasRef.nativeElement.getContext('2d');
     this.ctx.lineJoin = 'miter';
     this.chart = new Chart(this.ctx, {

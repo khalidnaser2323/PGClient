@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ServiceHandlerProvider } from '../../services/service-handler/service-handler';
 import { Constants } from '../../Constants';
@@ -18,11 +18,15 @@ export class Templete11Component implements OnInit {
   templateId: string;
   pillarName: string;
   cardTitle: string;
+  slideIndex = 1;
+  el: HTMLElement;
+  mySlides: any;
+  @ViewChild('demo') demo: ElementRef;
   constructor(
     private route: ActivatedRoute,
     public serviceHandler: ServiceHandlerProvider,
-    private _location: Location
-
+    private _location: Location,
+    el: ElementRef
   ) {
     this.temp11 = {
       colEightText: "",
@@ -41,6 +45,7 @@ export class Templete11Component implements OnInit {
       colTwoHeader: "",
       colTwoText: ""
     }
+    this.el = el.nativeElement;
     this.route.params.subscribe(params => {
       console.log(params);
       this.pillarId = params.pillar;
@@ -52,6 +57,9 @@ export class Templete11Component implements OnInit {
   }
 
   ngOnInit() {
+    this.mySlides = this.el.getElementsByClassName("mySlides");
+    this.showDivs(this.slideIndex);
+
   }
   showPanel(id: string) {
     console.log("id to show:  " + id);
@@ -74,5 +82,26 @@ export class Templete11Component implements OnInit {
   }
   backClicked() {
     this._location.back();
+  }
+
+  plusDivs(n) {
+    this.showDivs(this.slideIndex += n);
+  }
+
+  showDivs(n) {
+    var i;
+    // var x = document.getElementsByClassName("mySlides");
+    // var dots = document.getElementsByClassName("demo");
+    if (n > this.mySlides.length) { this.slideIndex = 1 }
+    if (n < 1) { this.slideIndex = this.mySlides.length }
+    for (i = 0; i < this.mySlides.length; i++) {
+      this.mySlides[i].style.display = "none";
+    }
+
+    this.mySlides[this.slideIndex - 1].style.display = "block";
+
+  }
+  currentDiv(index: number) {
+    this.showDivs(this.slideIndex = index);
   }
 }

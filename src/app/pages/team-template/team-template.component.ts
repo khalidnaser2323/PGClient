@@ -17,6 +17,7 @@ export class TeamTemplateComponent implements OnInit {
   imagePath: string = Constants.IMAGE_PATH;
   pillarName: string;
   cardTitle: string;
+  templateTitle: string;
   constructor(
     private route: ActivatedRoute,
     public serviceHandler: ServiceHandlerProvider,
@@ -42,6 +43,7 @@ export class TeamTemplateComponent implements OnInit {
       console.log(cardDetails);
       if (cardDetails && cardDetails.templates && cardDetails.templates[this.templateId] && cardDetails.templates[this.templateId].payload && cardDetails.templates[this.templateId].payload.data) {
         this.TeamMembers = cardDetails.templates[this.templateId].payload.data;
+        this.templateTitle = cardDetails.templates[this.templateId].title;
         this.cardTitle = cardDetails.title;
       }
     }, err => {

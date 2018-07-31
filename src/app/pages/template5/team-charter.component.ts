@@ -32,6 +32,7 @@ export class TeamCharterComponent implements OnInit {
   templateId: string;
   pillarName: string;
   cardTitle: string;
+  templateTitle: string;
   constructor(
     private route: ActivatedRoute,
     public serviceHandler: ServiceHandlerProvider,
@@ -75,6 +76,7 @@ export class TeamCharterComponent implements OnInit {
       console.log(cardDetails);
       if (cardDetails && cardDetails.templates && cardDetails.templates[this.templateId] && cardDetails.templates[this.templateId].payload && cardDetails.templates[this.templateId].payload.data) {
         this.temp = cardDetails.templates[this.templateId].payload.data;
+        this.templateTitle = cardDetails.templates[this.templateId].title;
         this.cardTitle = cardDetails.title;
         this.showChart();
       }
