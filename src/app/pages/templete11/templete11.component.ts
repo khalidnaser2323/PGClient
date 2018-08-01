@@ -11,7 +11,6 @@ import { Location } from '@angular/common';
   styleUrls: ['./templete11.component.css']
 })
 export class Templete11Component implements OnInit {
-  activePanel: string = "1";
   temp11: Temp11;
   pillarId: string;
   cardId: string;
@@ -60,10 +59,6 @@ export class Templete11Component implements OnInit {
     this.mySlides = this.el.getElementsByClassName("mySlides");
     this.showDivs(this.slideIndex);
 
-  }
-  showPanel(id: string) {
-    console.log("id to show:  " + id);
-    this.activePanel = id;
   }
   getCardDetails(pillarId: string, cardId: string) {
     const url = Constants.BASE_URL + "section/" + pillarId + "/" + cardId;

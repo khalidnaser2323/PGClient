@@ -1,18 +1,19 @@
 <div class="col-md-4 col-sm-4 col-xs-12 text-center">
   <div class="img-responsive inline">
-    <canvas #canvas width="250" height="300">{{chart}}</canvas>
-    <!-- <div [ngStyle]="{'background-color':stage.color}" style="
+    <canvas #canvas width="250" height="300">{{chart}}
+      <div [ngStyle]="{'background-color':stage.color}" style="
     padding: 60px;
     font-size: 40px;
     font-family: sans-serif;
     color: #fff;
-    position: absolute;
+    position: relative;
     border-radius: 50%;
     top: 21%;
     left: 35%;
     height: 100px;
     width: 100px;
-"> {{stage.percentage}} </div> -->
+"> {{stage.percentage}} </div>
+    </canvas>
   </div>
   <h3> {{stage.title}} </h3>
   <h4 class="card_header"> {{stage.details}} </h4>

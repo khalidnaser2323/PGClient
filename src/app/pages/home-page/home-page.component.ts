@@ -9,9 +9,11 @@ import { ServiceHandlerProvider } from '../../services/service-handler/service-h
 })
 export class HomePageComponent implements OnInit {
   imagePath: string = Constants.IMAGE_PATH;
-
+  hoveredPillarId: string;
   pillars: Array<Pillar>;
-  constructor(public serviceHandler: ServiceHandlerProvider) {
+  constructor(
+    public serviceHandler: ServiceHandlerProvider,
+  ) {
     this.getPillars();
   }
 
@@ -28,6 +30,18 @@ export class HomePageComponent implements OnInit {
       console.error(err);
       window.alert("Error in getting pillars");
     })
+  }
+  mouseEnter(SelectedPillar: Pillar) {
+    console.log("mouse enter");
+    if (SelectedPillar.subtitle.length > 152) {
+      this.hoveredPillarId = SelectedPillar._id;
+    }
+
+  }
+
+  mouseLeave() {
+    console.log('mouse leave');
+    this.hoveredPillarId = null;
   }
 
 }
