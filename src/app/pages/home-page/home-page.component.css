@@ -3,5 +3,7 @@
     line-height: 23px !important;
     overflow-y: scroll !important;
 }
-
+.fade-out{
+    display: none;
+}
     

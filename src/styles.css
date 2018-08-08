@@ -717,6 +717,7 @@ body.canvas-menu.mini-navbar nav.navbar-static-side {
 
 .top-navigation .wrapper.wrapper-content {
   padding: 40px 40px 20px 40px;
+  padding-left: 40px !important;
 }
 
 .top-navigation.body-small .wrapper.wrapper-content,
@@ -4396,7 +4397,7 @@ ol.unstyled {
     bottom: 0;
     left: 0;
     padding: 10px 20px;
-    position: fixed;
+    position: relative;
     right: 0;
     margin-top: 10px;
 }

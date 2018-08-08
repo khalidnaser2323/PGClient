@@ -460,4 +460,9 @@ color: #fff;
 .childbox{
     padding-top: 20px;
 }
+.childbox p{
+    height: 3em;
+    line-height: 25px;
+    overflow: hidden;
+}
 
