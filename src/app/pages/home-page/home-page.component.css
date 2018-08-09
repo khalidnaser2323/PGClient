@@ -2,6 +2,7 @@
     height: auto !important;
     line-height: 23px !important;
     overflow-y: scroll !important;
+    height: 227px !important;
 }
 .fade-out{
     display: none;

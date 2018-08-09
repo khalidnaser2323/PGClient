@@ -3,16 +3,20 @@
         <ol class="breadcrumb">
             <li>
                 <a routerLink="/">
-                    <i class="fa fa-home" style="    font-size: 19px;    margin-right: 5px;"></i> {{pillarName}} </a>
+                    <i class="fa fa-home" style="    font-size: 19px;    margin-right: 5px;"></i> Home </a>
+            </li>
+            <li>
+                <a (click)="backClicked()">
+                    <i style="    font-size: 19px;    margin-right: 5px;"></i> {{pillarName}} </a>
             </li>
             <li>
                 <a (click)="backClicked()"> {{cardTitle}} </a>
             </li>
-  
+
         </ol>
         <h2 class="sub_head_child_card" style="font-size:30px;"> {{templateTitle}}</h2>
     </div>
-  </div>
+</div>
 <div class="wrapper wrapper-content btn-white row">
     <div class="row flex-row form-group">
 

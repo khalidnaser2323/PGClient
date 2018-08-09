@@ -3,7 +3,11 @@
         <ol class="breadcrumb">
             <li>
                 <a routerLink="/">
-                    <i class="fa fa-home" style="    font-size: 19px;    margin-right: 5px;"></i> {{pillarName}} </a>
+                    <i class="fa fa-home" style="    font-size: 19px;    margin-right: 5px;"></i> Home </a>
+            </li>
+            <li>
+                <a (click)="backClicked()">
+                    <i style="    font-size: 19px;    margin-right: 5px;"></i> {{pillarName}} </a>
             </li>
             <li>
                 <a (click)="backClicked()"> {{cardTitle}} </a>
@@ -22,7 +26,7 @@
             <h1 class="green-color">
                 <b> {{temp.tempName}}</b>
             </h1>
-            <p class="font-size-18 card_header" > {{temp.tempDescribtion}} </p>
+            <p class="font-size-18 card_header"> {{temp.tempDescribtion}} </p>
             <p class="font-size-18"> </p>
         </div>
         <div class="col-md-8 col-sm-7 col-xs-12">
