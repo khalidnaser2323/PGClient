@@ -20,6 +20,7 @@ export class Templete11Component implements OnInit {
   slideIndex = 1;
   el: HTMLElement;
   mySlides: any;
+  templateTitle: string;
   @ViewChild('demo') demo: ElementRef;
   constructor(
     private route: ActivatedRoute,
@@ -67,6 +68,7 @@ export class Templete11Component implements OnInit {
       console.log(cardDetails);
       if (cardDetails && cardDetails.templates && cardDetails.templates[this.templateId] && cardDetails.templates[this.templateId].payload && cardDetails.templates[this.templateId].payload.data) {
         this.temp11 = cardDetails.templates[this.templateId].payload.data;
+        this.templateTitle = cardDetails.templates[this.templateId].title;
         this.cardTitle = cardDetails.title;
       }
     }, err => {
