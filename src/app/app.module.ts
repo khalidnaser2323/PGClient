@@ -22,6 +22,9 @@ import { ServiceHandlerProvider } from './services/service-handler/service-handl
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { KeysPipe } from './keys.pipe';
+import { FeedbackComponent } from './feedback/feedback.component';
+import { FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -43,14 +46,16 @@ import { KeysPipe } from './keys.pipe';
     Template4Component,
     StageComponent,
     ChartComponent,
-    KeysPipe
+    KeysPipe,
+    FeedbackComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     ServiceHandlerProvider
