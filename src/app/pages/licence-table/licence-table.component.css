@@ -1,0 +1,49 @@
+/*------------table style------------------*/
+
+
+table{
+    text-align: center;
+margin-bottom: 30px;
+}
+
+table th{
+background-color: rgba(107, 170, 114, 1);
+    font-family: 'Roboto-Medium', 'Roboto Medium', 'Roboto';
+font-weight: 100;
+font-style: normal;
+font-size: 15px;
+color: #FFFFFF;
+text-align: center;
+    vertical-align: middle !important;
+}
+
+table td{
+border: 2px solid #6baa72;
+    /* background-color: rgba(255, 255, 255, 1); */
+        font-family: 'Roboto-Light', 'Roboto Light', 'Roboto';
+font-weight: 100;
+font-style: normal;
+font-size: 12px;
+padding-top: 40px !important;
+padding-bottom: 40px !important;
+color: #000;
+
+}
+
+
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td{
+    border-top: 2px solid #6baa72;
+}
+
+
+table td:hover{
+background-color: #6baa72;
+color: #fff;
+transition: .3s ease;
+}
+
+
+
+
+
+/*------------End table style------------------*/

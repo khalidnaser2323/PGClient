@@ -12,6 +12,7 @@ import { Template9Component } from './pages/template9/template9.component';
 import { Templete12Component } from './pages/templete12/templete12.component';
 import { Templete11Component } from './pages/templete11/templete11.component';
 import { Templete10Component } from './pages/templete10/templete10.component';
+import { Templete7Component } from './pages/templete7/templete7.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'temp12', component: Templete12Component },
   { path: 'temp4', component: Template4Component },
   { path: 'temp9', component: Template9Component },
+  { path: 'temp7', component: Templete7Component },
   { path: 'temp5', component: TeamCharterComponent },
   { path: 'Licence', component: LicenceTableComponent },
   { path: 'home', component: HomePageComponent },
