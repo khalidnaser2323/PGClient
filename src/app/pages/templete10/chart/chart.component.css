@@ -1,0 +1,15 @@
+.user-button .row{
+    height: 110px;
+    width: 100%;
+}
+
+.img-responsive div{
+        top: 25% !important;
+    left: 37% !important;
+}
+
+.img-responsive div span{
+    top: 28%;
+    left: 35%;
+    position: absolute;
+}
