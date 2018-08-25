@@ -716,7 +716,7 @@ body.canvas-menu.mini-navbar nav.navbar-static-side {
 }
 
 .top-navigation .wrapper.wrapper-content {
-  padding: 40px 40px 20px 40px;
+    padding:  40px 40px 50px !important;
   padding-left: 40px !important;
 }
 
@@ -1998,6 +1998,8 @@ div.dt-button-info {
 /* CIRCLE */
 .img-circle {
     border-radius: 50%;
+    width:  128px;
+    height:  128px;
 }
 
 .btn-circle {
@@ -4397,7 +4399,7 @@ ol.unstyled {
     bottom: 0;
     left: 0;
     padding: 10px 20px;
-    position: relative;
+    position: fixed;
     right: 0;
     margin-top: 10px;
 }
@@ -5604,7 +5606,8 @@ body.mini-navbar.fixed-sidebar .logo-element {
 .child-card.img-responsive {
     width: 330px;
     height: auto;
-    
+    width:  210px;
+    height:  160px;
 }
 
 @media(min-width:1860px) {
@@ -10585,8 +10588,9 @@ b, strong {
     border-width: 0px;
     left: 0px;
     top: 0px;
-    height: 60px;
+    height: 100px;
     background: inherit;
+    overflow:  hidden;
     background-color: rgba(34, 171, 165, 1);
     box-sizing: border-box;
     border-width: 1px;

@@ -13,8 +13,8 @@
                 <span class="product-price" [ngClass]="{'fade-out': pillar._id == hoveredPillarId}">
                   <img src="img/u186.svg" class="arrow">
                 </span>
-                <h2 class="card_header"> {{pillar.title}} </h2>
-                <p [ngClass]="{'hovered': pillar._id == hoveredPillarId}" id="aa" class="sub_login-title-style sub_login-title-style_card ss ">
+                <h2 class="card_header" title="{{pillar.title}}"> {{pillar.title}} </h2>
+                <p [ngClass]="{'hovered': pillar._id == hoveredPillarId}" title="{{pillar.subtitle}}" id="aa" class="sub_login-title-style sub_login-title-style_card ss ">
                   {{pillar.subtitle}}
                 </p>
               </div>

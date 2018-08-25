@@ -114,8 +114,7 @@ form.m-t {
 	overflow: auto;
 }
 .top-navigation .wrapper.wrapper-content {
-	padding-top: 20px;
-	padding-left: 10px;
+    padding:  40px 40px 50px !important;
 }
 
 /*--------------------------------Responsive--------------------------------------*/
@@ -296,7 +295,11 @@ form.m-t {
 	font-weight: 200;
 	font-style: normal;
 	font-size: 30px;
-	color: #333333;
+    color: #333333;
+    word-wrap:   break-word;
+    min-height:  70px;
+    overflow:  hidden;
+    max-height:  70px;
 }
 
 .sub_head_child_card {
@@ -414,6 +417,9 @@ color: #fff;
 .childbox p{
     height: 3em;
     line-height: 25px;
-    overflow: hidden;
+    overflow-y:  scroll;
+    min-height:  90px;
+    overflow-x:   hidden;
+
 }
 
