@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { Chart } from 'chart.js';
+import { Constants } from '../../../Constants';
 @Component({
   selector: 'app-stage',
   templateUrl: './stage.component.html',
@@ -8,6 +9,7 @@ import { Chart } from 'chart.js';
 export class StageComponent implements OnInit {
   ctx: any;
   chart = [];
+  imagePath: string = Constants.IMAGE_PATH;
   // stage:Stage;
   @Input() stage: Stage;
   colors: Array<string> = ['rgb(0, 143, 179)',

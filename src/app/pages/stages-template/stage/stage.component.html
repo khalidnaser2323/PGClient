@@ -2,6 +2,7 @@
     <p class="price"> {{stage.StagePrice}}EPG </p>
     <div class="img-responsive inline">
         <canvas #canvas width="400" height="460">{{chart}}</canvas>
+        <img alt="image" class="img-circle m-t-xs img-responsive inline" src={{imagePath}}{{stage.icon}} onError="this.src='img/logo.png';">
     </div>
     <p class="font-size-18 card_header">
         {{stage.tempDescribtion}}
