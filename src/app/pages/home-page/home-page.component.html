@@ -3,7 +3,7 @@
     <a *ngFor="let pillar of pillars" (mouseenter)="mouseEnter(pillar) " (mouseleave)="mouseLeave(pillar)">
       <div class="col-lg-2 cards col-md-2 col-sm-6 col-xs-12 ipad">
         <div class="ibox">
-          <div class="ibox-content product-box w3-animate-left" style="animation-duration: 3s">
+          <div class="ibox-content product-box w3-animate-left" style="animation-duration: 3s;">
             <a routerLink="/pillarDetails/{{pillar._id}}">
               <div class="product-imitation" [ngClass]="{'fade-out': pillar._id == hoveredPillarId}">
                 <img src="{{imagePath}}{{pillar.imageID}}" onError="this.src='img/a1.jpg';" style="height: 148px;" class="img-responsive img_card"
