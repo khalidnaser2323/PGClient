@@ -24,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { KeysPipe } from './keys.pipe';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { FormsModule } from '@angular/forms';
+import { Temp13Component } from './pages/temp13/temp13.component';
 
 
 
@@ -47,7 +48,8 @@ import { FormsModule } from '@angular/forms';
     StageComponent,
     ChartComponent,
     KeysPipe,
-    FeedbackComponent
+    FeedbackComponent,
+    Temp13Component
 
   ],
   imports: [

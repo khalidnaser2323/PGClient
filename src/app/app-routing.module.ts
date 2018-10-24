@@ -13,6 +13,7 @@ import { Templete12Component } from './pages/templete12/templete12.component';
 import { Templete11Component } from './pages/templete11/templete11.component';
 import { Templete10Component } from './pages/templete10/templete10.component';
 import { Templete7Component } from './pages/templete7/templete7.component';
+import { Temp13Component } from './pages/temp13/temp13.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -28,7 +29,8 @@ const routes: Routes = [
   { path: 'stages', component: StagesTemplateComponent },
   { path: 'temp6', component: Template6Component },
   { path: 'pillarDetails/:pillarId', component: PillarChildComponent },
-  { path: 'temp10', component: Templete10Component }
+  { path: 'temp10', component: Templete10Component },
+  { path: 'temp13', component: Temp13Component }
 ];
 
 @NgModule({

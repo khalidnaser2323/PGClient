@@ -12,7 +12,9 @@ interface template5 {
   label2: string,
   xaxisValues: string,
   y1Values: string,
-  y2Values: string
+  y2Values: string,
+  label3?: string,
+  y3Values?: string
 
 }
 @Component({
@@ -47,7 +49,9 @@ export class TeamCharterComponent implements OnInit {
       label2: "",
       y1Values: "",
       y2Values: "",
-      xaxisValues: ""
+      xaxisValues: "",
+      label3: "",
+      y3Values: ""
     };
     this.route.params.subscribe(params => {
       console.log(params);
@@ -91,6 +95,7 @@ export class TeamCharterComponent implements OnInit {
     const xaxisValues = this.temp.xaxisValues.split(",");
     const y1 = this.temp.y1Values.split(",");
     const y2 = this.temp.y2Values.split(",");
+    const y3 = this.temp.y3Values.split(",");
     this.length = this.temp.y1Values.length;
     this.ctx = this.canvasRef.nativeElement.getContext('2d');
 
@@ -112,6 +117,13 @@ export class TeamCharterComponent implements OnInit {
 
           borderWidth: 1,
           data: y2
+        },
+        {
+          label: this.temp.label3,
+          backgroundColor: this.colorloop(this.length, 'rgb(255, 153, 255,0.2)'),
+          borderColor: this.colorloop(this.length, 'rgb(255, 51, 153)'),
+          borderWidth: 1,
+          data: y3
         }
         ]
       },
