@@ -14,7 +14,9 @@ interface template5 {
   y1Values: string,
   y2Values: string,
   label3?: string,
-  y3Values?: string
+  y3Values?: string,
+  linearVariableLabel?: string,
+  linearVariableData?: string
 
 }
 @Component({
@@ -51,7 +53,9 @@ export class TeamCharterComponent implements OnInit {
       y2Values: "",
       xaxisValues: "",
       label3: "",
-      y3Values: ""
+      y3Values: "",
+      linearVariableData: "",
+      linearVariableLabel: ""
     };
     this.route.params.subscribe(params => {
       console.log(params);
@@ -98,34 +102,49 @@ export class TeamCharterComponent implements OnInit {
     const y3 = this.temp.y3Values.split(",");
     this.length = this.temp.y1Values.length;
     this.ctx = this.canvasRef.nativeElement.getContext('2d');
+    let datasetsForChart = [];
+    if (this.temp.label1 != "" && this.temp.y1Values != "") {
+      datasetsForChart.push({
+        label: this.temp.label1,
+        backgroundColor: this.colorloop(this.length, 'rgb(0, 230, 184,0.2)'),
+        borderColor: this.colorloop(this.length, 'rgb(0, 102, 102)'),
+        borderWidth: 1,
+        data: y1,
+      });
 
+    }
+    if (this.temp.label2 != "" && this.temp.y2Values != "") {
+      datasetsForChart.push({
+        label: this.temp.label2,
+        backgroundColor: this.colorloop(this.length, 'rgb(255, 153, 255,0.2)'),
+        borderColor: this.colorloop(this.length, 'rgb(255, 51, 153)'),
+
+        borderWidth: 1,
+        data: y2
+      });
+    }
+    if (this.temp.label3 != "" && this.temp.y3Values != "") {
+      datasetsForChart.push({
+        label: this.temp.label3,
+        backgroundColor: this.colorloop(this.length, 'rgb(255, 153, 255,0.2)'),
+        borderColor: this.colorloop(this.length, 'rgb(255, 51, 153)'),
+        borderWidth: 1,
+        data: y3
+      });
+    }
+    if (this.temp.linearVariableLabel != "" && this.temp.linearVariableData != null) {
+      const y4 = this.temp.linearVariableData.split(",");
+      datasetsForChart.push({
+        label: this.temp.linearVariableLabel,
+        data: y4,
+        type: 'line'
+      });
+    }
     this.chart = new Chart(this.ctx, {
       type: 'bar',
       data: {
         labels: xaxisValues,
-        datasets: [{
-          label: this.temp.label1,
-          backgroundColor: this.colorloop(this.length, 'rgb(0, 230, 184,0.2)'),
-          borderColor: this.colorloop(this.length, 'rgb(0, 102, 102)'),
-          borderWidth: 1,
-          data: y1,
-        },
-        {
-          label: this.temp.label2,
-          backgroundColor: this.colorloop(this.length, 'rgb(255, 153, 255,0.2)'),
-          borderColor: this.colorloop(this.length, 'rgb(255, 51, 153)'),
-
-          borderWidth: 1,
-          data: y2
-        },
-        {
-          label: this.temp.label3,
-          backgroundColor: this.colorloop(this.length, 'rgb(255, 153, 255,0.2)'),
-          borderColor: this.colorloop(this.length, 'rgb(255, 51, 153)'),
-          borderWidth: 1,
-          data: y3
-        }
-        ]
+        datasets: datasetsForChart
       },
 
       options: {
