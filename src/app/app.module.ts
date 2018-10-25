@@ -25,7 +25,9 @@ import { KeysPipe } from './keys.pipe';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { FormsModule } from '@angular/forms';
 import { Temp13Component } from './pages/temp13/temp13.component';
-
+import { MatDialogModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PhotoTmpComponent } from './pages/photo-tmp/photo-tmp.component';
 
 
 @NgModule({
@@ -49,15 +51,21 @@ import { Temp13Component } from './pages/temp13/temp13.component';
     ChartComponent,
     KeysPipe,
     FeedbackComponent,
-    Temp13Component
+    Temp13Component,
+    PhotoTmpComponent
 
+  ],
+  entryComponents: [
+    PhotoTmpComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     ServiceHandlerProvider

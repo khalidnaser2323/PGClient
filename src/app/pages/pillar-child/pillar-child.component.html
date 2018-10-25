@@ -16,8 +16,8 @@
           </p>
           <div class="user-button">
             <div class="row">
-              <button type="button" *ngFor="let button of card.buttons | keys" (click)="onButtonClicked(button.key,card._id)" class="  btn-primary btn-sm  btn-rounded child_button"
-                style="float:left;"> {{button.value}}</button>
+              <button type="button" *ngFor="let button of card.buttons | keys" (click)="onButtonClicked(button.key,card._id)"
+                class="  btn-primary btn-sm  btn-rounded child_button" style="float:left;"> {{button.value}}</button>
             </div>
           </div>
         </div>

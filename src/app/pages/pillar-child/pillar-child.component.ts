@@ -3,7 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { ServiceHandlerProvider } from '../../services/service-handler/service-handler';
 import { Constants } from '../../Constants';
 import { Router } from '@angular/router';
-
+import { MatDialog } from '@angular/material';
+import { PhotoTmpComponent } from '../photo-tmp/photo-tmp.component';
 
 @Component({
   selector: 'app-pillar-child',
@@ -19,7 +20,8 @@ export class PillarChildComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     public serviceHandler: ServiceHandlerProvider,
-    public router: Router
+    public router: Router,
+    public dialog: MatDialog,
   ) {
     this.pillarId = this.route.snapshot.paramMap.get('pillarId');
     console.log("Passed pillar id");
@@ -50,8 +52,24 @@ export class PillarChildComponent implements OnInit {
       console.log("Get card details response");
       console.log(cardDetails);
       if (cardDetails && cardDetails.templates && cardDetails.templates[templateId] && cardDetails.templates[templateId].payload && cardDetails.templates[templateId].payload.templateType) {
-        const path = Constants.APP_TEMPLATES.find(tmp => { return tmp.tempId == cardDetails.templates[templateId].payload.templateType }).path;
-        this.router.navigate([path, { name: this.pillarName, pillar: this.pillarId, card: cardId, tmp: templateId }]);
+        if (cardDetails.templates[templateId].payload.templateType == "14") {
+
+          let dialogRef = this.dialog.open(PhotoTmpComponent, {
+            width: "99%",
+            height: "99%",
+            maxHeight: "100%",
+            maxWidth: "100%",
+            data: { imageString: cardDetails.templates[templateId].payload.data }
+          });
+
+          dialogRef.afterClosed().subscribe(result => {
+            console.log('The dialog is closed');
+          });
+        }
+        else {
+          const path = Constants.APP_TEMPLATES.find(tmp => { return tmp.tempId == cardDetails.templates[templateId].payload.templateType }).path;
+          this.router.navigate([path, { name: this.pillarName, pillar: this.pillarId, card: cardId, tmp: templateId }]);
+        }
       }
     }, err => {
       console.log("Get card details error");
