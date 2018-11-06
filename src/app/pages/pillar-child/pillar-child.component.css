@@ -2,3 +2,154 @@
     height: 110px;
     width: 100%;
 }
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+
+p:not(:last-child) {
+  margin: 0 0 20px;
+}
+
+main {
+  /* max-width: 800px; */
+  padding: 40px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+section {
+  display: none;
+  padding: 20px 0 0;
+  border-top: 1px solid #abc;
+}
+
+input {
+  display: none;
+}
+
+label {
+  display: inline-block;
+  margin: 0 0 -1px;
+  padding: 15px 25px;
+  font-weight: 600;
+  text-align: center;
+  color: #abc;
+  border: 1px solid transparent;
+}
+
+label:before {
+  font-family: fontawesome;
+  font-weight: normal;
+  margin-right: 10px;
+}
+
+label:hover {
+  color: #789;
+  cursor: pointer;
+}
+
+input:checked + label {
+  color: #0af;
+  border: 1px solid #abc;
+  /* border-top: 2px solid #0af; */
+  border-bottom: 1px solid #fff;
+}
+
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2,
+#tab3:checked ~ #content3,
+#tab4:checked ~ #content4 {
+  display: block;
+}
+
+@media screen and (max-width: 800px) {
+  label {
+    font-size: 0;
+  }
+
+  label:before {
+    margin: 0;
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 500px) {
+  label {
+    padding: 15px;
+  }
+}
+.table-bordered {
+  border: 0px;
+}
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+  border: 0px;
+}
+
+th {
+  text-align: center;
+  width: 25%;
+}
+
+.table th h1 {
+  font-weight: bold;
+}
+
+.table {
+  text-align: center;
+}
+
+.table > thead > tr > th {
+  border: 3px solid #000;
+}
+
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+  border-right: 3px solid #000 !important;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+.table > tbody > tr > td:nth-last-child(1),
+.table > tfoot > tr > td:nth-last-child(1) {
+  border-right: 0px !important;
+}
+
+.table > tfoot > tr > td {
+  border-bottom: 3px solid #000 !important;
+}
+.img_Templete {
+  width: 150px;
+  height: 210px;
+  box-shadow: 0 0 0px 4px #949390;
+  cursor: pointer;
+}
+/* tbody {
+    width: 100%;
+    display: block;
+    text-align: center;
+} */
+.special-tr {
+    width: 100%;
+    display: block;
+    text-align: center;
+    padding: 20px 0 20px 0;
+    /* border-right: 3px solid #000 ; */
+}
+.table > tbody > td > tbody {
+    width: 100% !important;
+    display: block;
+}
+.special-td {
+    border-right: 3px solid #000 ;
+    border-bottom: 3px solid #000;
+    vertical-align: text-top !important ;
+
+
+}
+.last-col {
+    border-right: 0px !important;
+}

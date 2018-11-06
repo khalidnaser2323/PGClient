@@ -16,6 +16,8 @@ export class PillarChildComponent implements OnInit {
   cards: Card[];
   pillarName: string;
   imagePath: string = Constants.IMAGE_PATH;
+  tableRows: any;
+  rowColumns: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -55,8 +57,8 @@ export class PillarChildComponent implements OnInit {
         if (cardDetails.templates[templateId].payload.templateType == "14") {
 
           let dialogRef = this.dialog.open(PhotoTmpComponent, {
-            width: "99%",
-            height: "99%",
+            width: "95%",
+            height: "95%",
             maxHeight: "100%",
             maxWidth: "100%",
             data: { imageString: cardDetails.templates[templateId].payload.data }

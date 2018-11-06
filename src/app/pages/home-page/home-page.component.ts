@@ -11,6 +11,7 @@ export class HomePageComponent implements OnInit {
   imagePath: string = Constants.IMAGE_PATH;
   hoveredPillarId: string;
   pillars: Array<Pillar>;
+  departments: Array<Pillar>;
   constructor(
     public serviceHandler: ServiceHandlerProvider,
   ) {
@@ -21,10 +22,11 @@ export class HomePageComponent implements OnInit {
 
   }
   getPillars() {
-    this.serviceHandler.runService(Constants.BASE_URL + "section/list", "GET").subscribe((res) => {
+    this.serviceHandler.runService(Constants.BASE_URL + "section/list", "GET").subscribe((res: Array<Pillar>) => {
       console.log("Get pillars response");
       console.log(res);
-      this.pillars = res;
+      this.pillars = res.filter(section => { return section.type == undefined || section.type == null || section.type == "undefined" || section.type == "pillar" });
+      this.departments = res.filter(section => { return (section.type && section.type == "department") });
     }, err => {
       console.log("Upload image string error");
       console.error(err);
