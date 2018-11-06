@@ -56,7 +56,7 @@ export class Constants {
             path: "temp12"
         }, {
             tempId: "13",
-            imageURL: "img/temp9.png",
+            imageURL: "img/temp13.png",
             path: "temp13"
         }
     ];

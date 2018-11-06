@@ -38,64 +38,15 @@
           <h1>{{card.title}}</h1>
 
         </th>
-        <!-- <th>
-          <h1>Do</h1>
-        </th>
-        <th>
-          <h1>Check</h1>
-        </th>
-        <th>
-          <h1>Act</h1>
-        </th> -->
       </tr>
     </thead>
     <tbody>
       <td class="special-td" [ngClass]="{'last-col': i == (cards.length - 1)}" *ngFor="let card of cards; let i = index">
         <tr class="special-tr" *ngFor="let button of card.buttons | keys">
-          <img (click)="onButtonClicked(button.key,card._id)" class="img_Templete" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSENvH3-yhh_0THHv4fvWrZMAUMN_OS7peFEzfNXqHD4yvYpV3Vr3BJ0ep9">
+          <img (click)="onButtonClicked(button.key,card._id)" class="img_Templete" src="{{ button.value.payload.tmpImage ?  imagePath + button.value.payload.tmpImage : getTempURL(button.value.payload.templateType)}}"
+            onError="this.src='img/logo.png';">
         </tr>
-        <!-- <tr class="special-tr">
-          <img class="img_Templete" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSENvH3-yhh_0THHv4fvWrZMAUMN_OS7peFEzfNXqHD4yvYpV3Vr3BJ0ep9">
-        </tr>
-        <tr class="special-tr">
-          <img class="img_Templete" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSENvH3-yhh_0THHv4fvWrZMAUMN_OS7peFEzfNXqHD4yvYpV3Vr3BJ0ep9">
-        </tr> -->
       </td>
-      <!-- <tr>
-      <td><img class="img_Templete" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSENvH3-yhh_0THHv4fvWrZMAUMN_OS7peFEzfNXqHD4yvYpV3Vr3BJ0ep9">
-      </td>
-      <td><img class="img_Templete" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSENvH3-yhh_0THHv4fvWrZMAUMN_OS7peFEzfNXqHD4yvYpV3Vr3BJ0ep9">
-      </td>
-      <td><img class="img_Templete" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSENvH3-yhh_0THHv4fvWrZMAUMN_OS7peFEzfNXqHD4yvYpV3Vr3BJ0ep9">
-      </td>
-      <td><img class="img_Templete" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSENvH3-yhh_0THHv4fvWrZMAUMN_OS7peFEzfNXqHD4yvYpV3Vr3BJ0ep9">
-      </td>
-
-    </tr>
-    <tr>
-      <td><img class="img_Templete" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSENvH3-yhh_0THHv4fvWrZMAUMN_OS7peFEzfNXqHD4yvYpV3Vr3BJ0ep9">
-      </td>
-      <td><img class="img_Templete" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSENvH3-yhh_0THHv4fvWrZMAUMN_OS7peFEzfNXqHD4yvYpV3Vr3BJ0ep9">
-      </td>
-      <td><img class="img_Templete" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSENvH3-yhh_0THHv4fvWrZMAUMN_OS7peFEzfNXqHD4yvYpV3Vr3BJ0ep9">
-      </td>
-      <td><img class="img_Templete" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSENvH3-yhh_0THHv4fvWrZMAUMN_OS7peFEzfNXqHD4yvYpV3Vr3BJ0ep9">
-      </td>
-
-
-    </tr>
-    <tr>
-      <td><img class="img_Templete" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSENvH3-yhh_0THHv4fvWrZMAUMN_OS7peFEzfNXqHD4yvYpV3Vr3BJ0ep9">
-      </td>
-      <td><img class="img_Templete" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSENvH3-yhh_0THHv4fvWrZMAUMN_OS7peFEzfNXqHD4yvYpV3Vr3BJ0ep9">
-      </td>
-      <td><img class="img_Templete" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSENvH3-yhh_0THHv4fvWrZMAUMN_OS7peFEzfNXqHD4yvYpV3Vr3BJ0ep9">
-      </td>
-      <td><img class="img_Templete" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSENvH3-yhh_0THHv4fvWrZMAUMN_OS7peFEzfNXqHD4yvYpV3Vr3BJ0ep9">
-      </td>
-
-
-    </tr> -->
 
     </tbody>
   </table>

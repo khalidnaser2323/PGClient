@@ -2,8 +2,8 @@
     height: 110px;
     width: 100%;
 }
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
-@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+/* @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"); */
 
 p:not(:last-child) {
   margin: 0 0 20px;
@@ -122,8 +122,8 @@ th {
   border-bottom: 3px solid #000 !important;
 }
 .img_Templete {
-  width: 150px;
-  height: 210px;
+  width: 225px;
+  height: 137px;
   box-shadow: 0 0 0px 4px #949390;
   cursor: pointer;
 }

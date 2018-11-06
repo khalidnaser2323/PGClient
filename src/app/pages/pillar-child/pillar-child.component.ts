@@ -18,6 +18,7 @@ export class PillarChildComponent implements OnInit {
   imagePath: string = Constants.IMAGE_PATH;
   tableRows: any;
   rowColumns: any;
+  selectedTmpURL: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -31,7 +32,12 @@ export class PillarChildComponent implements OnInit {
     this.getPillarDetails(this.pillarId);
 
   }
-
+  getTempURL(tmpId: string) {
+    const selectedTmp = Constants.APP_TEMPLATES.find(tmp => tmp.tempId == tmpId);
+    if (selectedTmp) {
+      return selectedTmp.imageURL;
+    }
+  }
   ngOnInit() {
   }
   getPillarDetails(pillarId: string) {
