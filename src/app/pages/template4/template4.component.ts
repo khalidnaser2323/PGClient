@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ServiceHandlerProvider } from '../../services/service-handler/service-handler';
 import { Constants } from '../../Constants';
@@ -11,27 +11,30 @@ import { Location } from '@angular/common';
 })
 
 export class Template4Component implements OnInit {
+  @Input() params: { name: string, pillar: string, card: string, tmp: string };
+  @Input() zoomContent: boolean;
+
   temp: any;
   pillarId: string;
   cardId: string;
   templateId: string;
   pillarName: string;
   cardTitle: string;
-  templateTitle:string;
+  templateTitle: string;
   constructor(
     private route: ActivatedRoute,
     public serviceHandler: ServiceHandlerProvider,
     private _location: Location
 
   ) {
-    this.route.params.subscribe(params => {
-      console.log(params);
-      this.pillarId = params.pillar;
-      this.cardId = params.card;
-      this.templateId = params.tmp;
-      this.pillarName = params.name;
-      this.getCardDetails(this.pillarId, this.cardId);
-    });
+    // this.route.params.subscribe(params => {
+    //   console.log(params);
+    //   this.pillarId = params.pillar;
+    //   this.cardId = params.card;
+    //   this.templateId = params.tmp;
+    //   this.pillarName = params.name;
+    //   this.getCardDetails(this.pillarId, this.cardId);
+    // });
     this.temp = {
       tableData: [
         { rowID: '0', tableHeader: 'Table Header' },
@@ -45,6 +48,11 @@ export class Template4Component implements OnInit {
   }
 
   ngOnInit() {
+    this.pillarId = this.params.pillar;
+    this.cardId = this.params.card;
+    this.templateId = this.params.tmp;
+    this.pillarName = this.params.name;
+    this.getCardDetails(this.pillarId, this.cardId);
   }
   getCardDetails(pillarId: string, cardId: string) {
     const url = Constants.BASE_URL + "section/" + pillarId + "/" + cardId;

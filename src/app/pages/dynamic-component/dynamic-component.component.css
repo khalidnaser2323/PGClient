@@ -1,0 +1,14 @@
+.dynamic-component{
+  height: 100px;
+  width: 100%;
+  max-width: 200px;  box-shadow: 0 0 0px 4px #949390;
+  cursor: pointer;
+  border-bottom-right-radius: 25px;
+  border-top-left-radius: 25px;
+  cursor: pointer;
+  overflow: hidden;
+  background-color: white;
+  margin: 0 auto !important;
+  padding: 0 !important;
+    
+}

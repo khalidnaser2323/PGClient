@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { Chart } from 'chart.js';
 import { ActivatedRoute } from '@angular/router';
 import { ServiceHandlerProvider } from '../../services/service-handler/service-handler';
@@ -28,6 +28,9 @@ export class Template6Component implements OnInit {
   pillarName: string;
   cardTitle: string;
   templateTitle: string;
+  @Input() params: { name: string, pillar: string, card: string, tmp: string };
+  @Input() zoomContent: boolean;
+
 
   constructor(
     private route: ActivatedRoute,
@@ -43,17 +46,22 @@ export class Template6Component implements OnInit {
       xaxisValues: "",
       yaxisValues: ""
     };
-    this.route.params.subscribe(params => {
-      console.log(params);
-      this.pillarId = params.pillar;
-      this.cardId = params.card;
-      this.templateId = params.tmp;
-      this.pillarName = params.name;
-      this.getCardDetails(this.pillarId, this.cardId);
-    });
+    // this.route.params.subscribe(params => {
+    //   console.log(params);
+    //   this.pillarId = params.pillar;
+    //   this.cardId = params.card;
+    //   this.templateId = params.tmp;
+    //   this.pillarName = params.name;
+    //   this.getCardDetails(this.pillarId, this.cardId);
+    // });
   }
 
   ngOnInit() {
+    this.pillarId = this.params.pillar;
+    this.cardId = this.params.card;
+    this.templateId = this.params.tmp;
+    this.pillarName = this.params.name;
+    this.getCardDetails(this.pillarId, this.cardId);
   }
   getCardDetails(pillarId: string, cardId: string) {
     const url = Constants.BASE_URL + "section/" + pillarId + "/" + cardId;

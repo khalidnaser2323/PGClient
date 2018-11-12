@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ServiceHandlerProvider } from '../../services/service-handler/service-handler';
 import { Constants } from '../../Constants';
@@ -11,6 +11,9 @@ import { Location } from '@angular/common';
   styleUrls: ['./templete11.component.css']
 })
 export class Templete11Component implements OnInit {
+  @Input() params: { name: string, pillar: string, card: string, tmp: string };
+  @Input() zoomContent: boolean;
+
   temp11: Temp11;
   pillarId: string;
   cardId: string;
@@ -46,17 +49,23 @@ export class Templete11Component implements OnInit {
       colTwoText: ""
     }
     this.el = el.nativeElement;
-    this.route.params.subscribe(params => {
-      console.log(params);
-      this.pillarId = params.pillar;
-      this.cardId = params.card;
-      this.templateId = params.tmp;
-      this.pillarName = params.name;
-      this.getCardDetails(this.pillarId, this.cardId);
-    });
+    // this.route.params.subscribe(params => {
+    //   console.log(params);
+    //   this.pillarId = params.pillar;
+    //   this.cardId = params.card;
+    //   this.templateId = params.tmp;
+    //   this.pillarName = params.name;
+    //   this.getCardDetails(this.pillarId, this.cardId);
+    // });
   }
 
   ngOnInit() {
+    this.pillarId = this.params.pillar;
+    this.cardId = this.params.card;
+    this.templateId = this.params.tmp;
+    this.pillarName = this.params.name;
+    this.getCardDetails(this.pillarId, this.cardId);
+
     this.mySlides = this.el.getElementsByClassName("mySlides");
     this.showDivs(this.slideIndex);
 

@@ -28,6 +28,9 @@ import { Temp13Component } from './pages/temp13/temp13.component';
 import { MatDialogModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PhotoTmpComponent } from './pages/photo-tmp/photo-tmp.component';
+import { GeneralPopUpComponent } from './pages/general-pop-up/general-pop-up.component';
+import { DynamicComponentComponent } from './pages/dynamic-component/dynamic-component.component';
+import { ScreensaverComponent } from './pages/screensaver/screensaver.component';
 
 
 @NgModule({
@@ -52,11 +55,17 @@ import { PhotoTmpComponent } from './pages/photo-tmp/photo-tmp.component';
     KeysPipe,
     FeedbackComponent,
     Temp13Component,
-    PhotoTmpComponent
+    PhotoTmpComponent,
+    GeneralPopUpComponent,
+    DynamicComponentComponent,
+    ScreensaverComponent
 
   ],
   entryComponents: [
-    PhotoTmpComponent
+    PhotoTmpComponent,
+    GeneralPopUpComponent,
+    DynamicComponentComponent,
+    ScreensaverComponent
   ],
   imports: [
     BrowserModule,

@@ -102,7 +102,8 @@
               "src/js/plugins/flot/jquery.flot.resize.js",
               "src/js/plugins/peity/jquery.peity.min.js",
               "src/js/demo/peity-demo.js",
-              "src/js/plugins/jxcel.js"
+              "src/js/plugins/jxcel.js",
+              "https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"
             ],
             "styles": [
               "src/css/bootstrap.min.css",

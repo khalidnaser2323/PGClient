@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ServiceHandlerProvider } from '../../services/service-handler/service-handler';
 import { Constants } from '../../Constants';
@@ -13,6 +13,9 @@ declare var $: any;
   styleUrls: ['./templete7.component.css']
 })
 export class Templete7Component implements OnInit {
+  @Input() params: { name: string, pillar: string, card: string, tmp: string };
+  @Input() zoomContent: boolean;
+
   temp: any;
   pillarId: string;
   cardId: string;
@@ -25,17 +28,22 @@ export class Templete7Component implements OnInit {
     public serviceHandler: ServiceHandlerProvider,
     private _location: Location
   ) {
-    this.route.params.subscribe(params => {
-      console.log(params);
-      this.pillarId = params.pillar;
-      this.cardId = params.card;
-      this.templateId = params.tmp;
-      this.pillarName = params.name;
-      this.getCardDetails(this.pillarId, this.cardId);
-    });
+    // this.route.params.subscribe(params => {
+    //   console.log(params);
+    //   this.pillarId = params.pillar;
+    //   this.cardId = params.card;
+    //   this.templateId = params.tmp;
+    //   this.pillarName = params.name;
+    //   this.getCardDetails(this.pillarId, this.cardId);
+    // });
   }
 
   ngOnInit() {
+    this.pillarId = this.params.pillar;
+    this.cardId = this.params.card;
+    this.templateId = this.params.tmp;
+    this.pillarName = this.params.name;
+    this.getCardDetails(this.pillarId, this.cardId);
   }
   getCardDetails(pillarId: string, cardId: string) {
     const url = Constants.BASE_URL + "section/" + pillarId + "/" + cardId;

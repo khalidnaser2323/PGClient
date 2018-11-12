@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { Chart } from 'chart.js';
 import { ActivatedRoute } from '@angular/router';
 import { ServiceHandlerProvider } from '../../services/service-handler/service-handler';
@@ -25,6 +25,9 @@ interface template5 {
   styleUrls: ['./team-charter.component.css']
 })
 export class TeamCharterComponent implements OnInit {
+  @Input() params: { name: string, pillar: string, card: string, tmp: string };
+  @Input() zoomContent: boolean;
+
   ctx: any;
   chart = [];
   temp: template5;
@@ -57,18 +60,22 @@ export class TeamCharterComponent implements OnInit {
       linearVariableData: "",
       linearVariableLabel: ""
     };
-    this.route.params.subscribe(params => {
-      console.log(params);
-      this.pillarId = params.pillar;
-      this.cardId = params.card;
-      this.templateId = params.tmp;
-      this.pillarName = params.name;
-      this.getCardDetails(this.pillarId, this.cardId);
-    });
+    // this.route.params.subscribe(params => {
+    //   console.log(params);
+    //   this.pillarId = params.pillar;
+    //   this.cardId = params.card;
+    //   this.templateId = params.tmp;
+    //   this.pillarName = params.name;
+    //   this.getCardDetails(this.pillarId, this.cardId);
+    // });
   }
 
   ngOnInit() {
-
+    this.pillarId = this.params.pillar;
+    this.cardId = this.params.card;
+    this.templateId = this.params.tmp;
+    this.pillarName = this.params.name;
+    this.getCardDetails(this.pillarId, this.cardId);
   }
   colorloop(lenght: number, color: string) {
     let colors: string[] = [];

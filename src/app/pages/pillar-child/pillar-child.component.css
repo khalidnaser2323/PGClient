@@ -1,6 +1,6 @@
-.user-button .row{
-    height: 110px;
-    width: 100%;
+.user-button .row {
+  height: 110px;
+  width: 100%;
 }
 /* @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"); */
@@ -103,9 +103,9 @@ th {
   text-align: center;
 }
 
-.table > thead > tr > th {
+/* .table > thead > tr > th {
   border: 3px solid #000;
-}
+ } */
 
 .table > tbody > tr > td,
 .table > tfoot > tr > td {
@@ -122,10 +122,14 @@ th {
   border-bottom: 3px solid #000 !important;
 }
 .img_Templete {
-  width: 225px;
-  height: 137px;
+  /* width: 200px; */
+  height: 100px;
+  width: 100%;
+  max-width: 200px;
   box-shadow: 0 0 0px 4px #949390;
   cursor: pointer;
+  border-bottom-right-radius: 25px;
+  border-top-left-radius: 25px;
 }
 /* tbody {
     width: 100%;
@@ -133,23 +137,62 @@ th {
     text-align: center;
 } */
 .special-tr {
-    width: 100%;
-    display: block;
-    text-align: center;
-    padding: 20px 0 20px 0;
-    /* border-right: 3px solid #000 ; */
+  width: 90%;
+  display: block;
+  text-align: center;
+  padding: 20px 0 20px 0;
+  border-bottom-right-radius: 25px;
+  border-top-left-radius: 25px;
+  background-color: red;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 .table > tbody > td > tbody {
-    width: 100% !important;
-    display: block;
+  width: 100% !important;
+  display: block;
 }
 .special-td {
-    border-right: 3px solid #000 ;
+  /* border-right: 3px solid #000 ;
     border-bottom: 3px solid #000;
-    vertical-align: text-top !important ;
-
-
+    vertical-align: text-top !important ; */
+  text-align: center;
+  text-align: -webkit-center;
+  text-align: -moz-center;
+  vertical-align: text-top !important ;
 }
 .last-col {
-    border-right: 0px !important;
+  border-right: 0px !important;
+}
+
+.row {
+  margin-right: -15px;
+  margin-left: -30px;
+}
+
+.special-td:nth-child(1) .special-tr {
+  background-color: #01b0ef;
+}
+
+.special-td:nth-child(2) .special-tr {
+  background-color: #01ba29;
+}
+
+.special-td:nth-child(3) .special-tr {
+  background-color: #ef7401;
+}
+
+.special-td:nth-child(4) .special-tr {
+  background-color: #ef0101;
+}
+
+.special-text_box {
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(25%, 35%);
+}
+
+.special-text {
+  transform: rotate(270deg);
+  color: #ffffff;
+  font-weight: bold;
 }

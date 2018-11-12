@@ -1,11 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ServiceHandlerProvider } from '../../services/service-handler/service-handler';
 import { Constants } from '../../Constants';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { PhotoTmpComponent } from '../photo-tmp/photo-tmp.component';
+import { GeneralPopUpComponent } from '../general-pop-up/general-pop-up.component';
 
+
+declare var jquery: any;
+declare var $: any;
 @Component({
   selector: 'app-pillar-child',
   templateUrl: './pillar-child.component.html',
@@ -19,7 +23,9 @@ export class PillarChildComponent implements OnInit {
   tableRows: any;
   rowColumns: any;
   selectedTmpURL: string;
-
+  mousetimeout: any;
+  screensaver_active = false;
+  idletime = 10;
   constructor(
     private route: ActivatedRoute,
     public serviceHandler: ServiceHandlerProvider,
@@ -39,6 +45,21 @@ export class PillarChildComponent implements OnInit {
     }
   }
   ngOnInit() {
+    $(document).unbind('mousemove');
+
+    $(document).mousemove(() => {
+      console.log("Mouse move detected!");
+      clearInterval(this.mousetimeout);
+
+      if (this.screensaver_active) {
+        this.stop_screensaver();
+      }
+
+      this.mousetimeout = setInterval(() => {
+        console.log("Set interval is called");
+        this.show_screensaver();
+      }, 10000); // 5 secs			
+    });
   }
   getPillarDetails(pillarId: string) {
     this.serviceHandler.runService(Constants.BASE_URL + "section/" + pillarId, "GET").subscribe(response => {
@@ -75,8 +96,19 @@ export class PillarChildComponent implements OnInit {
           });
         }
         else {
-          const path = Constants.APP_TEMPLATES.find(tmp => { return tmp.tempId == cardDetails.templates[templateId].payload.templateType }).path;
-          this.router.navigate([path, { name: this.pillarName, pillar: this.pillarId, card: cardId, tmp: templateId }]);
+          // const path = Constants.APP_TEMPLATES.find(tmp => { return tmp.tempId == cardDetails.templates[templateId].payload.templateType }).path;
+          // this.router.navigate([path, { name: this.pillarName, pillar: this.pillarId, card: cardId, tmp: templateId }]);
+          let dialogRef = this.dialog.open(GeneralPopUpComponent, {
+            width: "95%",
+            height: "95%",
+            maxHeight: "100%",
+            maxWidth: "100%",
+            data: { params: { name: this.pillarName, pillar: this.pillarId, card: cardId, tmp: templateId }, templateType: cardDetails.templates[templateId].payload.templateType }
+          });
+
+          dialogRef.afterClosed().subscribe(result => {
+            console.log('The dialog is closed');
+          });
         }
       }
     }, err => {
@@ -88,5 +120,43 @@ export class PillarChildComponent implements OnInit {
   onButtonClicked(clickedButtonId: string, clickedCardId: string) {
     this.goToTemplate(this.pillarId, clickedCardId, clickedButtonId);
   }
+  getComponentData(templateId: string, cardId: string) {
+    let cardDetails = this.cards.find(card => { return card._id == cardId });
+    return { params: { name: this.pillarName, pillar: this.pillarId, card: cardId, tmp: templateId }, templateType: cardDetails.buttons[templateId].payload.templateType }
 
+  }
+  show_screensaver() {
+    console.log("Show screen saver is called");
+    $('#screensaver').fadeIn();
+    this.screensaver_active = true;
+
+  }
+
+  stop_screensaver() {
+    console.log("stop screen saver is called");
+    $('#screensaver').fadeOut();
+    this.screensaver_active = false;
+  }
+
+  getRandomIMG() {
+    var images = ['1.png', '2.jpeg', '3.png', '4.jpg'];
+    var index = Math.floor(Math.random() * 3);
+
+    return images[index];
+  }
+  screensaver_animation() {
+    if (this.screensaver_active) {
+
+      $('#screensaver').animate({
+        //   backgroundColor: getRandomColor()
+
+      },
+        400,
+        function () {
+          $(this).css({ 'background-image': 'url(' + this.getRandomIMG() + ')' });
+
+        });
+
+    }
+  }
 }

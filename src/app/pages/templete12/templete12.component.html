@@ -1,4 +1,4 @@
-<div class="row page-heading w3-animate-right" style="animation-duration: 3s;margin-left: 5px;">
+<!-- <div class="row page-heading w3-animate-right" style="animation-duration: 3s;margin-left: 5px;">
     <div class="col-lg-12" style="    margin-top: 20px;">
         <ol class="breadcrumb">
             <li>
@@ -16,144 +16,144 @@
         </ol>
         <h2 class="sub_head_child_card" style="font-size:30px;"> {{templateTitle}}</h2>
     </div>
+</div> -->
+<!-- <div class="wrapper wrapper-content btn-white row"> -->
+<div class="row flex-row form-group" [ngClass]="{'zoomed': zoomContent}">
+
+    <div class="col-lg-12 col-md-8 col-sm-12 col-xs-12">
+        <div class="ibox-content">
+            <canvas height="100" #myCanvas>{{chart}}</canvas>
+        </div>
+    </div>
+    <div class="row " class=" btn-white padding-top-20">
+
+
+    </div>
 </div>
-<div class="wrapper wrapper-content btn-white row">
-    <div class="row flex-row form-group">
+<div class="row   flex-row form-group">
+    <div class=" col-lg-12 col-md-8 col-sm-12 col-xs-12 ">
+        <table class="table table-bordered text-center">
+            <tr class="blue-table-header">
+                <th></th>
+                <th></th>
+                <th class="text-center">
+                    <input class="form-control" type="text" disabled value={{temp.tableData[0].tableHeader1}} />
+                </th>
+                <th class="text-center">
+                    <input class="form-control" type="text" disabled value={{temp.tableData[0].tableHeader2}} />
+                </th>
+                <th class="text-center">
+                    <input class="form-control" type="text" disabled value={{temp.tableData[0].tableHeader3}} />
+                </th>
+                <th class="text-center">
+                    <input class="form-control" type="text" disabled value={{temp.tableData[0].tableHeader4}} />
+                </th>
+                <th class="text-center">
+                    <input class="form-control" type="text" disabled value={{temp.tableData[0].tableHeader5}} /> </th>
+                <th class="text-center">
+                    <input class="form-control" type="text" disabled value={{temp.tableData[0].tableHeader6}} />
+                </th>
+                <th class="text-center">
+                    <input class="form-control" type="text" disabled value={{temp.tableData[0].tableHeader7}} />
+                </th>
 
-        <div class="col-lg-12 col-md-8 col-sm-12 col-xs-12">
-            <div class="ibox-content">
-                <canvas height="100" #myCanvas>{{chart}}</canvas>
-            </div>
-        </div>
-        <div class="row " class=" btn-white padding-top-20">
+            </tr>
+            <tr>
+                <td>
+                    <input class="form-control" type="text" disabled value={{temp.tableData[1].value1}} />
+                </td>
+                <td>
+                    <input class="form-control" type="text" disabled value={{temp.tableData[1].value2}} />
+                </td>
+                <td>
+                    <input class="form-control" type="text" disabled value={{temp.tableData[1].value3}} />
+                </td>
+                <td>
+                    <input class="form-control" type="text" disabled value={{temp.tableData[1].value4}} />
+                </td>
+                <td>
+                    <input class="form-control" type="text" disabled value={{temp.tableData[1].value5}} />
+                </td>
+                <td>
+                    <input class="form-control" type="text" disabled value={{temp.tableData[1].value6}} />
+                </td>
+                <td>
+                    <input class="form-control" type="text" disabled value={{temp.tableData[1].value7}} />
+                </td>
+                <td>
+                    <input class="form-control" type="text" disabled value={{temp.tableData[1].value8}} />
+                </td>
+                <td class="orange-bg">
+                    <input class="form-control" type="text" disabled value={{temp.tableData[1].value9}} />
+                </td>
 
+            </tr>
+            <tr>
+                <td>
+                    <input class="form-control" type="text" disabled value={{temp.tableData[2].value1}} />
+                </td>
+                <td>
+                    <input class="form-control" type="text" disabled value={{temp.tableData[2].value2}} />
+                </td>
+                <td>
+                    <input class="form-control" type="text" disabled value={{temp.tableData[2].value3}} />
+                </td>
+                <td>
+                    <input class="form-control" type="text" disabled value={{temp.tableData[2].value4}} />
+                </td>
+                <td>
+                    <input class="form-control" type="text" disabled value={{temp.tableData[2].value5}} />
+                </td>
+                <td>
+                    <input class="form-control" type="text" disabled value={{temp.tableData[2].value6}} />
+                </td>
+                <td>
+                    <input class="form-control" type="text" disabled value={{temp.tableData[2].value7}} />
+                </td>
+                <td>
+                    <input class="form-control" type="text" disabled value={{temp.tableData[2].value8}} />
+                </td>
+                <td class="orange-bg">
+                    <input class="form-control" type="text" disabled value={{temp.tableData[2].value9}} />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input class="form-control" type="text" disabled value={{temp.tableData[3].value1}} />
+                </td>
+                <td>
+                    <input class="form-control" type="text" disabled value={{temp.tableData[3].value2}} />
+                </td>
+                <td>
+                    <input class="form-control" type="text" disabled value={{temp.tableData[3].value3}} />
+                </td>
+                <td>
+                    <input class="form-control" type="text" disabled value={{temp.tableData[3].value4}} />
+                </td>
+                <td>
+                    <input class="form-control" type="text" disabled value={{temp.tableData[3].value5}} />
+                </td>
+                <td>
+                    <input class="form-control" type="text" disabled value={{temp.tableData[3].value6}} />
+                </td>
+                <td>
+                    <input class="form-control" type="text" disabled value={{temp.tableData[3].value7}} />
+                </td>
+                <td>
+                    <input class="form-control" type="text" disabled value={{temp.tableData[3].value8}} />
+                </td>
+                <td class="orange-bg">
+                    <input class="form-control" type="text" disabled value={{temp.tableData[3].value9}} />
+                </td>
+            </tr>
+        </table>
 
-        </div>
     </div>
-    <div class="row   flex-row form-group">
-        <div class=" col-lg-12 col-md-8 col-sm-12 col-xs-12 ">
-            <table class="table table-bordered text-center">
-                <tr class="blue-table-header">
-                    <th></th>
-                    <th></th>
-                    <th class="text-center">
-                        <input class="form-control" type="text" disabled value={{temp.tableData[0].tableHeader1}} />
-                    </th>
-                    <th class="text-center">
-                        <input class="form-control" type="text" disabled value={{temp.tableData[0].tableHeader2}} />
-                    </th>
-                    <th class="text-center">
-                        <input class="form-control" type="text" disabled value={{temp.tableData[0].tableHeader3}}/>
-                    </th>
-                    <th class="text-center">
-                        <input class="form-control" type="text" disabled value={{temp.tableData[0].tableHeader4}} />
-                    </th>
-                    <th class="text-center">
-                        <input class="form-control" type="text" disabled value={{temp.tableData[0].tableHeader5}} /> </th>
-                    <th class="text-center">
-                        <input class="form-control" type="text" disabled value={{temp.tableData[0].tableHeader6}}/>
-                    </th>
-                    <th class="text-center">
-                        <input class="form-control" type="text" disabled value={{temp.tableData[0].tableHeader7}}/>
-                    </th>
-
-                </tr>
-                <tr>
-                    <td>
-                        <input class="form-control" type="text" disabled value={{temp.tableData[1].value1}}/>
-                    </td>
-                    <td>
-                        <input class="form-control" type="text" disabled value={{temp.tableData[1].value2}} />
-                    </td>
-                    <td>
-                        <input class="form-control" type="text" disabled value={{temp.tableData[1].value3}} />
-                    </td>
-                    <td>
-                        <input class="form-control" type="text" disabled value={{temp.tableData[1].value4}} />
-                    </td>
-                    <td>
-                        <input class="form-control" type="text" disabled value={{temp.tableData[1].value5}} />
-                    </td>
-                    <td>
-                        <input class="form-control" type="text" disabled value={{temp.tableData[1].value6}} />
-                    </td>
-                    <td>
-                        <input class="form-control" type="text" disabled value={{temp.tableData[1].value7}} />
-                    </td>
-                    <td>
-                        <input class="form-control" type="text" disabled value={{temp.tableData[1].value8}}/>
-                    </td>
-                    <td class="orange-bg">
-                        <input class="form-control" type="text" disabled value={{temp.tableData[1].value9}} />
-                    </td>
-
-                </tr>
-                <tr>
-                    <td>
-                        <input class="form-control" type="text" disabled value={{temp.tableData[2].value1}}/>
-                    </td>
-                    <td>
-                        <input class="form-control" type="text" disabled value={{temp.tableData[2].value2}} />
-                    </td>
-                    <td>
-                        <input class="form-control" type="text" disabled value={{temp.tableData[2].value3}} />
-                    </td>
-                    <td>
-                        <input class="form-control" type="text" disabled value={{temp.tableData[2].value4}} />
-                    </td>
-                    <td>
-                        <input class="form-control" type="text" disabled value={{temp.tableData[2].value5}} />
-                    </td>
-                    <td>
-                        <input class="form-control" type="text" disabled value={{temp.tableData[2].value6}} />
-                    </td>
-                    <td>
-                        <input class="form-control" type="text" disabled value={{temp.tableData[2].value7}} />
-                    </td>
-                    <td>
-                        <input class="form-control" type="text" disabled value={{temp.tableData[2].value8}}/>
-                    </td>
-                    <td class="orange-bg">
-                        <input class="form-control" type="text" disabled value={{temp.tableData[2].value9}} />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input class="form-control" type="text" disabled value={{temp.tableData[3].value1}}/>
-                    </td>
-                    <td>
-                        <input class="form-control" type="text" disabled value={{temp.tableData[3].value2}} />
-                    </td>
-                    <td>
-                        <input class="form-control" type="text" disabled value={{temp.tableData[3].value3}} />
-                    </td>
-                    <td>
-                        <input class="form-control" type="text" disabled value={{temp.tableData[3].value4}} />
-                    </td>
-                    <td>
-                        <input class="form-control" type="text" disabled value={{temp.tableData[3].value5}} />
-                    </td>
-                    <td>
-                        <input class="form-control" type="text" disabled value={{temp.tableData[3].value6}} />
-                    </td>
-                    <td>
-                        <input class="form-control" type="text" disabled value={{temp.tableData[3].value7}} />
-                    </td>
-                    <td>
-                        <input class="form-control" type="text" disabled value={{temp.tableData[3].value8}}/>
-                    </td>
-                    <td class="orange-bg">
-                        <input class="form-control" type="text" disabled value={{temp.tableData[3].value9}} />
-                    </td>
-                </tr>
-            </table>
-
-        </div>
-    </div>
-    <!-- <div class="row bottom-hint">
+</div>
+<!-- <div class="row bottom-hint">
                     <div class="col-lg-12">
                         <p class="font-size-18"> *Models supporting Player S are also available for Player Lite, but the available functions are limited when the license sets to Player Lite. **OHF 85” is excluded from MagicInfo Player S4 (OHF 85” is a scaler model)  </p>
                     </div>
                 </div> -->
-</div>
-<app-feedback [pillar]="pillarName" [card]="cardTitle" [template]="templateTitle"></app-feedback>
+<!-- </div> -->
+<!-- <app-feedback [pillar]="pillarName" [card]="cardTitle" [template]="templateTitle"></app-feedback> -->

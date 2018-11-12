@@ -1,0 +1,9 @@
+.d{
+    display: none;
+}
+
+#screensaver
+{
+    position: absolute; width: 100%; height:100%; left:0px; top: 0px; display: none; z-index:9999; 
+
+}

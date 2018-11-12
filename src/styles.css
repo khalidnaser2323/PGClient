@@ -10696,3 +10696,9 @@ h2 strong {
 .navbar {
     min-height: 54px;
 }
+
+.zoomed {
+    zoom: 0.3;
+    padding: 20px;
+  }
+  
