@@ -125,7 +125,6 @@ th {
   /* width: 200px; */
   height: 100px;
   width: 100%;
-  max-width: 200px;
   box-shadow: 0 0 0px 4px #949390;
   cursor: pointer;
   border-bottom-right-radius: 25px;
@@ -158,15 +157,15 @@ th {
   text-align: center;
   text-align: -webkit-center;
   text-align: -moz-center;
-  vertical-align: text-top !important ;
+  vertical-align: text-top;
 }
 .last-col {
   border-right: 0px !important;
 }
 
 .row {
-  margin-right: -15px;
-  margin-left: -30px;
+  margin-right: -25px;
+  margin-left: 0px;
 }
 
 .special-td:nth-child(1) .special-tr {
@@ -186,13 +185,18 @@ th {
 }
 
 .special-text_box {
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(25%, 35%);
+  height: 100px;
+  position: relative;
+  -webkit-transform: rotate(270deg);
+  transform: rotate(270deg);
 }
 
 .special-text {
-  transform: rotate(270deg);
   color: #ffffff;
   font-weight: bold;
+  margin: 0;
+
+  top: 56%;
+  transform: translateY(-50%);
+  margin-top: 100%;
 }

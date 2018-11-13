@@ -25,7 +25,7 @@ export class PillarChildComponent implements OnInit {
   selectedTmpURL: string;
   mousetimeout: any;
   screensaver_active = false;
-  idletime = 10;
+  screeSaverPillars: Array<Pillar>;
   constructor(
     private route: ActivatedRoute,
     public serviceHandler: ServiceHandlerProvider,
@@ -45,6 +45,7 @@ export class PillarChildComponent implements OnInit {
     }
   }
   ngOnInit() {
+    this.getPillars();
     $(document).unbind('mousemove');
 
     $(document).mousemove(() => {
@@ -58,10 +59,10 @@ export class PillarChildComponent implements OnInit {
       this.mousetimeout = setInterval(() => {
         console.log("Set interval is called");
         this.show_screensaver();
-      }, 10000); // 5 secs			
+      }, 60000); // 5 secs			
     });
   }
-  getPillarDetails(pillarId: string) {
+  async getPillarDetails(pillarId: string) {
     this.serviceHandler.runService(Constants.BASE_URL + "section/" + pillarId, "GET").subscribe(response => {
       console.log("Get pillar details response");
       console.log(response);
@@ -125,8 +126,9 @@ export class PillarChildComponent implements OnInit {
     return { params: { name: this.pillarName, pillar: this.pillarId, card: cardId, tmp: templateId }, templateType: cardDetails.buttons[templateId].payload.templateType }
 
   }
-  show_screensaver() {
+  async show_screensaver() {
     console.log("Show screen saver is called");
+    await this.getPillarDetails(this.pillarId);
     $('#screensaver').fadeIn();
     this.screensaver_active = true;
 
@@ -138,25 +140,36 @@ export class PillarChildComponent implements OnInit {
     this.screensaver_active = false;
   }
 
-  getRandomIMG() {
-    var images = ['1.png', '2.jpeg', '3.png', '4.jpg'];
-    var index = Math.floor(Math.random() * 3);
-
-    return images[index];
+  getPillars() {
+    this.serviceHandler.runService(Constants.BASE_URL + "section/list", "GET").subscribe((res: Array<Pillar>) => {
+      console.log("Get pillars response");
+      console.log(res);
+      this.screeSaverPillars = res;
+      this.getCards();
+    }, err => {
+      console.log("Upload image string error");
+      console.error(err);
+      window.alert("Error in getting pillars");
+    })
   }
-  screensaver_animation() {
-    if (this.screensaver_active) {
-
-      $('#screensaver').animate({
-        //   backgroundColor: getRandomColor()
-
-      },
-        400,
-        function () {
-          $(this).css({ 'background-image': 'url(' + this.getRandomIMG() + ')' });
-
-        });
-
+  async getCards() {
+    for (let pillar of this.screeSaverPillars) {
+      await this.getScreeSaverPillarDetails(pillar);
     }
+
+  }
+  async getScreeSaverPillarDetails(pillar: Pillar) {
+    this.serviceHandler.runService(Constants.BASE_URL + "section/" + pillar._id, "GET").subscribe(response => {
+      console.log("Get pillar details response");
+      console.log(response);
+      pillar.cards = response.cards;
+      console.log("Cards after update");
+      console.log(this.screeSaverPillars);
+
+    }, error => {
+      console.log(error);
+      window.alert("Failed to load cards")
+
+    })
   }
 }

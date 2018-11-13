@@ -9,12 +9,12 @@ import { Constants } from '../../Constants';
 })
 export class ScreensaverComponent implements OnInit {
   @Input() pillars: Array<Pillar>;
-  buttons: any;
+  buttons: Array<{ templateType: string, params: { name: string, pillar: string, card: string, tmp: string } }> = [];
   cards: Card[] = [];
   params: { name: string, pillar: string, card: string, tmp: string };
-  data: any = {};
   templateType: string;
   timeout: any;
+  showedButton: { templateType: string, params: { name: string, pillar: string, card: string, tmp: string } };
 
   constructor(
     public serviceHandler: ServiceHandlerProvider,
@@ -23,26 +23,38 @@ export class ScreensaverComponent implements OnInit {
   ngOnInit() {
     console.log("Passed screen saver pillars");
     console.log(this.pillars);
+    if (this.timeout) {
+      clearInterval(this.timeout);
+    }
     this.showCards();
   }
   async showCards() {
-    this.timeout = setInterval(() => {
-      console.log("New card is coming !!");
-      for (let pillar of this.pillars) {
-        for (let card of pillar.cards) {
-          for (let buttonKey in card.buttons) {
-            debugger;
-            this.templateType = card.buttons[buttonKey].payload.templateType;
-            this.params = {
-              name: pillar.title,
-              pillar: pillar._id,
-              card: card._id,
-              tmp: buttonKey
-            }
+    for (let pillar of this.pillars) {
+      for (let card of pillar.cards) {
+        for (let buttonKey in card.buttons) {
+          if (card.buttons[buttonKey].payload.data) {
+            this.buttons.push(
+              {
+                templateType: card.buttons[buttonKey].payload.templateType,
+                params: {
+                  name: pillar.title,
+                  pillar: pillar._id,
+                  card: card._id,
+                  tmp: buttonKey
+                }
+              }
+            );
           }
-        }
-      }
 
-    }, 3000);
+        }
+
+      }
+    }
+    this.showedButton = this.buttons[0];
+    this.timeout = setInterval(() => {
+      console.log("New card is coming ");
+      let randomIndex = Math.floor(Math.random() * (this.buttons.length - 1));
+      this.showedButton = this.buttons[randomIndex];
+    }, 5000);
   }
 }

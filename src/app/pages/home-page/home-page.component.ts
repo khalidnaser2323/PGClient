@@ -40,10 +40,10 @@ export class HomePageComponent implements OnInit {
       this.mousetimeout = setInterval(() => {
         console.log("Set interval is called");
         this.show_screensaver();
-      }, 10000); // 5 secs			
+      }, 60000); // 5 secs			
     });
   }
-  getPillars() {
+  async getPillars() {
     this.serviceHandler.runService(Constants.BASE_URL + "section/list", "GET").subscribe((res: Array<Pillar>) => {
       console.log("Get pillars response");
       console.log(res);
@@ -71,9 +71,10 @@ export class HomePageComponent implements OnInit {
     console.log('mouse leave');
     this.hoveredPillarId = null;
   }
-  show_screensaver() {
+  async show_screensaver() {
     console.log("Show screen saver is called");
     $('#screensaver').fadeIn();
+    await this.getPillars();
     this.screensaver_active = true;
 
   }
@@ -90,21 +91,7 @@ export class HomePageComponent implements OnInit {
 
     return images[index];
   }
-  screensaver_animation() {
-    if (this.screensaver_active) {
 
-      $('#screensaver').animate({
-        //   backgroundColor: getRandomColor()
-
-      },
-        400,
-        function () {
-          $(this).css({ 'background-image': 'url(' + this.getRandomIMG() + ')' });
-
-        });
-
-    }
-  }
   async getPillarDetails(pillar: Pillar) {
     this.serviceHandler.runService(Constants.BASE_URL + "section/" + pillar._id, "GET").subscribe(response => {
       console.log("Get pillar details response");
