@@ -12,6 +12,8 @@ export class StageComponent implements OnInit {
   imagePath: string = Constants.IMAGE_PATH;
   // stage:Stage;
   @Input() stage: Stage;
+  @Input() zoomed: boolean;
+
   colors: Array<string> = ['rgb(0, 143, 179)',
     'rgb(0, 102, 0)',
     'rgb(51, 51, 0)',
@@ -41,10 +43,10 @@ export class StageComponent implements OnInit {
           borderWidth: '15',
 
         }],
-        labels: ['STAGE %', 'REST OF PROJECT'],
+        labels: this.zoomed ? null : ['STAGE %', 'REST OF PROJECT'],
       },
       options: {
-        title: {
+        title: this.zoomed ? null : {
           display: true,
           text: this.stage.stageNumber,
           position: 'bottom',
@@ -52,7 +54,7 @@ export class StageComponent implements OnInit {
           fontFamily: ' Courier New',
           fontColor: thisStageColor
         },
-        cutoutPercentage: 70,
+        cutoutPercentage: this.zoomed ? 40 : 70,
       }
     });
   }

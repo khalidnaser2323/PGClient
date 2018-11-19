@@ -27,7 +27,7 @@
     <p class="font-size-18"> </p>
   </div>
 </div>
-<div class="row" [ngClass]="{'zoomed': zoomContent}">
+<div class="row" [ngClass]="{'zoomed': zoomContent, 'middled' : zoomContent}">
   <div class="col-md-4 col-sm-12">
     <div class="img-responsive">
       <canvas height="100" width="100" #firstCanvas>{{firstChart}}</canvas>

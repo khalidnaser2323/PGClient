@@ -19,9 +19,9 @@
 </div> -->
 <!-- <div class="wrapper wrapper-content btn-white row"> -->
 
-<div class="row" [ngClass]="{'zoomed': zoomContent}">
+<div class="row flex-row text-center" [ngClass]="{'zoomed': zoomContent, 'middled' : zoomContent}">
 
-    <app-stage *ngFor="let stage of stages " [stage]="stage"></app-stage>
+    <app-stage *ngFor="let stage of stages " [stage]="stage" [zoomed]="zoomContent"></app-stage>
 
 </div>
 <!-- </div> -->

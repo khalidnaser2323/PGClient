@@ -104,7 +104,7 @@ export class Temp13Component implements OnInit {
           borderWidth: '7',
         }],
 
-        labels: this.chartTemp[0].labels,
+        labels: this.zoomContent ? null : this.chartTemp[0].labels,
 
       },
       options: {
@@ -117,7 +117,7 @@ export class Temp13Component implements OnInit {
         responsive: true,
         responsiveAnimationDuration: 5,
 
-        legend: {
+        legend: this.zoomContent ? null : {
           display: 'true',
           position: 'bottom',
 
@@ -159,7 +159,7 @@ export class Temp13Component implements OnInit {
           borderWidth: '7',
         }],
 
-        labels: this.chartTemp[1].labels,
+        labels: this.zoomContent ? null : this.chartTemp[1].labels,
 
       },
       options: {
@@ -172,7 +172,7 @@ export class Temp13Component implements OnInit {
         responsive: true,
         responsiveAnimationDuration: 5,
 
-        legend: {
+        legend: this.zoomContent ? null : {
           display: 'true',
           position: 'bottom',
 
@@ -214,7 +214,7 @@ export class Temp13Component implements OnInit {
           borderWidth: '7',
         }],
 
-        labels: this.chartTemp[2].labels,
+        labels: this.zoomContent ? null : this.chartTemp[2].labels,
 
       },
       options: {
@@ -227,7 +227,7 @@ export class Temp13Component implements OnInit {
         responsive: true,
         responsiveAnimationDuration: 5,
 
-        legend: {
+        legend: this.zoomContent ? null : {
           display: 'true',
           position: 'bottom',
 
