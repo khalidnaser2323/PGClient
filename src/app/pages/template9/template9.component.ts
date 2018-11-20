@@ -100,7 +100,7 @@ export class Template9Component implements OnInit {
           borderWidth: '7',
         }],
 
-        labels: this.chartTemp.labels,
+        labels: this.zoomContent ? null : this.chartTemp.labels,
 
       },
       options: {

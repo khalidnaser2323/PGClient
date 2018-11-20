@@ -18,7 +18,9 @@
   </div>
 </div> -->
 <!-- <div class="wrapper wrapper-content btn-white row" style="    padding-left: 30px !important;   margin-top:5px; text-align: center"> -->
-<div style="width: 100%;text-align: center" id="mytable" [ngClass]="{'zoomed': zoomContent}"></div>
+<div style="width: 100%;text-align: center; padding:0 !important" [ngClass]="{'zoomed': zoomContent}">
+  <iframe [src]="temp" width="1500" height="900"></iframe>
+</div>
 
 <!-- </div> -->
 <!-- <app-feedback [pillar]="pillarName" [card]="cardTitle" [template]="templateTitle"></app-feedback> -->

@@ -1,4 +1,7 @@
 <div class="screensaver">
+  <h1>
+    {{showedButton.params.name}}
+  </h1>
   <app-stages-template class="animate-right" style="animation-duration: 3s" [params]="showedButton.params" *ngIf="showedButton.templateType == '1'"></app-stages-template>
   <app-licence-table class="animate-right" style="animation-duration: 3s" [params]="showedButton.params" *ngIf="showedButton.templateType == '2'"></app-licence-table>
   <app-team-template class="animate-right" style="animation-duration: 3s" [params]="showedButton.params" *ngIf="showedButton.templateType == '3'"></app-team-template>

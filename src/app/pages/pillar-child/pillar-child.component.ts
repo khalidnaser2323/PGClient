@@ -76,7 +76,7 @@ export class PillarChildComponent implements OnInit {
 
     })
   }
-  goToTemplate(pillarId: string, cardId: string, templateId: string) {
+  goToTemplate(pillarId: string, cardId: string, templateId: string, clickedCardTitle: string) {
     const url = Constants.BASE_URL + "section/" + pillarId + "/" + cardId;
     this.serviceHandler.runService(url, "GET").subscribe((cardDetails) => {
       console.log("Get card details response");
@@ -104,7 +104,7 @@ export class PillarChildComponent implements OnInit {
             height: "95%",
             maxHeight: "100%",
             maxWidth: "100%",
-            data: { params: { name: this.pillarName, pillar: this.pillarId, card: cardId, tmp: templateId }, templateType: cardDetails.templates[templateId].payload.templateType }
+            data: { params: { name: this.pillarName, pillar: this.pillarId, card: cardId, tmp: templateId }, templateType: cardDetails.templates[templateId].payload.templateType, clickedCardTitle: clickedCardTitle }
           });
 
           dialogRef.afterClosed().subscribe(result => {
@@ -118,8 +118,8 @@ export class PillarChildComponent implements OnInit {
       window.alert("OOPS! something went wrong");
     });
   }
-  onButtonClicked(clickedButtonId: string, clickedCardId: string) {
-    this.goToTemplate(this.pillarId, clickedCardId, clickedButtonId);
+  onButtonClicked(clickedButtonId: string, clickedCardId: string, clickedCardTitle: string) {
+    this.goToTemplate(this.pillarId, clickedCardId, clickedButtonId, clickedCardTitle);
   }
   getComponentData(templateId: string, cardId: string) {
     let cardDetails = this.cards.find(card => { return card._id == cardId });

@@ -16,7 +16,11 @@ interface template5 {
   label3?: string,
   y3Values?: string,
   linearVariableLabel?: string,
-  linearVariableData?: string
+  linearVariableData?: string,
+  color1?: string,
+  color2?: string,
+  color3?: string,
+  linearColor?: string
 
 }
 @Component({
@@ -58,7 +62,11 @@ export class TeamCharterComponent implements OnInit {
       label3: "",
       y3Values: "",
       linearVariableData: "",
-      linearVariableLabel: ""
+      linearVariableLabel: "",
+      color1: "red",
+      color2: "red",
+      color3: "red",
+      linearColor: "red"
     };
     // this.route.params.subscribe(params => {
     //   console.log(params);
@@ -113,8 +121,8 @@ export class TeamCharterComponent implements OnInit {
     if (this.temp.label1 != "" && this.temp.y1Values != "") {
       datasetsForChart.push({
         label: this.temp.label1,
-        backgroundColor: this.colorloop(this.length, 'rgb(0, 230, 184,0.2)'),
-        borderColor: this.colorloop(this.length, 'rgb(0, 102, 102)'),
+        backgroundColor: this.temp.color1,
+        borderColor: this.temp.color1,
         borderWidth: 1,
         data: y1,
       });
@@ -123,8 +131,8 @@ export class TeamCharterComponent implements OnInit {
     if (this.temp.label2 != "" && this.temp.y2Values != "") {
       datasetsForChart.push({
         label: this.temp.label2,
-        backgroundColor: this.colorloop(this.length, 'rgb(255, 153, 255,0.2)'),
-        borderColor: this.colorloop(this.length, 'rgb(255, 51, 153)'),
+        backgroundColor: this.temp.color2,
+        borderColor: this.temp.color2,
 
         borderWidth: 1,
         data: y2
@@ -133,8 +141,8 @@ export class TeamCharterComponent implements OnInit {
     if (this.temp.label3 != "" && this.temp.y3Values != "") {
       datasetsForChart.push({
         label: this.temp.label3,
-        backgroundColor: this.colorloop(this.length, 'rgb(255, 153, 255,0.2)'),
-        borderColor: this.colorloop(this.length, 'rgb(255, 51, 153)'),
+        backgroundColor: this.temp.color3,
+        borderColor: this.temp.color3,
         borderWidth: 1,
         data: y3
       });
@@ -143,7 +151,10 @@ export class TeamCharterComponent implements OnInit {
       const y4 = this.temp.linearVariableData.split(",");
       datasetsForChart.push({
         label: this.temp.linearVariableLabel,
+        borderColor: this.temp.linearColor,
+        backgroundColor: this.temp.linearColor,
         data: y4,
+        fill: false,
         type: 'line'
       });
     }

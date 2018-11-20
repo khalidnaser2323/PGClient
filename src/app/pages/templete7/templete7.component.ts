@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ServiceHandlerProvider } from '../../services/service-handler/service-handler';
 import { Constants } from '../../Constants';
 import { Location } from '@angular/common';
+import { DomSanitizer } from '@angular/platform-browser';
 
 
 declare var jquery: any;
@@ -26,7 +27,8 @@ export class Templete7Component implements OnInit {
   constructor(
     private route: ActivatedRoute,
     public serviceHandler: ServiceHandlerProvider,
-    private _location: Location
+    private _location: Location,
+    public sanitizer: DomSanitizer
   ) {
     // this.route.params.subscribe(params => {
     //   console.log(params);
@@ -36,6 +38,7 @@ export class Templete7Component implements OnInit {
     //   this.pillarName = params.name;
     //   this.getCardDetails(this.pillarId, this.cardId);
     // });
+    this.temp = this.sanitizer.bypassSecurityTrustResourceUrl("https://onedrive.live.com/embed?cid=A3A9EC0C1B8DD2F5&resid=A3A9EC0C1B8DD2F5%21131&authkey=APA9H2NUidTXd4I&em=2");
   }
 
   ngOnInit() {
@@ -50,9 +53,9 @@ export class Templete7Component implements OnInit {
     this.serviceHandler.runService(url, "GET").subscribe((cardDetails) => {
       console.log("Get card details response");
       console.log(cardDetails);
-      if (cardDetails && cardDetails.templates && cardDetails.templates[this.templateId] && cardDetails.templates[this.templateId].payload && cardDetails.templates[this.templateId].payload.data) {
-        this.temp = cardDetails.templates[this.templateId].payload.data;
-        $('#mytable').jexcel({ data: this.temp, defaultColWidth: "300" });
+      if (cardDetails && cardDetails.templates && cardDetails.templates[this.templateId] && cardDetails.templates[this.templateId].payload && cardDetails.templates[this.templateId].payload.data && cardDetails.templates[this.templateId].payload.data != null) {
+        this.temp = this.sanitizer.bypassSecurityTrustResourceUrl(cardDetails.templates[this.templateId].payload.data) != "" ? this.sanitizer.bypassSecurityTrustResourceUrl(cardDetails.templates[this.templateId].payload.data) : this.sanitizer.bypassSecurityTrustResourceUrl("https://onedrive.live.com/embed?cid=A3A9EC0C1B8DD2F5&resid=A3A9EC0C1B8DD2F5%21131&authkey=APA9H2NUidTXd4I&em=2");
+        // $('#mytable').jexcel({ data: this.temp, defaultColWidth: "300" });
         this.templateTitle = cardDetails.templates[this.templateId].title;
         this.cardTitle = cardDetails.title;
       }

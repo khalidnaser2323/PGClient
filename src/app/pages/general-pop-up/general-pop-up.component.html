@@ -2,6 +2,9 @@
   <span>&times;</span>
 </button>
 <div class="popup-content">
+  <h1>
+    {{data.params.name}} / {{data.clickedCardTitle}}
+  </h1>
   <app-stages-template [params]="params" *ngIf="data.templateType == '1'"></app-stages-template>
   <app-licence-table [params]="params" *ngIf="data.templateType == '2'"></app-licence-table>
   <app-team-template [params]="params" *ngIf="data.templateType == '3'"></app-team-template>

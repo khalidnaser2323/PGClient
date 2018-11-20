@@ -11,7 +11,7 @@ export class GeneralPopUpComponent implements OnInit {
   params: { name: string, pillar: string, card: string, tmp: string };
   constructor(
     public dialogRef: MatDialogRef<GeneralPopUpComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: { templateType: string, params: { name: string, pillar: string, card: string, tmp: string } }
+    @Inject(MAT_DIALOG_DATA) public data: { templateType: string, clickedCardTitle: string, params: { name: string, pillar: string, card: string, tmp: string } }
   ) {
     console.log("Data passed to popup");
     console.log(this.data);
