@@ -14,41 +14,25 @@ export class Templete11Component implements OnInit {
   @Input() params: { name: string, pillar: string, card: string, tmp: string };
   @Input() zoomContent: boolean;
 
-  temp11: Temp11;
   pillarId: string;
   cardId: string;
   templateId: string;
   pillarName: string;
   cardTitle: string;
-  slideIndex = 1;
-  el: HTMLElement;
   mySlides: any;
   templateTitle: string;
   @ViewChild('demo') demo: ElementRef;
+  slides: Array<{ colHeader: string, colCells: Array<string> }> = [
+
+  ];
+  slideConfig = { "slidesToShow": 3, "slidesToScroll": 3 };
+
   constructor(
     private route: ActivatedRoute,
     public serviceHandler: ServiceHandlerProvider,
     private _location: Location,
-    el: ElementRef
   ) {
-    this.temp11 = {
-      colEightText: "",
-      colElevenText: "",
-      colFiveText: "",
-      colFourText: "",
-      colNineText: "",
-      colOneHeader: "",
-      colOneText: "",
-      colSevenText: "",
-      colSixText: "",
-      colTenText: "",
-      colThreeHeader: "",
-      colThreeText: "",
-      colTwelveText: "",
-      colTwoHeader: "",
-      colTwoText: ""
-    }
-    this.el = el.nativeElement;
+
     // this.route.params.subscribe(params => {
     //   console.log(params);
     //   this.pillarId = params.pillar;
@@ -66,9 +50,6 @@ export class Templete11Component implements OnInit {
     this.pillarName = this.params.name;
     this.getCardDetails(this.pillarId, this.cardId);
 
-    this.mySlides = this.el.getElementsByClassName("mySlides");
-    this.showDivs(this.slideIndex);
-
   }
   getCardDetails(pillarId: string, cardId: string) {
     const url = Constants.BASE_URL + "section/" + pillarId + "/" + cardId;
@@ -76,7 +57,7 @@ export class Templete11Component implements OnInit {
       console.log("Get card details response");
       console.log(cardDetails);
       if (cardDetails && cardDetails.templates && cardDetails.templates[this.templateId] && cardDetails.templates[this.templateId].payload && cardDetails.templates[this.templateId].payload.data) {
-        this.temp11 = cardDetails.templates[this.templateId].payload.data;
+        this.slides = cardDetails.templates[this.templateId].payload.data;
         this.templateTitle = cardDetails.templates[this.templateId].title;
         this.cardTitle = cardDetails.title;
       }
@@ -90,24 +71,22 @@ export class Templete11Component implements OnInit {
     this._location.back();
   }
 
-  plusDivs(n) {
-    this.showDivs(this.slideIndex += n);
+  slickInit(e) {
+    console.log('slick initialized');
   }
 
-  showDivs(n) {
-    var i;
-    // var x = document.getElementsByClassName("mySlides");
-    // var dots = document.getElementsByClassName("demo");
-    if (n > this.mySlides.length) { this.slideIndex = 1 }
-    if (n < 1) { this.slideIndex = this.mySlides.length }
-    for (i = 0; i < this.mySlides.length; i++) {
-      this.mySlides[i].style.display = "none";
-    }
-
-    this.mySlides[this.slideIndex - 1].style.display = "block";
-
+  breakpoint(e) {
+    console.log('breakpoint');
   }
-  currentDiv(index: number) {
-    this.showDivs(this.slideIndex = index);
+
+  afterChange(e) {
+    console.log('afterChange');
+  }
+
+  beforeChange(e) {
+    console.log('beforeChange');
+  }
+  trackByFn(index, item) {
+    return index; // or item.id
   }
 }

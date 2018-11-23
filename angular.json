@@ -29,10 +29,12 @@
               "src/css/Custome_style.css",
               "src/css/normalize.css",
               "src/css/w3.css",
-              "src/css/plugins/jxcel.css"
+              "node_modules/slick-carousel/slick/slick.scss",
+              "node_modules/slick-carousel/slick/slick-theme.scss"
             ],
             "scripts": [
-              "src/js/jquery-3.1.1.min.js",
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/slick-carousel/slick/slick.min.js",
               "src/js/bootstrap.min.js",
               "src/js/plugins/metisMenu/jquery.metisMenu.js",
               "src/js/plugins/slimscroll/jquery.slimscroll.min.js",
@@ -42,8 +44,7 @@
               "src/js/plugins/flot/jquery.flot.tooltip.min.js",
               "src/js/plugins/flot/jquery.flot.resize.js",
               "src/js/plugins/peity/jquery.peity.min.js",
-              "src/js/demo/peity-demo.js",
-              "src/js/plugins/jxcel.js"
+              "src/js/demo/peity-demo.js"
             ]
           },
           "configurations": {

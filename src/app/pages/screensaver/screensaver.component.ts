@@ -9,12 +9,12 @@ import { Constants } from '../../Constants';
 })
 export class ScreensaverComponent implements OnInit {
   @Input() pillars: Array<Pillar>;
-  buttons: Array<{ templateType: string, params: { name: string, pillar: string, card: string, tmp: string } }> = [];
+  buttons: Array<{ templateType: string, cardTitle?: string, params: { name: string, pillar: string, card: string, tmp: string } }> = [];
   cards: Card[] = [];
   params: { name: string, pillar: string, card: string, tmp: string };
   templateType: string;
   timeout: any;
-  showedButton: { templateType: string, params: { name: string, pillar: string, card: string, tmp: string } };
+  showedButton: { templateType: string, cardTitle?: string, params: { name: string, pillar: string, card: string, tmp: string } };
 
   constructor(
     public serviceHandler: ServiceHandlerProvider,
@@ -36,6 +36,7 @@ export class ScreensaverComponent implements OnInit {
             this.buttons.push(
               {
                 templateType: card.buttons[buttonKey].payload.templateType,
+                cardTitle: card.title,
                 params: {
                   name: pillar.title,
                   pillar: pillar._id,

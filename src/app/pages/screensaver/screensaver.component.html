@@ -1,6 +1,6 @@
 <div class="screensaver">
   <h1>
-    {{showedButton.params.name}}
+    {{showedButton.params.name}} / {{showedButton.cardTitle}}
   </h1>
   <app-stages-template class="animate-right" style="animation-duration: 3s" [params]="showedButton.params" *ngIf="showedButton.templateType == '1'"></app-stages-template>
   <app-licence-table class="animate-right" style="animation-duration: 3s" [params]="showedButton.params" *ngIf="showedButton.templateType == '2'"></app-licence-table>
