@@ -32,7 +32,7 @@ import { GeneralPopUpComponent } from './pages/general-pop-up/general-pop-up.com
 import { DynamicComponentComponent } from './pages/dynamic-component/dynamic-component.component';
 import { ScreensaverComponent } from './pages/screensaver/screensaver.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
-
+import { NgSlimScrollModule, SLIMSCROLL_DEFAULTS } from 'ngx-slimscroll';
 
 @NgModule({
   declarations: [
@@ -76,10 +76,17 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     FormsModule,
     MatDialogModule,
     BrowserAnimationsModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    NgSlimScrollModule
   ],
   providers: [
-    ServiceHandlerProvider
+    ServiceHandlerProvider,
+    {
+      provide: SLIMSCROLL_DEFAULTS,
+      useValue: {
+        alwaysVisible: true
+      }
+    }
   ],
   bootstrap: [AppComponent]
 })

@@ -24,10 +24,10 @@
         (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)" (beforeChange)="beforeChange($event)">
         <div ngxSlickItem *ngFor="let slide of slides; trackBy: trackByFn" class="slide">
             <!---  play with columns/cells UI here  -->
-            <div class="column">
-                <h1>{{slide.colHeader}}</h1>
+            <div class="column scroll-window" slimScroll>
+                <h1 class="header">{{slide.colHeader}}</h1>
                 <div *ngFor="let cell of slide.colCells; trackBy: trackByFn">
-                    <p>{{cell}}</p>
+                    <p class="content">{{cell}}</p>
                 </div>
 
             </div>

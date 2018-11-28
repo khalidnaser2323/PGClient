@@ -10701,4 +10701,24 @@ h2 strong {
     zoom: 0.3;
     padding: 20px;
   }
+
+  /*  slickslider for Zero     */
+  .slick-dots li button::before {
+    font-size: 12px !important;
+    margin-top: 15px !important;
+  }
   
+  .dynamic-component {
+    height: 70px !important;
+    width: 100%;
+    max-width: 200px;
+      box-shadow: none !important;
+    border-bottom-right-radius: 25px;
+    border-top-left-radius: 25px;
+    cursor: pointer;
+    overflow: hidden;
+    background-color: #fff;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    border: 2px solid #000;
+  }

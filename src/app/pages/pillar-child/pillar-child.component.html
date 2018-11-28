@@ -7,7 +7,7 @@
 </div>
 <div class="wrapper wrapper-content w3-animate-right" style="animation-duration: 3s;padding: 22px 0px 25px 0px;   padding-left: 45px; ">
   <!--
-    <div class="row" style="    margin-right: 0px;">
+    <div class="row" style="margin-right: 0px;">
       <div class="col-md-6 col-sm-12 col-xs-12" *ngFor="let card of cards; let i = index">
         <div class="card-box">
           <div class="col-lg-7 col-md-7 col-sm-8 col-xs-6 childbox">
@@ -35,48 +35,29 @@
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th>
+        <th *ngFor="let card of cards; let x = index">
           <!-- <h1>{{card.title}}</h1> -->
-          <img src="img/11.png" style="width: 40%;" />
-          <!-- <img  src="img/12.png" style="width: 40%;" /> -->
-          <!-- <img  src="img/14.png" style="width: 40%;" /> -->
-          <!-- <img  src="img/13.png" style="width: 40%;" /> -->
-        </th>
-        <th>
-          <!-- <h1>{{card.title}}</h1> -->
-          <!-- <img src="img/11.png" style="width: 40%;" /> -->
-          <img src="img/12.png" style="width: 40%;" />
-          <!-- <img  src="img/14.png" style="width: 40%;" /> -->
-          <!-- <img  src="img/13.png" style="width: 40%;" /> -->
-        </th>
-        <th>
-          <!-- <h1>{{card.title}}</h1> -->
-          <!-- <img src="img/11.png" style="width: 40%;" /> -->
-          <!-- <img  src="img/12.png" style="width: 40%;" /> -->
-          <img src="img/14.png" style="width: 40%;" />
-          <!-- <img  src="img/13.png" style="width: 40%;" /> -->
-        </th>
-        <th>
-          <!-- <h1>{{card.title}}</h1> -->
-          <!-- <img src="img/11.png" style="width: 40%;" /> -->
-          <!-- <img  src="img/12.png" style="width: 40%;" /> -->
-          <!-- <img  src="img/14.png" style="width: 40%;" /> -->
-          <img src="img/13.png" style="width: 40%;" />
+          <img *ngIf="x == 0" src="img/plan.png" style="width: 30%;" />
+          <img *ngIf="x == 1" src="img/do.png" style="width: 30%;" />
+          <img *ngIf="x == 2" src="img/check.png" style="width: 30%;" />
+          <img *ngIf="x == 3" src="img/act.png" style="width: 30%;" />
         </th>
       </tr>
     </thead>
     <tbody>
       <td class="special-td" [ngClass]="{ 'last-col': i == cards.length - 1 }" *ngFor="let card of cards; let i = index">
         <tr class="special-tr" *ngFor="let button of (card.buttons | keys)">
-          <div class="row" style="cursor:pointer" (click)="onButtonClicked(button.key, card._id, card.title)">
+          <div class="row">
             <div class="col-xs-3 special-text_box">
               <p class="special-text">{{ button.value.title }}</p>
             </div>
 
             <div class="col-xs-8 img_Templete_box">
-              <img *ngIf="button.value.payload.templateType == '14'" class="img_Templete" src="{{ button.value.payload.tmpImage ?  imagePath + button.value.payload.tmpImage : getTempURL(button.value.payload.templateType)}}"
+              <img *ngIf="button.value.payload.templateType == '14'" (click)="onButtonClicked(button.key, card._id)"
+                class="img_Templete" src="{{ button.value.payload.tmpImage ?  imagePath + button.value.payload.tmpImage : getTempURL(button.value.payload.templateType)}}"
                 onError="this.src='img/logo.png';" />
-              <app-dynamic-component *ngIf="button.value.payload.templateType != '14'" [data]="getComponentData(button.key, card._id)"></app-dynamic-component>
+              <app-dynamic-component *ngIf="button.value.payload.templateType != '14'" [data]="getComponentData(button.key, card._id)"
+                (click)="onButtonClicked(button.key, card._id)"></app-dynamic-component>
             </div>
           </div>
         </tr>

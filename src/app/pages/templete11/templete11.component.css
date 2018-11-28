@@ -1,0 +1,47 @@
+.column {
+    text-align: center;
+    height: 420px;
+    /* overflow-y: scroll !important; */
+  }
+  
+  .header {
+    background-color: #f0f78a;
+    margin-left: 35px;
+    margin-right: 35px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+  }
+  
+  .content {
+    background-color: #c0e0a3;
+    margin-left: 35px;
+    margin-right: 35px;
+    padding: 15px;
+  }
+  
+  .slick-slider {
+    /* background: url("img/pexels-photo-395132.jpeg") no-repeat;
+    */
+    background-color: #222222b3;
+    background-size: cover;
+  }
+  
+  .slick-prev:before,
+  .slick-next:before {
+    font-size: 30px !important;
+  }
+  
+  .row {
+    margin-left: 0px !important;
+  }
+  
+  .slick-prev {
+    left: -35px !important;
+  }
+  
+  .slick-prev:before {
+    font-size: 30px !important;
+  }
+  .slick-dots li button::before {
+    font-size: 10px !important;
+  }

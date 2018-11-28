@@ -25,7 +25,7 @@ export class Templete11Component implements OnInit {
   slides: Array<{ colHeader: string, colCells: Array<string> }> = [
 
   ];
-  slideConfig = { "slidesToShow": 3, "slidesToScroll": 3 };
+  slideConfig = { "slidesToShow": 3, "slidesToScroll": 3, "arrows": false, "dots": true };
 
   constructor(
     private route: ActivatedRoute,
