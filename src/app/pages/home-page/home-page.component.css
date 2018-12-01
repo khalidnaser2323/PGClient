@@ -1,16 +1,16 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 
-.hovered{
-    height: auto !important;
-    line-height: 23px !important;
-    overflow-y: scroll !important;
-    height: 175px !important;
+.hovered {
+  height: auto !important;
+  line-height: 23px !important;
+  overflow-y: scroll !important;
+  height: 175px !important;
 }
-.fade-out{
-    display: none;
+.fade-out {
+  display: none;
 }
-   
+
 p:not(:last-child) {
   margin: 0 0 20px;
 }
@@ -83,4 +83,62 @@ input:checked + label {
   label {
     padding: 15px;
   }
+}
+
+#tabs {
+  overflow: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#tabs li {
+  float: left;
+  margin: 0 0.5em 0 0;
+}
+
+#tabs .tabb {
+  position: relative;
+  background: #ddd;
+  background-image: linear-gradient(to bottom, #fff, #ddd);
+  padding: 0.7em 3.5em;
+  float: left;
+  text-decoration: none;
+  color: #444;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+  border-radius: 5px 0 0 0;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
+}
+
+#tabs .tabb:hover,
+#tabs .tabb:hover::after,
+#tabs .tabb:focus,
+#tabs .tabb:focus::after {
+  background: #fff;
+}
+
+#tabs .tabb:focus {
+  outline: 0;
+}
+
+#tabs .tabb::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: -0.5em;
+  bottom: 0;
+  width: 1em;
+  background: #ddd;
+  background-image: linear-gradient(to bottom, #fff, #ddd);
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+  transform: skew(10deg);
+  border-radius: 0 5px 0 0;
+}
+
+#tabs #current .tabb,
+#tabs #current .tabb::after {
+  background: #fff;
+  z-index: 3;
 }

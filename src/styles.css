@@ -1287,8 +1287,10 @@ button.dim:active:before {
     color: #5e5e5e;
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 600;
-    padding: 3px 8px;
+    /* padding: 3px 8px; */
     text-shadow: none;
+    padding: 7px 65px;
+
 }
 
 .nav .label,
@@ -10709,10 +10711,10 @@ h2 strong {
   }
   
   .dynamic-component {
-    height: 70px !important;
-    width: 100%;
-    max-width: 200px;
-      box-shadow: none !important;
+    height: 127px !important;
+    width: 109% !important;
+    max-width: 275px !important;
+    box-shadow: none !important;
     border-bottom-right-radius: 25px;
     border-top-left-radius: 25px;
     cursor: pointer;
@@ -10720,5 +10722,18 @@ h2 strong {
     background-color: #fff;
     margin: 0 auto !important;
     padding: 0 !important;
-    border: 2px solid #000;
+    border: 2px solid #666;
   }
+
+
+  input:checked + label{
+
+/* 
+    background-color: #06628a96;
+    color: #fff !important;
+    border-top-right-radius: 50px;
+    border-top-left-radius: 50px; */
+  }
+
+
+  

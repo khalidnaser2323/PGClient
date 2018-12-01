@@ -22,7 +22,11 @@
 p:not(:last-child) {
   margin: 0 0 20px;
 }
-
+.w1 {
+  background: url("img/robot-typing-keyboard-content-ss-1920-e1488404978929_vje8qp.jpg")
+    no-repeat;
+  background-size: cover;
+}
 main {
   /* max-width: 800px; */
   padding: 40px;
@@ -126,12 +130,12 @@ th {
   text-align: center;
   /* background-image: linear-gradient(to top, #697da2, #9c9ec5, #afb4b7); */
   border-radius: 10px;
-  background-color: #c0c6d6;
+  background-color: #c1c7d7ab;
 }
 
 .table > thead > tr > th {
   /* background-image: linear-gradient(to top, #81868a, #9c9ec5, #697da2); */
-  background-color: #c0c6d6;
+  background-color: #c1c7d700;
 }
 
 .table > thead > tr > th:nth-child(1) {
@@ -156,9 +160,9 @@ th {
   border-bottom: 3px solid #000 !important;
 }
 .img_Templete {
-  height: 70px !important;
-  width: 100%;
-  max-width: 200px;
+  height: 127px !important;
+  width: 109% !important;
+  max-width: 275px !important;
   box-shadow: none !important;
   border-bottom-right-radius: 25px;
   border-top-left-radius: 25px;
@@ -167,7 +171,7 @@ th {
   background-color: #fff;
   margin: 0 auto !important;
   padding: 0 !important;
-  border: 2px solid #000;
+  border: 2px solid #666;
 }
 /* tbody {
     width: 100%;
@@ -178,12 +182,12 @@ th {
   width: 90%;
   display: block;
   text-align: center;
-  padding: 18px 0px 10px 0px;
+  padding: 5px 0px 10px 0px;
   border-bottom-right-radius: 25px;
   border-top-left-radius: 25px;
   margin-bottom: 10px;
   margin-top: 10px;
-  height: 108px;
+  height: 136px;
 }
 .table > tbody > td > tbody {
   width: 100% !important;
@@ -221,19 +225,22 @@ th {
 }
 
 .special-text_box {
-  height: 70px;
+  height: 115px;
   position: relative;
   word-wrap: break-word;
   -webkit-transform: rotate(270deg);
   transform: rotate(270deg);
+  padding-left: 0px;
 }
 
 .special-text {
-  color: #000;
-  font-weight: 600;
-  margin: 101% -20px -20px;
-  font-family: Geneva, sans-serif;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
+  color: #fff;
+  font-weight: 400;
+  margin: 100% -22px -25px;
+  font-family: Arial;
+  -webkit-transform: translateY(0%);
+  transform: translateY(0%);
   font-size: initial;
+  line-height: 20px;
+  overflow: hidden;
 }
