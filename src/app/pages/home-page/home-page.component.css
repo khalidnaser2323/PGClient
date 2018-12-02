@@ -165,7 +165,7 @@ input:checked + label {
   border: 1px solid #ededed;
   border-top: 2px solid #ededed;
   border-right: 0px none;
-  background: #199ed8;
+  background: #0640a3;
   color: #fff;
   border-radius: 0px;
   margin-right: 0px;
@@ -176,7 +176,7 @@ input:checked + label {
 .nav-tabs li a:hover {
   border-bottom-color: #ededed;
   border-right: 0px none;
-  background: #00b0ad;
+  background: #0640a3;
   color: #fff;
 }
 .nav-tabs li a i {
@@ -190,10 +190,10 @@ input:checked + label {
 .nav-tabs li.active a,
 .nav-tabs li.active a:focus,
 .nav-tabs li.active a:hover {
-  border-top: 3px solid #00b0ad;
+  border-top: 3px solid #0640a3;
   border-right: 1px solid #d3d3d3;
   margin-top: -15px;
-  color: #199ed8;
+  color: #0640a3;
   padding: 22px 40px;
   background: none;
 }

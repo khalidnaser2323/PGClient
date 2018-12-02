@@ -23,7 +23,7 @@ p:not(:last-child) {
   margin: 0 0 20px;
 }
 .w1 {
-  background: url("img/pexels-photo-1468390.jpeg") no-repeat;
+  background: url("img/Industry-4.0-.jpeg") no-repeat;
   background-size: cover;
 }
 main {
@@ -129,7 +129,7 @@ th {
   text-align: center;
   /* background-image: linear-gradient(to top, #697da2, #9c9ec5, #afb4b7); */
   border-radius: 10px;
-  background-color: #c1c7d7ab;
+  background-color: #ffffffb8;
 }
 
 .table > thead > tr > th {

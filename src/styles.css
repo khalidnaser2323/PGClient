@@ -682,7 +682,7 @@ body.canvas-menu.mini-navbar nav.navbar-static-side {
 }
 
 .top-navigation .navbar-brand {
-    background: #199ed8;
+    background: #0640a3;
     color: #fff;
     padding: 13px 15px;
 }
@@ -10776,4 +10776,6 @@ h2 strong {
   }
 
   
- 
+  .navbar-fixed-top, .navbar-static-top{
+    background: #0640a3 !important;
+  }
