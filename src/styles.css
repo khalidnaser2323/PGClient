@@ -10733,7 +10733,47 @@ h2 strong {
     color: #fff !important;
     border-top-right-radius: 50px;
     border-top-left-radius: 50px; */
+
+
+    display: inline-block;
+    margin: 0 0 -1px;
+    padding: 25px 70px;
+    font-weight: 600;
+    text-align: center;
+    font-size: 18px;
+    color: #199ed8ad !important;
+    border: 1px solid #666;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    /* background-image: linear-gradient(to top, #199ed8 , #848a8a); */
+    border-bottom: none;
+    background: #fff;
+    box-shadow: 4px -4px 0px 2px #199ed8ad;
+    margin-right: 7px;
+    border: 1px solid #63bde5 !important;
+    border-bottom: none !important;
   }
 
 
+  label{
+    display: inline-block;
+    margin: 0 0 -1px;
+    padding: 25px 70px !important;
+    font-weight: 600;
+    text-align: center;
+    font-size: 18px;
+    color: #fff !important;
+    border: 1px solid #666;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    /* background-image: linear-gradient(to top, #199ed8 , #848a8a); */
+    border-bottom: none;
+    background: #63bde5;
+    /* box-shadow: 4px -4px 0px 2px #199ed8ad; */
+    margin-right: 7px;
+    border: 1px solid #199ed8;
+    
+  }
+
   
+ 
