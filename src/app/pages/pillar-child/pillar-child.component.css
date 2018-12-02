@@ -23,8 +23,7 @@ p:not(:last-child) {
   margin: 0 0 20px;
 }
 .w1 {
-  background: url("img/robot-typing-keyboard-content-ss-1920-e1488404978929_vje8qp.jpg")
-    no-repeat;
+  background: url("img/pexels-photo-1468390.jpeg") no-repeat;
   background-size: cover;
 }
 main {
