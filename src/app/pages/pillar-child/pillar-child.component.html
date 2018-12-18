@@ -1,11 +1,17 @@
-<div class="row wrapper border-bottom  page-heading w3-animate-right" style="animation-duration: 3s">
+<div
+  class="row wrapper border-bottom  page-heading w3-animate-right"
+  style="animation-duration: 3s"
+>
   <div class="col-sm-4" style="margin: 0 16px">
     <a routerLink="/">
       <p class="head_child">&nbsp;{{ pillarName }}</p>
     </a>
   </div>
 </div>
-<div class="wrapper wrapper-content w3-animate-right w1" style="animation-duration: 3s;padding: 22px 0px 25px 0px;   padding-left: 45px; ">
+<div
+  class="wrapper wrapper-content w3-animate-right w1"
+  style="animation-duration: 3s;padding: 22px 0px 25px 0px;   padding-left: 45px; "
+>
   <!--
     <div class="row" style="margin-right: 0px;">
       <div class="col-md-6 col-sm-12 col-xs-12" *ngFor="let card of cards; let i = index">
@@ -35,34 +41,37 @@
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th>
-          <img src="img/plan.png" style="width: 30%;" />
-        </th>
-        <th>
-          <img src="img/do.png" style="width: 30%;" />
-        </th>
-        <th>
-          <img src="img/check.png" style="width: 30%;" />
-        </th>
-        <th>
-          <img src="img/act.png" style="width: 30%;" />
-        </th>
+        <th><img src="img/plan.png" style="width: 30%;" /></th>
+        <th><img src="img/do.png" style="width: 30%;" /></th>
+        <th><img src="img/check.png" style="width: 30%;" /></th>
+        <th><img src="img/act.png" style="width: 30%;" /></th>
       </tr>
     </thead>
     <tbody>
-      <td class="special-td" [ngClass]="{ 'last-col': i == cards.length - 1 }" *ngFor="let card of cards; let i = index">
+      <td
+        class="special-td"
+        [ngClass]="{ 'last-col': i == cards.length - 1 }"
+        *ngFor="let card of cards; let i = index"
+      >
         <tr class="special-tr" *ngFor="let button of (card.buttons | keys)">
           <div class="row">
-            <div class="col-xs-2 special-text_box">
+            <div class="col-xs-1 special-text_box">
               <p class="special-text">{{ button.value.title }}</p>
             </div>
 
-            <div class="col-xs-9 img_Templete_box">
-              <img *ngIf="button.value.payload.templateType == '14'" (click)="onButtonClicked(button.key, card._id)"
-                class="img_Templete" src="{{ button.value.payload.tmpImage ?  imagePath + button.value.payload.tmpImage : getTempURL(button.value.payload.templateType)}}"
-                onError="this.src='img/logo.png';" />
-              <app-dynamic-component *ngIf="button.value.payload.templateType != '14'" [data]="getComponentData(button.key, card._id)"
-                (click)="onButtonClicked(button.key, card._id)"></app-dynamic-component>
+            <div class="col-xs-11 img_Templete_box">
+              <img
+                *ngIf="button.value.payload.templateType == '14'"
+                (click)="onButtonClicked(button.key, card._id)"
+                class="img_Templete"
+                src="{{ button.value.payload.tmpImage ?  imagePath + button.value.payload.tmpImage : getTempURL(button.value.payload.templateType)}}"
+                onError="this.src='img/logo.png';"
+              />
+              <app-dynamic-component
+                *ngIf="button.value.payload.templateType != '14'"
+                [data]="getComponentData(button.key, card._id)"
+                (click)="onButtonClicked(button.key, card._id)"
+              ></app-dynamic-component>
             </div>
           </div>
         </tr>
@@ -72,4 +81,7 @@
 </div>
 
 <app-feedback [pillar]="pillarName"></app-feedback>
-<app-screensaver *ngIf="screensaver_active" [pillars]="screeSaverPillars"></app-screensaver>
+<app-screensaver
+  *ngIf="screensaver_active"
+  [pillars]="screeSaverPillars"
+></app-screensaver>

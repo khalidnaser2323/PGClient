@@ -16,12 +16,14 @@ p:not(:last-child) {
 }
 
 main {
-  /* max-width: 800px; */
-  padding: 40px;
+  padding: 15px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   background: #fff;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
+  margin-top: 10px;
+  border-radius: 20px;
+  opacity: 0.9;
 }
 
 /* section {
@@ -154,24 +156,30 @@ input:checked + label {
 } */
 
 .tab {
-  margin-top: 30px;
+  margin-top: 0px;
 }
 .tab .nav-tabs {
-  border: none;
-  border-bottom: 1px solid #e4e4e4;
+  /* border: none;
+border-bottom: 1px solid #e4e4e4; */
+  padding: 10px 100px;
+  border: 1px solid #0640a3;
+  border-radius: 30px;
+  box-shadow: 1px 1px 1px 1px #0640a3;
+  display: table;
+  margin: 0 auto;
 }
 .nav-tabs li a {
-  padding: 15px 40px;
+  padding: 10px 20px;
   border: 1px solid #ededed;
   border-top: 2px solid #ededed;
-  border-right: 0px none;
+  border-right: 0;
   background: #0640a3;
   color: #fff;
-  border-radius: 0px;
-  margin-right: 0px;
-  font-weight: bold;
-  transition: all 0.3s ease-in 0s;
-  font-size: 20px;
+  border-radius: 0;
+  margin-right: 0;
+  font-weight: 700;
+  transition: 0.3s ease-in;
+  font-size: 14px;
 }
 .nav-tabs li a:hover {
   border-bottom-color: #ededed;
@@ -187,7 +195,7 @@ input:checked + label {
 .nav-tabs li:last-child {
   border-right: 1px solid #ededed;
 }
-.nav-tabs li.active a,
+/* .nav-tabs li.active a,
 .nav-tabs li.active a:focus,
 .nav-tabs li.active a:hover {
   border-top: 3px solid #0640a3;
@@ -196,7 +204,7 @@ input:checked + label {
   color: #0640a3;
   padding: 22px 40px;
   background: none;
-}
+} */
 .tab .tab-content {
   padding: 20px;
   line-height: 22px;
@@ -209,13 +217,15 @@ input:checked + label {
     width: 100%;
     margin-bottom: 10px;
   }
-  .nav-tabs li a {
-    padding: 15px;
-  }
-  .nav-tabs li.active a,
-  .nav-tabs li.active a:focus,
-  .nav-tabs li.active a:hover {
-    padding: 15px;
-    margin-top: 0;
-  }
+}
+
+.nav-tabs li.active a,
+.nav-tabs li.active a:focus,
+.nav-tabs li.active a:hover {
+  border-top: 3px solid #0640a3;
+  border-right: 1px solid #d3d3d3;
+  margin-top: -2px;
+  color: #0640a3;
+  padding: 10px 20px;
+  background: 0 0;
 }

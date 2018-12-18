@@ -23,8 +23,6 @@ p:not(:last-child) {
   margin: 0 0 20px;
 }
 .w1 {
-  background: url("img/Industry-4.0-.jpeg") no-repeat;
-  background-size: cover;
 }
 main {
   /* max-width: 800px; */
@@ -224,7 +222,7 @@ th {
 }
 
 .special-text_box {
-  height: 115px;
+  height: 102px;
   position: relative;
   word-wrap: break-word;
   -webkit-transform: rotate(270deg);
@@ -235,11 +233,13 @@ th {
 .special-text {
   color: #fff;
   font-weight: 400;
-  margin: 100% -22px -25px;
-  font-family: Arial;
+  margin: 352% -37px 13px;
+  font-family: cursive;
   -webkit-transform: translateY(0%);
   transform: translateY(0%);
   font-size: initial;
-  line-height: 20px;
+  line-height: 28px;
   overflow: hidden;
+  font-size: 26px;
+  height: 1.2em;
 }
