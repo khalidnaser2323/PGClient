@@ -18,8 +18,7 @@
   </div>
 </div> -->
 <!-- <div class="wrapper wrapper-content btn-white row" style="    padding-left: 30px !important;   margin-top:5px; text-align: center"> -->
-<div>
-  <iframe [src]="temp" [width]="zoomContent? '200' : '100%'" [height]="zoomContent? '200' : '750'"></iframe>
+<div [ngClass]="{'zoomed': zoomContent}" [innerHTML]="temp">
 </div>
 
 <!-- </div> -->

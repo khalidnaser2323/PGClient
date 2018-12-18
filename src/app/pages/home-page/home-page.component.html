@@ -9,16 +9,12 @@
 
   <div class="tab" role="tabpanel">
     <!-- Nav tabs -->
-    <ul class="nav nav-tabs" role="tablist">
+    <ul class="nav nav-tabs" style="background-color:white" role="tablist">
       <li role="presentation" class="active">
-        <a href="#Section1" aria-controls="home" role="tab" data-toggle="tab"
-          ><i class="fa fa-cogs  " aria-hidden="true"></i>Pillar</a
-        >
+        <a href="#Section1" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-cogs  " aria-hidden="true"></i>Pillar</a>
       </li>
       <li role="presentation">
-        <a href="#Section2" aria-controls="profile" role="tab" data-toggle="tab"
-          ><i class="fa fa-users  " aria-hidden="true"></i>Department</a
-        >
+        <a href="#Section2" aria-controls="profile" role="tab" data-toggle="tab"><i class="fa fa-users  " aria-hidden="true"></i>Department</a>
       </li>
     </ul>
     <!-- Tab panes -->
@@ -27,52 +23,30 @@
         <section>
           <div class="wrapper wrapper-content">
             <div class="row w3-animate-left" style="animation-duration: 4s">
-              <a
-                *ngFor="let pillar of pillars"
-                (mouseenter)="mouseEnter(pillar)"
-                (mouseleave)="mouseLeave(pillar)"
-              >
+              <a *ngFor="let pillar of pillars" (mouseenter)="mouseEnter(pillar)" (mouseleave)="mouseLeave(pillar)">
                 <div class="col-lg-2 cards col-md-2 col-sm-6 col-xs-12 ipad">
                   <div class="ibox">
-                    <div
-                      class="ibox-content product-box w3-animate-left"
-                      style="animation-duration: 3s;"
-                    >
+                    <div class="ibox-content product-box w3-animate-left" style="animation-duration: 3s;">
                       <a routerLink="/pillarDetails/{{pillar._id}}">
-                        <div
-                          class="product-imitation"
-                          [ngClass]="{
+                        <div class="product-imitation" [ngClass]="{
                             'fade-out': pillar._id == hoveredPillarId
-                          }"
-                        >
-                          <img
-                            src="{{imagePath}}{{pillar.imageID}}"
-                            onError="this.src='img/a1.jpg';"
-                            style="height: 148px;"
-                            class="img-responsive img_card"
-                            width="100%"
-                          />
+                          }">
+                          <img src="{{imagePath}}{{pillar.imageID}}" onError="this.src='img/a1.jpg';" style="height: 148px;"
+                            class="img-responsive img_card" width="100%" />
                         </div>
                         <div class="product-desc">
-                          <span
-                            class="product-price"
-                            [ngClass]="{
+                          <span class="product-price" [ngClass]="{
                               'fade-out': pillar._id == hoveredPillarId
-                            }"
-                          >
+                            }">
                             <img src="img/u186.svg" class="arrow" />
                           </span>
                           <h2 class="card_header" title="{{pillar.title}}">
                             {{ pillar.title }}
                           </h2>
-                          <p
-                            [ngClass]="{
+                          <p [ngClass]="{
                               hovered: pillar._id == hoveredPillarId
                             }"
-                            title="{{pillar.subtitle}}"
-                            id="aa"
-                            class="sub_login-title-style sub_login-title-style_card ss "
-                          >
+                            title="{{pillar.subtitle}}" id="aa" class="sub_login-title-style sub_login-title-style_card ss ">
                             {{ pillar.subtitle }}
                           </p>
                         </div>
@@ -89,52 +63,30 @@
         <section id="content2">
           <div class="wrapper wrapper-content">
             <div class="row w3-animate-left" style="animation-duration: 4s">
-              <a
-                *ngFor="let pillar of departments"
-                (mouseenter)="mouseEnter(pillar)"
-                (mouseleave)="mouseLeave(pillar)"
-              >
+              <a *ngFor="let pillar of departments" (mouseenter)="mouseEnter(pillar)" (mouseleave)="mouseLeave(pillar)">
                 <div class="col-lg-2 cards col-md-2 col-sm-6 col-xs-12 ipad">
                   <div class="ibox">
-                    <div
-                      class="ibox-content product-box w3-animate-left"
-                      style="animation-duration: 3s;"
-                    >
+                    <div class="ibox-content product-box w3-animate-left" style="animation-duration: 3s;">
                       <a routerLink="/pillarDetails/{{pillar._id}}">
-                        <div
-                          class="product-imitation"
-                          [ngClass]="{
+                        <div class="product-imitation" [ngClass]="{
                             'fade-out': pillar._id == hoveredPillarId
-                          }"
-                        >
-                          <img
-                            src="{{imagePath}}{{pillar.imageID}}"
-                            onError="this.src='img/a1.jpg';"
-                            style="height: 148px;"
-                            class="img-responsive img_card"
-                            width="100%"
-                          />
+                          }">
+                          <img src="{{imagePath}}{{pillar.imageID}}" onError="this.src='img/a1.jpg';" style="height: 148px;"
+                            class="img-responsive img_card" width="100%" />
                         </div>
                         <div class="product-desc">
-                          <span
-                            class="product-price"
-                            [ngClass]="{
+                          <span class="product-price" [ngClass]="{
                               'fade-out': pillar._id == hoveredPillarId
-                            }"
-                          >
+                            }">
                             <img src="img/u186.svg" class="arrow" />
                           </span>
                           <h2 class="card_header" title="{{pillar.title}}">
                             {{ pillar.title }}
                           </h2>
-                          <p
-                            [ngClass]="{
+                          <p [ngClass]="{
                               hovered: pillar._id == hoveredPillarId
                             }"
-                            title="{{pillar.subtitle}}"
-                            id="aa"
-                            class="sub_login-title-style sub_login-title-style_card ss "
-                          >
+                            title="{{pillar.subtitle}}" id="aa" class="sub_login-title-style sub_login-title-style_card ss ">
                             {{ pillar.subtitle }}
                           </p>
                         </div>
@@ -263,7 +215,4 @@
   -->
 </main>
 
-<app-screensaver
-  *ngIf="screensaver_active"
-  [pillars]="screeSaverPillars"
-></app-screensaver>
+<app-screensaver *ngIf="screensaver_active" [pillars]="screeSaverPillars"></app-screensaver>

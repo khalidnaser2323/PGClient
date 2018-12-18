@@ -27,6 +27,9 @@ export class HomePageComponent implements OnInit {
   }
 
   ngOnInit() {
+    $('#page-wrapper').css('background', 'url("img/homebg.jpg") no-repeat');
+    $('#page-wrapper').css('background-size', 'cover');
+
     $(document).unbind('mousemove');
 
     $(document).mousemove(() => {

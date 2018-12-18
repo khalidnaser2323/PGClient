@@ -45,6 +45,8 @@ export class PillarChildComponent implements OnInit {
     }
   }
   ngOnInit() {
+    $('#page-wrapper').css('background', 'url("img/0a3b2de3-d857-44ac-a9a1-a8472efa57d2.jpg") no-repeat');
+    $('#page-wrapper').css('background-size', 'cover');
     this.getPillars();
     $(document).unbind('mousemove');
 

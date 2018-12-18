@@ -625,10 +625,10 @@ body.canvas-menu.mini-navbar nav.navbar-static-side {
 }
 
 .top-navigation #page-wrapper {
-    
     margin-left: 0;
-    background: url("img/0a3b2de3-d857-44ac-a9a1-a8472efa57d2.jpg") no-repeat;
+    background: url("img/homebg.jpg") no-repeat;
     background-size: cover;
+    /* homebg */
 }
 
 .top-navigation .navbar-nav .dropdown-menu > .active > a {

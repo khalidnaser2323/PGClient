@@ -38,7 +38,7 @@ export class Templete7Component implements OnInit {
     //   this.pillarName = params.name;
     //   this.getCardDetails(this.pillarId, this.cardId);
     // });
-    this.temp = this.sanitizer.bypassSecurityTrustResourceUrl("https://onedrive.live.com/embed?cid=A3A9EC0C1B8DD2F5&resid=A3A9EC0C1B8DD2F5%21131&authkey=APA9H2NUidTXd4I&em=2");
+    // this.temp = this.sanitizer.bypassSecurityTrustResourceUrl("https://onedrive.live.com/embed?cid=A3A9EC0C1B8DD2F5&resid=A3A9EC0C1B8DD2F5%21131&authkey=APA9H2NUidTXd4I&em=2");
   }
 
   ngOnInit() {
@@ -54,7 +54,7 @@ export class Templete7Component implements OnInit {
       console.log("Get card details response");
       console.log(cardDetails);
       if (cardDetails && cardDetails.templates && cardDetails.templates[this.templateId] && cardDetails.templates[this.templateId].payload && cardDetails.templates[this.templateId].payload.data && cardDetails.templates[this.templateId].payload.data != null) {
-        this.temp = this.sanitizer.bypassSecurityTrustResourceUrl(cardDetails.templates[this.templateId].payload.data) != "" ? this.sanitizer.bypassSecurityTrustResourceUrl(cardDetails.templates[this.templateId].payload.data) : this.sanitizer.bypassSecurityTrustResourceUrl("https://onedrive.live.com/embed?cid=A3A9EC0C1B8DD2F5&resid=A3A9EC0C1B8DD2F5%21131&authkey=APA9H2NUidTXd4I&em=2");
+        this.temp = this.sanitizer.bypassSecurityTrustHtml(cardDetails.templates[this.templateId].payload.data) != "" ? this.sanitizer.bypassSecurityTrustHtml(cardDetails.templates[this.templateId].payload.data) : this.sanitizer.bypassSecurityTrustHtml('<iframe src="https://onedrive.live.com/embed?cid=A3A9EC0C1B8DD2F5&resid=A3A9EC0C1B8DD2F5%21131&authkey=APA9H2NUidTXd4I&em=2"></iframe>');
         // $('#mytable').jexcel({ data: this.temp, defaultColWidth: "300" });
         this.templateTitle = cardDetails.templates[this.templateId].title;
         this.cardTitle = cardDetails.title;
