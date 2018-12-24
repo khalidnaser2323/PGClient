@@ -22,9 +22,11 @@
     <div class="col-md-2 col-sm-3 col-xs-12" *ngFor="let TeamMember of TeamMembers">
         <div class="text-center">
             <img alt="image" class="img-circle m-t-xs img-responsive inline" src="{{imagePath}}{{TeamMember.TeamMemberImg}}">
-            <div class="m-t-xs font-bold font-bold">{{TeamMember.Name}}</div>
-            <div *ngIf="!zoomContent" class="m-t-xs font-bold">{{TeamMember.JobDiscribtion}}</div>
-            <div *ngIf="!zoomContent" class="m-t-xs font-bold">{{TeamMember.memberRole}}</div>
+            <div class="m-t-xs font-bold font-bold"><span style="color:blue">Name: </span> {{TeamMember.Name}}</div>
+            <div *ngIf="!zoomContent" class="m-t-xs font-bold"><span style="color:blue">Title: </span>
+                {{TeamMember.JobDiscribtion}}</div>
+            <div *ngIf="!zoomContent" class="m-t-xs font-bold"><span style="color:blue">Role: </span>
+                {{TeamMember.memberRole}}</div>
         </div>
     </div>
 </div>

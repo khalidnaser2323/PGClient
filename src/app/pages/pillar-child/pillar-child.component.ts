@@ -47,22 +47,22 @@ export class PillarChildComponent implements OnInit {
   ngOnInit() {
     $('#page-wrapper').css('background', 'url("img/0a3b2de3-d857-44ac-a9a1-a8472efa57d2.jpg") no-repeat');
     $('#page-wrapper').css('background-size', 'cover');
-    this.getPillars();
-    $(document).unbind('mousemove');
+    // this.getPillars();
+    // $(document).unbind('mousemove');
 
-    $(document).mousemove(() => {
-      console.log("Mouse move detected!");
-      clearInterval(this.mousetimeout);
+    // $(document).mousemove(() => {
+    //   console.log("Mouse move detected!");
+    //   clearInterval(this.mousetimeout);
 
-      if (this.screensaver_active) {
-        this.stop_screensaver();
-      }
+    //   if (this.screensaver_active) {
+    //     this.stop_screensaver();
+    //   }
 
-      this.mousetimeout = setInterval(() => {
-        console.log("Set interval is called");
-        this.show_screensaver();
-      }, 60000); // 5 secs			
-    });
+    //   this.mousetimeout = setInterval(() => {
+    //     console.log("Set interval is called");
+    //     this.show_screensaver();
+    //   }, 60000); // 5 secs			
+    // });
   }
   async getPillarDetails(pillarId: string) {
     this.serviceHandler.runService(Constants.BASE_URL + "section/" + pillarId, "GET").subscribe(response => {

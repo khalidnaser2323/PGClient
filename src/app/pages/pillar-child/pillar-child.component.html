@@ -55,7 +55,7 @@
                   class="img_Templete" src="{{ button.value.payload.tmpImage ?  imagePath + button.value.payload.tmpImage : getTempURL(button.value.payload.templateType)}}"
                   onError="this.src='img/logo.png';" />
                 <app-dynamic-component *ngIf="button.value.payload.templateType != '14'" [data]="getComponentData(button.key, card._id)"
-                  (click)="onButtonClicked(button.key, card._id)"></app-dynamic-component>
+                  (click)="onButtonClicked(button.key, card._id, button.value.title)"></app-dynamic-component>
               </div>
             </div>
           </tr>
