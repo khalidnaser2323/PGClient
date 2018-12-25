@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ServiceHandlerProvider } from '../../services/service-handler/service-handler';
 import { Constants } from '../../Constants';
 
 @Component({
@@ -9,15 +8,13 @@ import { Constants } from '../../Constants';
 })
 export class ScreensaverComponent implements OnInit {
   @Input() pillars: Array<Pillar>;
-  buttons: Array<{ templateType: string, cardTitle?: string, params: { name: string, pillar: string, card: string, tmp: string } }> = [];
   cards: Card[] = [];
-  params: { name: string, pillar: string, card: string, tmp: string };
-  templateType: string;
   timeout: any;
-  showedButton: { templateType: string, cardTitle?: string, params: { name: string, pillar: string, card: string, tmp: string } };
+  pillarId: string;
+  pillarName: string;
 
+  imagePath: string = Constants.IMAGE_PATH;
   constructor(
-    public serviceHandler: ServiceHandlerProvider,
   ) { }
 
   ngOnInit() {
@@ -29,33 +26,26 @@ export class ScreensaverComponent implements OnInit {
     this.showCards();
   }
   async showCards() {
-    for (let pillar of this.pillars) {
-      for (let card of pillar.cards) {
-        for (let buttonKey in card.buttons) {
-          if (card.buttons[buttonKey].payload.data) {
-            this.buttons.push(
-              {
-                templateType: card.buttons[buttonKey].payload.templateType,
-                cardTitle: card.title,
-                params: {
-                  name: pillar.title,
-                  pillar: pillar._id,
-                  card: card._id,
-                  tmp: buttonKey
-                }
-              }
-            );
-          }
-
-        }
-
-      }
-    }
-    this.showedButton = this.buttons[0];
+    this.cards = this.pillars[0].cards;
+    this.pillarId = this.pillars[0]._id;
+    this.pillarName = this.pillars[0].title;
     this.timeout = setInterval(() => {
       console.log("New card is coming ");
-      let randomIndex = Math.floor(Math.random() * (this.buttons.length - 1));
-      this.showedButton = this.buttons[randomIndex];
+      let randomIndex = Math.floor(Math.random() * (this.pillars.length - 1));
+      this.cards = this.pillars[randomIndex].cards;
+      this.pillarId = this.pillars[randomIndex]._id;
+      this.pillarName = this.pillars[randomIndex].title;
     }, 5000);
+  }
+  getComponentData(templateId: string, cardId: string) {
+    let cardDetails = this.cards.find(card => { return card._id == cardId });
+    return { params: { name: this.pillarName, pillar: this.pillarId, card: cardId, tmp: templateId }, templateType: cardDetails.buttons[templateId].payload.templateType }
+
+  }
+  getTempURL(tmpId: string) {
+    const selectedTmp = Constants.APP_TEMPLATES.find(tmp => tmp.tempId == tmpId);
+    if (selectedTmp) {
+      return selectedTmp.imageURL;
+    }
   }
 }

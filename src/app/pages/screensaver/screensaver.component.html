@@ -1,19 +1,32 @@
 <div class="screensaver">
-  <h1>
-    {{showedButton.params.name}} / {{showedButton.cardTitle}}
-  </h1>
-  <app-stages-template class="animate-right" style="animation-duration: 3s" [params]="showedButton.params" *ngIf="showedButton.templateType == '1'"></app-stages-template>
-  <app-licence-table class="animate-right" style="animation-duration: 3s" [params]="showedButton.params" *ngIf="showedButton.templateType == '2'"></app-licence-table>
-  <app-team-template class="animate-right" style="animation-duration: 3s" [params]="showedButton.params" *ngIf="showedButton.templateType == '3'"></app-team-template>
-  <app-template4 class="animate-right" style="animation-duration: 3s" [params]="showedButton.params" *ngIf="showedButton.templateType == '4'"></app-template4>
-  <app-team-charter class="animate-right" style="animation-duration: 3s" [params]="showedButton.params" *ngIf="showedButton.templateType == '5'"></app-team-charter>
-  <app-template6 class="animate-right" style="animation-duration: 3s" [params]="showedButton.params" *ngIf="showedButton.templateType == '6'"></app-template6>
-  <app-templete7 class="animate-right" style="animation-duration: 3s" [params]="showedButton.params" *ngIf="showedButton.templateType == '7'"></app-templete7>
-  <app-template9 class="animate-right" style="animation-duration: 3s" [params]="showedButton.params" *ngIf="showedButton.templateType == '9'"></app-template9>
-  <app-templete10 class="animate-right" style="animation-duration: 3s" [params]="showedButton.params" *ngIf="showedButton.templateType == '10'"></app-templete10>
-  <app-templete11 class="animate-right" style="animation-duration: 3s" [params]="showedButton.params" *ngIf="showedButton.templateType == '11'"></app-templete11>
-  <app-templete12 class="animate-right" style="animation-duration: 3s" [params]="showedButton.params" *ngIf="showedButton.templateType == '12'"></app-templete12>
-  <app-temp13 class="animate-right" style="animation-duration: 3s" [params]="showedButton.params" *ngIf="showedButton.templateType == '13'"></app-temp13>
+  <div class="wrapper wrapper-content w3-animate-right w1" style="animation-duration: 3s;padding: 22px 0px 25px 0px;   padding-left: 45px; ">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th><img src="img/plan.png" style="width: 30%;" /></th>
+          <th><img src="img/do.png" style="width: 30%;" /></th>
+          <th><img src="img/check.png" style="width: 30%;" /></th>
+          <th><img src="img/act.png" style="width: 30%;" /></th>
+        </tr>
+      </thead>
+      <tbody>
+        <td class="special-td" [ngClass]="{ 'last-col': i == cards.length - 1 }" *ngFor="let card of cards; let i = index">
+          <tr class="special-tr" *ngFor="let button of (card.buttons | keys)">
+            <div class="row">
+              <div class="col-xs-1 special-text_box">
+                <p class="special-text">{{ button.value.title }}</p>
+              </div>
 
+              <div class="col-xs-11 img_Templete_box">
+                <img *ngIf="button.value.payload.templateType == '14'" class="img_Templete" src="{{ button.value.payload.tmpImage ?  imagePath + button.value.payload.tmpImage : getTempURL(button.value.payload.templateType)}}"
+                  onError="this.src='img/logo.png';" />
+                <app-dynamic-component *ngIf="button.value.payload.templateType != '14'" [data]="getComponentData(button.key, card._id)"></app-dynamic-component>
+              </div>
+            </div>
+          </tr>
+        </td>
+      </tbody>
+    </table>
+  </div>
 
 </div>
