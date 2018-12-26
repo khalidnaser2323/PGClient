@@ -221,12 +221,16 @@ th {
 }
 
 .special-text_box {
-  height: 102px;
-  position: relative;
-  word-wrap: break-word;
-  -webkit-transform: rotate(270deg);
-  transform: rotate(270deg);
-  padding-left: 0px;
+  color: #fff;
+    font-weight: 400;
+    margin: 352% -37px 13px;
+    font-family: cursive;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    line-height: 20px;
+    overflow: hidden;
+    font-size: 14px;
+    height: 1.2em;
 }
 
 .special-text {

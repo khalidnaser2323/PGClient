@@ -176,12 +176,11 @@ border-bottom: 1px solid #e4e4e4; */
   border-right: 0;
   background: #0640a3;
   color: #fff;
-  border-radius: 0;
-  margin-right: 0;
-  font-weight: 700;
-  transition: 0.3s ease-in;
-  font-size: 14px;
   border-radius: 20px;
+  margin-right: 5px;
+  font-weight: 700;
+  transition: .3s ease-in;
+  font-size: 14px;
 }
 .nav-tabs li a:hover {
   border-bottom-color: #ededed;
@@ -195,7 +194,7 @@ border-bottom: 1px solid #e4e4e4; */
   margin-right: 10px;
 }
 .nav-tabs li:last-child {
-  border-right: 1px solid #ededed;
+  /* border-right: 1px solid #ededed; */
 }
 /* .nav-tabs li.active a,
 .nav-tabs li.active a:focus,
