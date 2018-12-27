@@ -237,9 +237,9 @@ th {
   -webkit-transform: translateY(0%);
   transform: translateY(0%);
   font-size: initial;
-  line-height: 28px;
+  line-height: 16px;
   overflow: hidden;
-  font-size: 26px;
+  font-size: 14px;
   height: 1.2em;
 }
 :host(.top-navigation #page-wrapper) {
