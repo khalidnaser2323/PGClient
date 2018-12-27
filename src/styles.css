@@ -10855,13 +10855,3 @@ h2 strong {
     padding: 0 !important;
     border: 2px solid #666;
 }
-
-.zoomed iframe{
-	height: 850px;
-	margin-top:-80px;
-}
-
-.ng-star-inserted .iframe-container iframe{
-	width: 100% !important;
-	height: 550px !important;
-}
