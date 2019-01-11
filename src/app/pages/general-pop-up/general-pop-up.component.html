@@ -3,21 +3,62 @@
 </button>
 <div class="popup-content">
   <div style="text-align:center;align-items:center">
-    <h1 style="text-align:center !important">
-      {{data.params.name}} / {{data.clickedCardTitle}}
+    <h1
+      style="    text-align: center !important;
+    background: #0640a3;
+    color: #fff;
+    padding: 13px 15px;
+    border-radius: 30px;
+    width: 50%;
+    margin: 0px auto;
+    margin-bottom: 7px;"
+    >
+      {{ data.params.name }} / {{ data.clickedCardTitle }}
     </h1>
   </div>
-  <app-stages-template [params]="params" *ngIf="data.templateType == '1'"></app-stages-template>
-  <app-licence-table [params]="params" *ngIf="data.templateType == '2'"></app-licence-table>
-  <app-team-template [params]="params" *ngIf="data.templateType == '3'"></app-team-template>
-  <app-template4 [params]="params" *ngIf="data.templateType == '4'"></app-template4>
-  <app-team-charter [params]="params" *ngIf="data.templateType == '5'"></app-team-charter>
-  <app-template6 [params]="params" *ngIf="data.templateType == '6'"></app-template6>
-  <app-templete7 [params]="params" *ngIf="data.templateType == '7'"></app-templete7>
-  <app-template9 [params]="params" *ngIf="data.templateType == '9'"></app-template9>
-  <app-templete10 [params]="params" *ngIf="data.templateType == '10'"></app-templete10>
-  <app-templete11 [params]="params" *ngIf="data.templateType == '11'"></app-templete11>
-  <app-templete12 [params]="params" *ngIf="data.templateType == '12'"></app-templete12>
+  <app-stages-template
+    [params]="params"
+    *ngIf="data.templateType == '1'"
+  ></app-stages-template>
+  <app-licence-table
+    [params]="params"
+    *ngIf="data.templateType == '2'"
+  ></app-licence-table>
+  <app-team-template
+    [params]="params"
+    *ngIf="data.templateType == '3'"
+  ></app-team-template>
+  <app-template4
+    [params]="params"
+    *ngIf="data.templateType == '4'"
+  ></app-template4>
+  <app-team-charter
+    [params]="params"
+    *ngIf="data.templateType == '5'"
+  ></app-team-charter>
+  <app-template6
+    [params]="params"
+    *ngIf="data.templateType == '6'"
+  ></app-template6>
+  <app-templete7
+    [params]="params"
+    *ngIf="data.templateType == '7'"
+  ></app-templete7>
+  <app-template9
+    [params]="params"
+    *ngIf="data.templateType == '9'"
+  ></app-template9>
+  <app-templete10
+    [params]="params"
+    *ngIf="data.templateType == '10'"
+  ></app-templete10>
+  <app-templete11
+    [params]="params"
+    *ngIf="data.templateType == '11'"
+  ></app-templete11>
+  <app-templete12
+    [params]="params"
+    *ngIf="data.templateType == '12'"
+  ></app-templete12>
   <app-temp13 [params]="params" *ngIf="data.templateType == '13'"></app-temp13>
-
 </div>

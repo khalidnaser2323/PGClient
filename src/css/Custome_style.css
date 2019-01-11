@@ -251,10 +251,10 @@ form.m-t {
 .head_child {
   font-weight: 200;
   font-style: normal;
-  font-size: 25px;
+  font-size: 20px;
   margin-top: 28px;
   width: auto;
-  margin-bottom: 0px;
+  margin-bottom: -10px;
   height: auto;
   font-family: "Roboto-Light", "Roboto Light", "Roboto";
   color: #fff;

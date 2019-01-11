@@ -4400,7 +4400,7 @@ ol.unstyled {
 }
 /* FOOTER */
 .footer {
-    background: none repeat scroll 0 0 white;
+    background: none repeat scroll 0 0 #0640a3;
     border-top: 1px solid #e7eaec;
     bottom: 0;
     left: 0;
@@ -4408,6 +4408,7 @@ ol.unstyled {
     position: fixed;
     right: 0;
     margin-top: 10px;
+    color: #fff;
 }
 
     .footer.fixed_full {
@@ -10788,8 +10789,9 @@ h2 strong {
   .navbar-fixed-top, .navbar-static-top {
     background: #0640a3 !important;
     border-radius: 30px;
-    width: 98%;
-    margin: 0 auto;
+    width: 99% !important;
+    margin: 0px 16px !important;
+    position: fixed !important;
 }
 
 .top-navigation .navbar-brand {
@@ -10826,9 +10828,9 @@ h2 strong {
     padding: 5px 0px 10px 0px;
     border-bottom-right-radius: 25px;
     border-top-left-radius: 25px;
-    margin-bottom: 4px !important;
+    margin-bottom:  9px !important;
     margin-top: 0 !important;
-    height: 136px;
+    height:94px !important;
 }
 
 .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
@@ -10842,7 +10844,7 @@ h2 strong {
 
 
 .dynamic-component {
-    height: 127px !important;
+    height: 84px !important;
     width: 90% !important;
     max-width: 275px !important;
     box-shadow: none !important;
@@ -10864,4 +10866,26 @@ h2 strong {
 .zoomed {
     height: 410px;
    
+}
+
+.child-wraper{
+    margin-top: 2%;
+}
+
+
+.mat-dialog-container{
+
+    margin-top: 48px !important;
+}
+.modal{
+    position: fixed;
+    top: 24px !important;
+    right: -54% !important;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    display: none;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
 }
