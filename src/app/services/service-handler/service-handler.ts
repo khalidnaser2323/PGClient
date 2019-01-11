@@ -24,6 +24,8 @@ export class ServiceHandlerProvider {
    * @param specialHeaders Special headers if needed.
    */
   runService(url: string, method: string, token?: string, request?: any, specialHeaders?: any): Observable<any> {
+    console.log("Service url");
+    console.log(url);
     let headers: any;
 
     if (specialHeaders) {

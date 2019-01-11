@@ -168,7 +168,7 @@
     border-bottom: 3px solid #000 !important;
   }
   .img_Templete {
-    height: 127px !important;
+    height: 84px !important;
     width: 85% !important;
     max-width: 275px !important;
     box-shadow: none !important;
@@ -233,7 +233,7 @@
   }
   
   .special-text_box {
-    height: 102px;
+    height: 74px;
     position: relative;
     word-wrap: break-word;
     -webkit-transform: rotate(270deg);
@@ -243,16 +243,16 @@
   
   .special-text {
     color: #fff;
-    font-weight: 400;
-    margin: 352% -37px 13px;
+    font-weight: 100;
+    margin: 296% -37px 13px;
     font-family: cursive;
     -webkit-transform: translateY(0%);
     transform: translateY(0%);
     font-size: initial;
-    line-height: 28px;
+    line-height: 16px;
     overflow: hidden;
-    font-size: 26px;
-    height: 1.2em;
+    font-size: 15px;
+    height: 2.2em;
   }
   :host(.top-navigation #page-wrapper) {
     background-color: #545454;

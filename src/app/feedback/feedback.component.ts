@@ -49,13 +49,10 @@ export class FeedbackComponent implements OnInit, OnChanges {
     if (this.feedback != undefined && this.feedback != "") {
       console.log(this.feedback);
       const requestBody = {
-        pillarName: this.pillar ? this.pillar : "",
-        cardName: this.card ? this.card : "",
-        templateName: this.template ? this.template : "",
-        comment: this.feedback
-      }
+        feedback: this.feedback
+      };
       console.log(requestBody);
-      this.serviceHandler.runService(Constants.BASE_URL + "section/feedback", "POST", undefined, requestBody).subscribe((response) => {
+      this.serviceHandler.runService(Constants.BASE_URL + "section/" + this.pillar + "/feedback", "POST", undefined, requestBody).subscribe((response) => {
         console.log("Post feedback response");
         console.log(response);
         $('#myModal').modal('hide');
@@ -71,6 +68,10 @@ export class FeedbackComponent implements OnInit, OnChanges {
     else {
       window.alert("Please fill feedback field");
     }
+  }
+  showModal() {
+    $('#myModal').modal('show');
+    $('.modal-backdrop').removeClass("modal-backdrop");
   }
 
 }

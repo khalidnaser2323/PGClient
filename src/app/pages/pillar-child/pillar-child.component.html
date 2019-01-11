@@ -1,18 +1,12 @@
 <div class="child-wraper">
-  <div
-    class="row wrapper border-bottom  page-heading w3-animate-right"
-    style="animation-duration: 3s"
-  >
+  <div class="row wrapper border-bottom  page-heading w3-animate-right" style="animation-duration: 3s">
     <div class="col-sm-4" style="margin: 0 16px">
       <a routerLink="/">
         <p class="head_child">&nbsp;{{ pillarName }}</p>
       </a>
     </div>
   </div>
-  <div
-    class="wrapper wrapper-content w3-animate-right w1"
-    style="animation-duration: 3s;padding: 22px 0px 25px 0px;   padding-left: 45px; "
-  >
+  <div class="wrapper wrapper-content w3-animate-right w1" style="animation-duration: 3s;padding: 22px 0px 25px 0px;   padding-left: 45px; ">
     <table class="table table-bordered">
       <thead>
         <tr>
@@ -23,11 +17,7 @@
         </tr>
       </thead>
       <tbody>
-        <td
-          class="special-td"
-          [ngClass]="{ 'last-col': i == cards.length - 1 }"
-          *ngFor="let card of cards; let i = index"
-        >
+        <td class="special-td" [ngClass]="{ 'last-col': i == cards.length - 1 }" *ngFor="let card of cards; let i = index">
           <tr class="special-tr" *ngFor="let button of (card.buttons | keys)">
             <div class="row">
               <div class="col-xs-1 special-text_box">
@@ -35,24 +25,17 @@
               </div>
 
               <div class="col-xs-11 img_Templete_box">
-                <img
-                  *ngIf="button.value.payload.templateType == '14'"
-                  (click)="onButtonClicked(button.key, card._id)"
-                  class="img_Templete"
-                  src="{{
+                <img *ngIf="(button.value.payload.templateType == '14' || button.value.payload.templateType == '7')"
+                  (click)="onButtonClicked(button.key, card._id, button.value.title)" class="img_Templete" src="{{
                     button.value.payload.tmpImage
                       ? imagePath + button.value.payload.tmpImage
                       : getTempURL(button.value.payload.templateType)
                   }}"
-                  onError="this.src='img/logo.png';"
-                />
-                <app-dynamic-component
-                  *ngIf="button.value.payload.templateType != '14'"
-                  [data]="getComponentData(button.key, card._id)"
-                  (click)="
+                  onError="this.src='img/logo.png';" />
+                <app-dynamic-component *ngIf="(button.value.payload.templateType != '14' && button.value.payload.templateType != '7')"
+                  [data]="getComponentData(button.key, card._id)" (click)="
                     onButtonClicked(button.key, card._id, button.value.title)
-                  "
-                ></app-dynamic-component>
+                  "></app-dynamic-component>
               </div>
             </div>
           </tr>
@@ -61,9 +44,6 @@
     </table>
   </div>
 
-  <app-feedback [pillar]="pillarName"></app-feedback>
-  <app-screensaver
-    *ngIf="screensaver_active"
-    [pillars]="screeSaverPillars"
-  ></app-screensaver>
+  <app-feedback [pillar]="pillarId"></app-feedback>
+  <app-screensaver *ngIf="screensaver_active" [pillars]="screeSaverPillars"></app-screensaver>
 </div>
